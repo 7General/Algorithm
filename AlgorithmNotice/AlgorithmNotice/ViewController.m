@@ -1,0 +1,117 @@
+//
+//  ViewController.m
+//  AlgorithmNotice
+//
+//  Created by zzg on 2019/6/5.
+//  Copyright © 2019 zzg. All rights reserved.
+//
+
+#import "ViewController.h"
+#import "MaxAreaObject.h"
+#import "ClimbFloor.h"
+#import "SUMString.h"
+#import "IntegerInversion.h"
+#import "twoSum.h"
+#import "Palindrome.h"
+#import "RemoveElement.h"
+#import "RemoveDuplicates.h"
+#import "RomanToInt.h"
+#import "StrToStr.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    MaxAreaObject * maxObject = [[MaxAreaObject alloc] init];
+    [maxObject maxArea];
+    
+    // 爬楼梯
+    ClimbFloor * climb = [[ClimbFloor alloc] init];
+    NSInteger climStairs = [climb climbStairs:4];
+    NSLog(@"爬楼梯----%ld",climStairs);
+    
+    
+    SUMString * sumString = [[SUMString alloc] init];
+//    NSString * resoultString = [sumString sumString:@"2" sum2String:@"23"];
+//    NSLog(@"结果：%@,长度：%ld",resoultString,resoultString.length);
+   NSString * res = [sumString sumstring:@"33" num2:@"45"];
+    NSLog(@"--:%@",res);
+    
+    
+    IntegerInversion * sums = [[IntegerInversion alloc] init];
+    NSLog(@"---string:%@",[sums Integerinversion:4611686018427387904]);
+    NSLog(@"---string:%ld",[sums reverse:4611686018427387904]);
+    
+    twoSum * twos = [[twoSum alloc] init];
+    [twos twoSum];
+    
+    
+    Palindrome * rome = [[Palindrome alloc] init];
+    BOOL resome = [rome isPalindrome:12321];
+    NSLog(@"---rome:%d",resome);
+    
+    RemoveElement * rElement = [[RemoveElement alloc] init];
+    NSMutableArray * nums = @[@(3),@(2),@(2),@(3),@(5)].mutableCopy;
+    NSInteger reIndex = [rElement removeElement:nums target:3];
+    NSLog(@"rElement-index:%ld-------nums:%@",(long)reIndex,nums);
+    
+    RemoveDuplicates * rDupli = [[RemoveDuplicates alloc] init];
+    NSMutableArray * dupli = @[@"3",@"2",@"2",@"5"].mutableCopy;
+    NSInteger tlength = [rDupli removeDuplicates:dupli];
+    NSLog(@"----rDupli:%ld---dupli:%@",tlength,dupli);
+
+    
+    RomanToInt *roman = [[RomanToInt alloc] init];
+    NSInteger romanRes = [roman romanToInt:@"CD"];
+    NSLog(@"---res:%ld",romanRes);
+    
+    
+    StrToStr * strStr = [[StrToStr alloc] init];
+    NSInteger startIndex = [strStr strStr:@"bc" forNeedle:@""];
+    NSLog(@"---->%ld",startIndex);
+    
+    
+//
+//    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.frame = CGRectMake(0, 120, 200, 100);
+//    btn.backgroundColor = [UIColor greenColor];
+//    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn];
+//
+//    UIView * bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 300, 200)];
+////    bgview.backgroundColor = [UIColor clearColor];
+//    bgview.hidden = YES;
+//    [self.view addSubview:bgview];
+//
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClick) name:@"testnotifi" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClickgo) name:@"testnotifigo" object:nil];
+}
+- (void)btnClick {
+    NSLog(@"22222");
+}
+
+- (void)testClick {
+    for (NSInteger index = 0; index < 20; index++) {
+        sleep(1);
+        NSLog(@"--%d",index);
+    }
+}
+
+- (void)testClickgo {
+    NSLog(@"-------testClickgotestClickgotestClickgo");
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"testnotifi" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"testnotifigo" object:nil];
+}
+
+
+@end
