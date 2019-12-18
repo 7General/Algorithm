@@ -17,6 +17,7 @@
 #import "RemoveDuplicates.h"
 #import "RomanToInt.h"
 #import "StrToStr.h"
+#import "Car.h"
 
 @interface ViewController ()
 
@@ -76,7 +77,8 @@
     NSInteger startIndex = [strStr strStr:@"bc" forNeedle:@""];
     NSLog(@"---->%ld",startIndex);
     
-    
+    Car * car = [[Car alloc] init];
+    [car run];
 //
 //    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn.frame = CGRectMake(0, 120, 200, 100);

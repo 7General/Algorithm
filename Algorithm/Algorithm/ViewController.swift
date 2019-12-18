@@ -48,6 +48,12 @@ class ViewController: UIViewController {
         var restStr = "abcdefg";
 //        var rs = restStr.index(restStr.startIndex, offsetBy: 2);
         print("rs-->",restStr[restStr.index(restStr.startIndex, offsetBy: 2)]);
+        
+        
+        
+        
+       var climb = climbStairs(3);
+        print("climb--->",climb);
     
     }
     
@@ -204,6 +210,22 @@ class ViewController: UIViewController {
             }
         }
         return result
+    }
+    
+    func climbStairs(_ n: Int) -> Int {
+        if n==1 {
+            return 1
+        }
+        
+        var dp : [Int] = [Int].init(repeating: 0, count: n+1)
+        dp[1] = 1
+        dp[2] = 2
+        var i = 3
+        while i<=n {
+            dp[i] = dp[i-1]+dp[i-2]
+            i += 1
+        }
+        return dp[n]
     }
     
     
