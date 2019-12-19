@@ -54,6 +54,11 @@ class ViewController: UIViewController {
         
        var climb = climbStairs(3);
         print("climb--->",climb);
+        
+        
+        // 合并数组
+        var me1:[Int] = [2,3,5];
+        merge(&me1, 3, [2,3,4,7,9], 5);
     
     }
     
@@ -226,6 +231,22 @@ class ViewController: UIViewController {
             i += 1
         }
         return dp[n]
+    }
+    
+    func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        var num1Index = m;
+        var num2Index = n;
+        
+        var resoultArray :[Int] = [Int].init(repeating: 0, count: m+n-1);
+        
+//        for nindex in 0..<nums2.count {
+//            nums1[mIndex] = nums2[nindex];
+////            mIndex += 1;
+//            print(nums1[mIndex]);
+//            mIndex = mIndex + 1;
+//        }
+//        nums1.sort();
+//        print(nums1);
     }
     
     

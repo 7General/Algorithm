@@ -14,6 +14,7 @@
 		221A8BC12334C615008453BA /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A8BC02334C615008453BA /* TestClass.m */; };
 		221F3EFD23A8BBB700C55EE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFC23A8BBB700C55EE0 /* Person.m */; };
 		221F3F0023A8BBE800C55EE0 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFF23A8BBE800C55EE0 /* Car.m */; };
+		221F3F0323AA1B6700C55EE0 /* MergeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3F0223AA1B6700C55EE0 /* MergeArray.m */; };
 		226F8F602331D28C0035CFEF /* twoSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F8F5F2331D28C0035CFEF /* twoSum.m */; };
 		22764E7022A7705C00E67AE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22764E6F22A7705C00E67AE1 /* AppDelegate.m */; };
 		22764E7322A7705C00E67AE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22764E7222A7705C00E67AE1 /* ViewController.m */; };
@@ -43,6 +44,8 @@
 		221F3EFC23A8BBB700C55EE0 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		221F3EFE23A8BBE800C55EE0 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		221F3EFF23A8BBE800C55EE0 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		221F3F0123AA1B6700C55EE0 /* MergeArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MergeArray.h; sourceTree = "<group>"; };
+		221F3F0223AA1B6700C55EE0 /* MergeArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MergeArray.m; sourceTree = "<group>"; };
 		226F8F5E2331D28C0035CFEF /* twoSum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = twoSum.h; sourceTree = "<group>"; };
 		226F8F5F2331D28C0035CFEF /* twoSum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = twoSum.m; sourceTree = "<group>"; };
 		22764E6B22A7705C00E67AE1 /* AlgorithmNotice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlgorithmNotice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +135,8 @@
 				221F3EFC23A8BBB700C55EE0 /* Person.m */,
 				221F3EFE23A8BBE800C55EE0 /* Car.h */,
 				221F3EFF23A8BBE800C55EE0 /* Car.m */,
+				221F3F0123AA1B6700C55EE0 /* MergeArray.h */,
+				221F3F0223AA1B6700C55EE0 /* MergeArray.m */,
 			);
 			path = AlgorithmNotice;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				221A8BBE233472EA008453BA /* Palindrome.m in Sources */,
 				22764E7E22A7705E00E67AE1 /* main.m in Sources */,
 				22764E7022A7705C00E67AE1 /* AppDelegate.m in Sources */,
+				221F3F0323AA1B6700C55EE0 /* MergeArray.m in Sources */,
 				2218EBF623965DAB00B0B75B /* StrToStr.m in Sources */,
 				22D376DC2325FB9900BE5E41 /* SUMString.m in Sources */,
 				221F3EFD23A8BBB700C55EE0 /* Person.m in Sources */,

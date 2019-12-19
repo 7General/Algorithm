@@ -18,6 +18,7 @@
 #import "RomanToInt.h"
 #import "StrToStr.h"
 #import "Car.h"
+#import "MergeArray.h"
 
 @interface ViewController ()
 
@@ -79,6 +80,10 @@
     
     Car * car = [[Car alloc] init];
     [car run];
+    
+    MergeArray * merage = [[MergeArray alloc] init];
+    NSArray * resArray = [merage merageArray:@[@"1",@"2",@"3",@"4",@"5"] count:4 nums2:@[@"3",@"4",@"5",@"6"] num2Count:4];
+    NSLog(@"----resArray:%@",resArray);
 //
 //    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn.frame = CGRectMake(0, 120, 200, 100);
