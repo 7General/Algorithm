@@ -73,9 +73,9 @@
     NSInteger romanRes = [roman romanToInt:@"CD"];
     NSLog(@"---res:%ld",romanRes);
     
-    
+    // indexofstr
     StrToStr * strStr = [[StrToStr alloc] init];
-    NSInteger startIndex = [strStr strStr:@"bc" forNeedle:@""];
+    NSInteger startIndex = [strStr strStr:@"bca" forNeedle:@"ca"];
     NSLog(@"---->%ld",startIndex);
     
     Car * car = [[Car alloc] init];
