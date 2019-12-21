@@ -234,19 +234,9 @@ class ViewController: UIViewController {
     }
     
     func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
-        var num1Index = m;
-        var num2Index = n;
-        
-        var resoultArray :[Int] = [Int].init(repeating: 0, count: m+n-1);
-        
-//        for nindex in 0..<nums2.count {
-//            nums1[mIndex] = nums2[nindex];
-////            mIndex += 1;
-//            print(nums1[mIndex]);
-//            mIndex = mIndex + 1;
-//        }
-//        nums1.sort();
-//        print(nums1);
+        nums1 = Array(nums1[..<m])
+        nums1 += nums2
+        nums1.sort(by: <)
     }
     
     

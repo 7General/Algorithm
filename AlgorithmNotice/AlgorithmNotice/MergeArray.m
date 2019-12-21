@@ -8,7 +8,54 @@
 
 #import "MergeArray.h"
 
+typedef void(^blockTT)(id);
+
 @implementation MergeArray
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+//        {
+//            blockTT  tt;
+//            {
+//                int a = 10;
+//                int b = 20;
+//                id array = [[NSMutableArray alloc] init];
+//                id __weak array2 = array;
+//                tt = ^(){
+//                    [array addObject:@"1"];
+//                    NSLog(@"-----objx>:%ld",[array count]);
+//
+//                } ;
+//                a = 300;
+//            }
+//            tt();
+//        }
+        
+        
+        
+//        blockTT blk;
+//        {
+//            id array = [[NSMutableArray alloc] init];
+//            id __weak array2 = array;
+//
+//            blk = ^(id obj) {
+//                [array2 addObject:obj];
+//                NSLog(@"array2 count = %ld", [array2 count]);
+//            } ;
+//        }
+//
+//        blk([[NSObject alloc] init]);
+//        blk([[NSObject alloc] init]);
+//        blk([[NSObject alloc] init]);
+//
+//
+//        [NSThread callStackSymbols];
+//
+    }
+    return self;
+}
 
 - (NSArray *)merageArray:(NSArray *)nums1 count:(NSInteger)m nums2:(NSArray *)nums2 num2Count:(NSInteger)n {
     NSMutableArray * tempNums1 = [[NSMutableArray alloc] initWithArray:nums1];
