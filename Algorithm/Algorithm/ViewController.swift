@@ -59,6 +59,10 @@ class ViewController: UIViewController {
         // 合并数组
         var me1:[Int] = [2,3,5];
         merge(&me1, 3, [2,3,4,7,9], 5);
+        
+        
+       let resprome = isPalindrome("A man, a plan, a canal: Panama");
+        print("resprome-->",resprome);
     
     }
     
@@ -239,6 +243,28 @@ class ViewController: UIViewController {
         nums1.sort(by: <)
     }
     
+    func isPalindrome(_ s: String) -> Bool {
+        var result = false
+        var newS = ""
+        
+        for charcter in s {
+            if isUsefulCharacter(charcter) {
+                newS.append(charcter)
+            }
+        }
+        if String(newS.lowercased().reversed()) == newS.lowercased() {
+            result = true
+        }
+        return result
+    }
+    func isUsefulCharacter(_ s:Character) -> Bool {
+        
+        var result = false
+        if (s <= "z" && s >= "a") || (s <= "Z" && s >= "A") || (s >= "0" && s <= "9") {
+            result = true
+        }
+        return result
+    }
     
     
 }
