@@ -19,6 +19,7 @@
 #import "StrToStr.h"
 #import "Car.h"
 #import "MergeArray.h"
+#import "PalindromeString.h"
 
 @interface ViewController ()
 
@@ -84,6 +85,11 @@
     MergeArray * merage = [[MergeArray alloc] init];
     NSArray * resArray = [merage merageArray:@[@"1",@"2",@"3",@"4",@"5"] count:4 nums2:@[@"3",@"4",@"5",@"6"] num2Count:4];
     NSLog(@"----resArray:%@",resArray);
+    
+    
+    PalindromeString * dromStr = [[PalindromeString alloc] init];
+    BOOL dromres = [dromStr isPalindrome:@"AmanaplanacanalPanama"];
+    NSLog(@"====dromres:%d",dromres);
 //
 //    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    btn.frame = CGRectMake(0, 120, 200, 100);
