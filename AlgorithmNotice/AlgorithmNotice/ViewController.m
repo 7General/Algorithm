@@ -20,6 +20,7 @@
 #import "Car.h"
 #import "MergeArray.h"
 #import "PalindromeString.h"
+#import "rotateArray.h"
 
 @interface ViewController ()
 
@@ -90,20 +91,13 @@
     PalindromeString * dromStr = [[PalindromeString alloc] init];
     BOOL dromres = [dromStr isPalindrome:@"AmanaplanacanalPanama"];
     NSLog(@"====dromres:%d",dromres);
-//
-//    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(0, 120, 200, 100);
-//    btn.backgroundColor = [UIColor greenColor];
-//    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn];
-//
-//    UIView * bgview = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 300, 200)];
-////    bgview.backgroundColor = [UIColor clearColor];
-//    bgview.hidden = YES;
-//    [self.view addSubview:bgview];
-//
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClick) name:@"testnotifi" object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClickgo) name:@"testnotifigo" object:nil];
+    
+    rotateArray * roate = [[rotateArray alloc] init];
+    [roate roateArray:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] roateNext:3];
+    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClick) name:@"testnotifi" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClickgo) name:@"testnotifigo" object:nil];
 }
 - (void)btnClick {
     NSLog(@"22222");

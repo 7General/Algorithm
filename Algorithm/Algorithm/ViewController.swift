@@ -63,6 +63,11 @@ class ViewController: UIViewController {
         
        let resprome = isPalindrome("A man, a plan, a canal: Panama");
         print("resprome-->",resprome);
+        
+        
+        var roate:[Int] = [1,2,3,4,5,6,7];
+        rotate(&roate, 3);
+        print("roateroate-",roate)
     
     }
     
@@ -175,31 +180,6 @@ class ViewController: UIViewController {
     }
     
     
-    /*
-     for (NSInteger index = 0; index < haySrack.length; index++) {
-     if (haySrack.length - index < needle.length) {
-     return -1;
-     }
-     NSString * haySrackStr = [NSString stringWithFormat:@"%c",[haySrack characterAtIndex:index]];
-     NSString * needleStr = [NSString stringWithFormat:@"%c",[needle characterAtIndex:0]];
-     
-     if ([haySrackStr isEqualToString:needleStr]) {
-     BOOL flag = YES;
-     for (NSInteger j = 0; j < needle.length; j++) {
-     NSString * temphaySrackStr = [NSString stringWithFormat:@"%c",[haySrack characterAtIndex:(index + j)]];
-     NSString * tempneedleStr = [NSString stringWithFormat:@"%c",[needle characterAtIndex:(j)]];
-     if (![tempneedleStr isEqualToString:temphaySrackStr]) {
-     flag = false;
-     }
-     }
-     if (flag) {
-     return index;
-     }
-     }
-     }
-     */
-    
-    
     func strStr(_ haystack: String, _ needle: String) -> Int {
         var result = -1
         
@@ -264,6 +244,18 @@ class ViewController: UIViewController {
             result = true
         }
         return result
+    }
+    
+    func rotate(_ nums: inout [Int], _ k: Int) {
+        var terns = k % nums.count
+        if nums.isEmpty || terns == 0 {
+            return
+        }
+        var newNums = nums
+        for i in 0..<nums.count {
+            newNums[(i + terns) % nums.count] = nums[i]
+        }
+        nums = newNums
     }
     
     

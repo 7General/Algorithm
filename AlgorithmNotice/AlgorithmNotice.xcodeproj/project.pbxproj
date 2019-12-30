@@ -12,6 +12,7 @@
 		2218EBF623965DAB00B0B75B /* StrToStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2218EBF523965DAB00B0B75B /* StrToStr.m */; };
 		221A8BBE233472EA008453BA /* Palindrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A8BBD233472EA008453BA /* Palindrome.m */; };
 		221A8BC12334C615008453BA /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A8BC02334C615008453BA /* TestClass.m */; };
+		221AD5D423B9D9470009C848 /* rotateArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 221AD5D223B9D9460009C848 /* rotateArray.m */; };
 		221F3EFD23A8BBB700C55EE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFC23A8BBB700C55EE0 /* Person.m */; };
 		221F3F0023A8BBE800C55EE0 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFF23A8BBE800C55EE0 /* Car.m */; };
 		221F3F0323AA1B6700C55EE0 /* MergeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3F0223AA1B6700C55EE0 /* MergeArray.m */; };
@@ -41,6 +42,8 @@
 		221A8BBD233472EA008453BA /* Palindrome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Palindrome.m; sourceTree = "<group>"; };
 		221A8BBF2334C615008453BA /* TestClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestClass.h; sourceTree = "<group>"; };
 		221A8BC02334C615008453BA /* TestClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestClass.m; sourceTree = "<group>"; };
+		221AD5D223B9D9460009C848 /* rotateArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rotateArray.m; sourceTree = "<group>"; };
+		221AD5D323B9D9460009C848 /* rotateArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotateArray.h; sourceTree = "<group>"; };
 		221F3EFB23A8BBB700C55EE0 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		221F3EFC23A8BBB700C55EE0 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		221F3EFE23A8BBE800C55EE0 /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				221F3F0223AA1B6700C55EE0 /* MergeArray.m */,
 				22A7005E23B5E61C00CBEBF1 /* PalindromeString.h */,
 				22A7005F23B5E61C00CBEBF1 /* PalindromeString.m */,
+				221AD5D323B9D9460009C848 /* rotateArray.h */,
+				221AD5D223B9D9460009C848 /* rotateArray.m */,
 			);
 			path = AlgorithmNotice;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				221F3F0023A8BBE800C55EE0 /* Car.m in Sources */,
 				22E1FB62235D8413001A7EB3 /* RomanToInt.m in Sources */,
 				221A8BBE233472EA008453BA /* Palindrome.m in Sources */,
+				221AD5D423B9D9470009C848 /* rotateArray.m in Sources */,
 				22764E7E22A7705E00E67AE1 /* main.m in Sources */,
 				22764E7022A7705C00E67AE1 /* AppDelegate.m in Sources */,
 				221F3F0323AA1B6700C55EE0 /* MergeArray.m in Sources */,
