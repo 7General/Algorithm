@@ -68,6 +68,10 @@ class ViewController: UIViewController {
         var roate:[Int] = [1,2,3,4,5,6,7];
         rotate(&roate, 3);
         print("roateroate-",roate)
+        
+        
+        let deteBool = detectCapitalUse("Wang")
+        print("deteBool->:",deteBool);
     
     }
     
@@ -256,6 +260,35 @@ class ViewController: UIViewController {
             newNums[(i + terns) % nums.count] = nums[i]
         }
         nums = newNums
+    }
+    
+    func detectCapitalUse(_ word: String) -> Bool {
+        if(word == (word.uppercased())){
+            return true
+        }
+        if(word == (word.lowercased())){
+            return true;
+        }
+        let str = self.getC(word, Index: 0)
+        for  item  in 1..<word.count {
+            let str1 = self.getC(word, Index: item)
+            if str == str.uppercased() && str1 == str1.lowercased(){
+                
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func getC(_ s: String,Index:Int) -> String {
+        let begin = s.startIndex
+        let start = s.index(begin, offsetBy: Index)
+        let end = s.index(begin, offsetBy: Index+1)
+        
+        let sub4 = s[start..<end]
+        
+        return String(sub4)
     }
     
     

@@ -21,6 +21,7 @@
 #import "MergeArray.h"
 #import "PalindromeString.h"
 #import "rotateArray.h"
+#import "detectCapitalUse.h"
 
 @interface ViewController ()
 
@@ -94,6 +95,55 @@
     
     rotateArray * roate = [[rotateArray alloc] init];
     [roate roateArray:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] roateNext:3];
+    
+    detectCapitalUse * detect = [[detectCapitalUse alloc] init];
+    BOOL detectB = [detect detectCapitalUse:@"wWang"];
+    NSLog(@"--detectCapitalUse:%d",detectB);
+    
+    
+    
+    
+//    NSString * copyStr = @"123";
+//    NSString * copy1Str = [copyStr copy];
+//    copyStr = @"456";
+//    NSLog(@"----copyStr:%@",copy1Str);
+//
+//    NSMutableArray * msArray = [[NSMutableArray alloc] init];
+//    [msArray addObject:@"1"];
+//    NSLog(@"---1:%@",msArray);
+//
+//
+//    [msArray addObject:@"2"];
+//    NSLog(@"---msArray：2.1:%@",msArray);
+//    NSMutableArray * copyArray = [msArray copy];
+//    [msArray addObject:@"2.1"];
+//    NSLog(@"---copyArray:2.2:%@",copyArray);
+//
+//
+//    [msArray addObject:@"3"];
+//    NSLog(@"---msArray:3.1:%@",msArray);
+//    NSMutableArray * muArray = [msArray mutableCopy];
+//    [msArray removeAllObjects];
+//    NSLog(@"---muArray:3.2:%@",muArray);
+    
+    NSString *str1 = @"imutable";
+    NSString *Str2 = [str1 copy];
+    NSMutableString *Str3 = [str1 mutableCopy];
+    NSMutableString *str4 = [[NSMutableString alloc]initWithString:@"mutable"];
+    NSMutableString *str5 = [str4 copy];
+    NSMutableString *str6 = [str4 mutableCopy];
+    [str6 appendFormat:@"hello"];
+//    [str5 appendFormat:@"hello"];   // crash
+    
+    
+    NSArray *array0 = @[@"a",@"b",@"c"];
+    NSArray *array1 = [array0 copy];
+    NSArray *array2 = [array0 mutableCopy];
+    NSMutableArray *array3 = [[NSMutableArray alloc]initWithObjects:@"a",@"b",@"c", nil];
+    NSMutableArray *array4 = [array3 copy];
+    NSMutableArray *array5 = [array3 mutableCopy];
+    
+    
     
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClick) name:@"testnotifi" object:nil];

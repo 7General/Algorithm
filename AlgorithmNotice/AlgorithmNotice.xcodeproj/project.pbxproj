@@ -16,6 +16,7 @@
 		221F3EFD23A8BBB700C55EE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFC23A8BBB700C55EE0 /* Person.m */; };
 		221F3F0023A8BBE800C55EE0 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFF23A8BBE800C55EE0 /* Car.m */; };
 		221F3F0323AA1B6700C55EE0 /* MergeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3F0223AA1B6700C55EE0 /* MergeArray.m */; };
+		225C75DC23BB26EC003BF35B /* detectCapitalUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 225C75DB23BB26EC003BF35B /* detectCapitalUse.m */; };
 		226F8F602331D28C0035CFEF /* twoSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 226F8F5F2331D28C0035CFEF /* twoSum.m */; };
 		22764E7022A7705C00E67AE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22764E6F22A7705C00E67AE1 /* AppDelegate.m */; };
 		22764E7322A7705C00E67AE1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22764E7222A7705C00E67AE1 /* ViewController.m */; };
@@ -50,6 +51,8 @@
 		221F3EFF23A8BBE800C55EE0 /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		221F3F0123AA1B6700C55EE0 /* MergeArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MergeArray.h; sourceTree = "<group>"; };
 		221F3F0223AA1B6700C55EE0 /* MergeArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MergeArray.m; sourceTree = "<group>"; };
+		225C75DA23BB26EC003BF35B /* detectCapitalUse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = detectCapitalUse.h; sourceTree = "<group>"; };
+		225C75DB23BB26EC003BF35B /* detectCapitalUse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = detectCapitalUse.m; sourceTree = "<group>"; };
 		226F8F5E2331D28C0035CFEF /* twoSum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = twoSum.h; sourceTree = "<group>"; };
 		226F8F5F2331D28C0035CFEF /* twoSum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = twoSum.m; sourceTree = "<group>"; };
 		22764E6B22A7705C00E67AE1 /* AlgorithmNotice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlgorithmNotice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,8 @@
 				22A7005F23B5E61C00CBEBF1 /* PalindromeString.m */,
 				221AD5D323B9D9460009C848 /* rotateArray.h */,
 				221AD5D223B9D9460009C848 /* rotateArray.m */,
+				225C75DA23BB26EC003BF35B /* detectCapitalUse.h */,
+				225C75DB23BB26EC003BF35B /* detectCapitalUse.m */,
 			);
 			path = AlgorithmNotice;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				221F3F0023A8BBE800C55EE0 /* Car.m in Sources */,
 				22E1FB62235D8413001A7EB3 /* RomanToInt.m in Sources */,
 				221A8BBE233472EA008453BA /* Palindrome.m in Sources */,
+				225C75DC23BB26EC003BF35B /* detectCapitalUse.m in Sources */,
 				221AD5D423B9D9470009C848 /* rotateArray.m in Sources */,
 				22764E7E22A7705E00E67AE1 /* main.m in Sources */,
 				22764E7022A7705C00E67AE1 /* AppDelegate.m in Sources */,
