@@ -22,6 +22,7 @@
 #import "PalindromeString.h"
 #import "rotateArray.h"
 #import "detectCapitalUse.h"
+#import "singleNumber.h"
 
 @interface ViewController ()
 
@@ -100,6 +101,9 @@
     BOOL detectB = [detect detectCapitalUse:@"wWang"];
     NSLog(@"--detectCapitalUse:%d",detectB);
     
+    singleNumber * stringNum = [[singleNumber alloc] init];
+    NSString * resString = [stringNum singleNumber:@[@"4",@"4",@"5",@"5",@"2"]];
+    NSLog(@"=====:%@",resString);
     
     
     
@@ -165,8 +169,9 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"testnotifi" object:nil];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"testnotifi" object:nil];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"testnotifigo" object:nil];
 }
 

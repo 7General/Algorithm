@@ -72,7 +72,9 @@ class ViewController: UIViewController {
         
         let deteBool = detectCapitalUse("Wang")
         print("deteBool->:",deteBool);
-    
+        
+        let stringd:[Int] = [2,3,3,4,4];
+        print("stringdstringd->",singleNumber(stringd));
     }
     
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
@@ -289,6 +291,13 @@ class ViewController: UIViewController {
         let sub4 = s[start..<end]
         
         return String(sub4)
+    }
+    func singleNumber(_ nums: [Int]) -> Int {
+        var ans = 0;
+        for item in nums {
+            ans ^= item;
+        }
+        return ans;
     }
     
     

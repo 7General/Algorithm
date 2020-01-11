@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "GuideWindow.h"
+#import "GuideViewController.h"
+#import "GuideRootViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) GuideWindow * guideWindow;
 
 @end
 
@@ -16,7 +21,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    [self.window setBackgroundColor:[UIColor whiteColor]];
+//    GuideViewController * guideVC = [[GuideViewController alloc] init];
+//    __weak typeof(self) ws = self;
+//    [guideVC setRemoveClickHandler:^{
+//        GuideRootViewController * guideRoot = [[GuideRootViewController alloc] init];
+//        ws.window.rootViewController = guideRoot;
+//    }];
+//    self.window.rootViewController = guideVC;
+//    [self.window makeKeyAndVisible];
+
+//    self.guideWindow = [[GuideWindow alloc] initWithFrame:[UIScreen mainScreen].bounds removeBlock:^{
+//        self.guideWindow.hidden = YES;
+//        self.guideWindow = nil;
+//    }];
     return YES;
 }
 
