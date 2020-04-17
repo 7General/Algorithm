@@ -22,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 白日依山尽
+    // 黄河入海流
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    [self.window setBackgroundColor:[UIColor whiteColor]];
 //    GuideViewController * guideVC = [[GuideViewController alloc] init];
