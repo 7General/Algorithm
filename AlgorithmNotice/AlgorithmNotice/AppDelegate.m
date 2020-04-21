@@ -18,24 +18,31 @@
 
 @implementation AppDelegate
 
+/**
+ 6、Xcode6 代码格式化/自动排版：
+ 选中需要格式化代码 -> Editor -> Structure ->Re-Indent 或者
+ 选中需要格式化代码 -> 右击 ->选中 Structure ->Re-Indent
+ 
+ 快捷键：Ctrl+a全选->ctrl ＋ i 格式
+ */
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //    [self.window setBackgroundColor:[UIColor whiteColor]];
+    //    GuideViewController * guideVC = [[GuideViewController alloc] init];
+    //    __weak typeof(self) ws = self;
+    //    [guideVC setRemoveClickHandler:^{
+    //        GuideRootViewController * guideRoot = [[GuideRootViewController alloc] init];
+    //        ws.window.rootViewController = guideRoot;
+    //    }];
+    //    self.window.rootViewController = guideVC;
+    //    [self.window makeKeyAndVisible];
     
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    [self.window setBackgroundColor:[UIColor whiteColor]];
-//    GuideViewController * guideVC = [[GuideViewController alloc] init];
-//    __weak typeof(self) ws = self;
-//    [guideVC setRemoveClickHandler:^{
-//        GuideRootViewController * guideRoot = [[GuideRootViewController alloc] init];
-//        ws.window.rootViewController = guideRoot;
-//    }];
-//    self.window.rootViewController = guideVC;
-//    [self.window makeKeyAndVisible];
-
-//    self.guideWindow = [[GuideWindow alloc] initWithFrame:[UIScreen mainScreen].bounds removeBlock:^{
-//        self.guideWindow.hidden = YES;
-//        self.guideWindow = nil;
-//    }];
+    //    self.guideWindow = [[GuideWindow alloc] initWithFrame:[UIScreen mainScreen].bounds removeBlock:^{
+    //        self.guideWindow.hidden = YES;
+    //        self.guideWindow = nil;
+    //    }];
     return YES;
 }
 

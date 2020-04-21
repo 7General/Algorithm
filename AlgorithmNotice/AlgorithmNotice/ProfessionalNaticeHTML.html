@@ -1,0 +1,41 @@
+<html>
+    <header>
+        <title>算</title>
+        <script>
+            window.onload = function(){
+                maxSlidingWindow([6,5,7,3,2,1,7], 3);
+            }
+        
+        /// 滑动窗口取值
+        /// 保证每次窗口里都是最大的
+        function maxSlidingWindow(nums, k) {
+            const windQueue = [];
+            const result = []
+            for (let index = 0; index < nums.length; index++) {
+                let lens = (windQueue.length == 0) ? 0 : windQueue.length - 1;
+                /// 循环比较每个元素，如果窗口的元素比当前的数字小，则删除串口的数字，反之添加
+                while (windQueue.length > 0 && nums[windQueue[lens]] <= nums[index]) {
+                    lens--;
+                    windQueue.pop();
+                }
+                windQueue.push(index);
+               /// 发生了窗口移动行为
+                if (index - windQueue[0] >= k) {
+                    windQueue.shift();
+                }
+                /// 到了串口最大值就取值
+                if (index >= k - 1) {
+                    result.push(nums[windQueue[0]]);
+                }
+            }
+            console.log('res',result);
+            return result;
+        }
+        </script>
+    </header>
+    <body></body>
+    
+    
+    
+    
+</html>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22128B2E22E063FA003E6515 /* MaxAreaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 22128B2D22E063FA003E6515 /* MaxAreaObject.m */; };
+		2213CDD2244E947400D20822 /* ProfessionalNaticeHTML.html in Resources */ = {isa = PBXBuildFile; fileRef = 2213CDD1244E947400D20822 /* ProfessionalNaticeHTML.html */; };
 		2213D1952330854800F1B89E /* IntegerInversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2213D1942330854800F1B89E /* IntegerInversion.m */; };
 		2218EBF623965DAB00B0B75B /* StrToStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2218EBF523965DAB00B0B75B /* StrToStr.m */; };
 		221A8BBE233472EA008453BA /* Palindrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A8BBD233472EA008453BA /* Palindrome.m */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		22128B2C22E063FA003E6515 /* MaxAreaObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MaxAreaObject.h; sourceTree = "<group>"; };
 		22128B2D22E063FA003E6515 /* MaxAreaObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaxAreaObject.m; sourceTree = "<group>"; };
+		2213CDD1244E947400D20822 /* ProfessionalNaticeHTML.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ProfessionalNaticeHTML.html; sourceTree = "<group>"; };
 		2213D1932330854800F1B89E /* IntegerInversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntegerInversion.h; sourceTree = "<group>"; };
 		2213D1942330854800F1B89E /* IntegerInversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntegerInversion.m; sourceTree = "<group>"; };
 		2218EBF423965DAB00B0B75B /* StrToStr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StrToStr.h; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		22764E6D22A7705C00E67AE1 /* AlgorithmNotice */ = {
 			isa = PBXGroup;
 			children = (
+				2213CDD1244E947400D20822 /* ProfessionalNaticeHTML.html */,
 				22764E6E22A7705C00E67AE1 /* AppDelegate.h */,
 				22764E6F22A7705C00E67AE1 /* AppDelegate.m */,
 				22764E7122A7705C00E67AE1 /* ViewController.h */,
@@ -233,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2213CDD2244E947400D20822 /* ProfessionalNaticeHTML.html in Resources */,
 				22764E7B22A7705E00E67AE1 /* LaunchScreen.storyboard in Resources */,
 				22764E7822A7705E00E67AE1 /* Assets.xcassets in Resources */,
 				22764E7622A7705C00E67AE1 /* Main.storyboard in Resources */,
