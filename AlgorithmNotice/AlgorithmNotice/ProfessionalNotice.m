@@ -84,4 +84,19 @@
     return ans;
 }
 
+- (NSInteger)mainArray:(NSArray *)numbers {
+    // Swift解法
+//    var i:Int = 0;
+//    var j:Int = numbers.count - 1;
+//      while (i < j) {
+//        var m:Int = (i + j) / 2;
+//          if (numbers[m] > numbers[j])
+//          {i = m + 1;}
+//          else if (numbers[m] < numbers[j]) {j = m;}
+//          else{ j = j - 1};
+//      }
+//      return numbers[i];
+    return 10;
+}
+
 @end

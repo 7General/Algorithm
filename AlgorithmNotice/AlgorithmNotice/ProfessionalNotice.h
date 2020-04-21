@@ -29,7 +29,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSInteger)findRepeatNumber:(NSArray *)nums;
 
+/// 三数之和
+/// @param nums <#nums description#>
+/// @param target <#target description#>
 - (NSInteger)threeSumClosest:(NSArray<NSNumber *> *)nums target:(NSInteger)target;
+
+/// 面试题11. 旋转数组的最小数字
+/// https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
+/// @param array array
+- (NSInteger)mainArray:(NSArray *)array;
 @end
 
 NS_ASSUME_NONNULL_END
