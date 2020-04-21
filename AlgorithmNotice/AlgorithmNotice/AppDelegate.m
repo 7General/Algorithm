@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "GuideWindow.h"
 #import "GuideViewController.h"
-#import "GuideRootViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,9 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // 白日依山尽
-    // 黄河入海流
-    // 欲穷千里目
+    
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    [self.window setBackgroundColor:[UIColor whiteColor]];
 //    GuideViewController * guideVC = [[GuideViewController alloc] init];

@@ -23,6 +23,7 @@
 #import "rotateArray.h"
 #import "detectCapitalUse.h"
 #import "singleNumber.h"
+#import "ProfessionalNotice.h"
 
 @interface ViewController ()
 
@@ -103,7 +104,18 @@
     
     singleNumber * stringNum = [[singleNumber alloc] init];
     NSString * resString = [stringNum singleNumber:@[@"4",@"4",@"5",@"5",@"2"]];
-    NSLog(@"=====:%@",resString);
+    NSLog(@"=====出现一次的数字:%@",resString);
+    
+    ProfessionalNotice * notice = [[ProfessionalNotice alloc] init];
+    NSString * reverStr = [notice reverseString:@"wang"];
+    NSLog(@"=====:%@",reverStr);
+    
+    
+    [notice findRepeatNumber:@[@"2",@"2",@"4",@"4",@"3"]];
+    
+   NSInteger ans = [notice threeSumClosest:@[@(1),@(2),@(3),@(4),@(5)] target:7];
+    NSLog(@"=====:%d",ans);
+    
     
     
     
@@ -129,6 +141,12 @@
 //    NSMutableArray * muArray = [msArray mutableCopy];
 //    [msArray removeAllObjects];
 //    NSLog(@"---muArray:3.2:%@",muArray);
+    
+    
+    NSString *A = @"hellohello";
+    NSString *B = @"hello";
+    NSString *C = [NSString stringWithFormat:@"hellohello"];
+    NSString *D = [NSString stringWithFormat:@"hello"];
     
     NSString *str1 = @"imutable";
     NSString *Str2 = [str1 copy];

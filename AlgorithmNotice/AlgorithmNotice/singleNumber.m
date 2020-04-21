@@ -11,12 +11,12 @@
 @implementation singleNumber
 
 - (NSString *)singleNumber:(NSArray *)nums {
-//    NSInteger ans = 0;
-//    for (NSString * item in nums) {
-//        NSInteger temp = [item integerValue];
-//        ans = ans ^ temp;
-//    }
-//    return [NSString stringWithFormat:@"%ld",ans];
+    NSInteger ans = 0;
+    for (NSString * item in nums) {
+        NSInteger temp = [item integerValue];
+        ans = ans ^ temp;
+    }
+    return [NSString stringWithFormat:@"%ld",ans];
     
 //    NSMutableArray * muArray = [[NSMutableArray alloc] initWithArray:nums];
     NSString * res = @"";

@@ -11,7 +11,6 @@
 		2213D1952330854800F1B89E /* IntegerInversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2213D1942330854800F1B89E /* IntegerInversion.m */; };
 		2218EBF623965DAB00B0B75B /* StrToStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2218EBF523965DAB00B0B75B /* StrToStr.m */; };
 		221A8BBE233472EA008453BA /* Palindrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A8BBD233472EA008453BA /* Palindrome.m */; };
-		221A8BC12334C615008453BA /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A8BC02334C615008453BA /* TestClass.m */; };
 		221AD5D423B9D9470009C848 /* rotateArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 221AD5D223B9D9460009C848 /* rotateArray.m */; };
 		221F3EFD23A8BBB700C55EE0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFC23A8BBB700C55EE0 /* Person.m */; };
 		221F3F0023A8BBE800C55EE0 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F3EFF23A8BBE800C55EE0 /* Car.m */; };
@@ -31,7 +30,7 @@
 		229B53612356BB5700B3B8C4 /* RemoveDuplicates.m in Sources */ = {isa = PBXBuildFile; fileRef = 229B53602356BB5700B3B8C4 /* RemoveDuplicates.m */; };
 		22A7006023B5E61C00CBEBF1 /* PalindromeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A7005F23B5E61C00CBEBF1 /* PalindromeString.m */; };
 		22A897D923C45EA6009A0DC1 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A897D823C45EA6009A0DC1 /* GuideViewController.m */; };
-		22A897DC23C46217009A0DC1 /* GuideRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A897DB23C46217009A0DC1 /* GuideRootViewController.m */; };
+		22C7CB6824235C2C008DE2CF /* ProfessionalNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C7CB6724235C2C008DE2CF /* ProfessionalNotice.m */; };
 		22D376DC2325FB9900BE5E41 /* SUMString.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D376DB2325FB9900BE5E41 /* SUMString.m */; };
 		22E1FB62235D8413001A7EB3 /* RomanToInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1FB61235D8413001A7EB3 /* RomanToInt.m */; };
 		22E51A3E22EFEF58002436D6 /* ClimbFloor.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E51A3D22EFEF58002436D6 /* ClimbFloor.m */; };
@@ -46,8 +45,6 @@
 		2218EBF523965DAB00B0B75B /* StrToStr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StrToStr.m; sourceTree = "<group>"; };
 		221A8BBC233472EA008453BA /* Palindrome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Palindrome.h; sourceTree = "<group>"; };
 		221A8BBD233472EA008453BA /* Palindrome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Palindrome.m; sourceTree = "<group>"; };
-		221A8BBF2334C615008453BA /* TestClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestClass.h; sourceTree = "<group>"; };
-		221A8BC02334C615008453BA /* TestClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestClass.m; sourceTree = "<group>"; };
 		221AD5D223B9D9460009C848 /* rotateArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rotateArray.m; sourceTree = "<group>"; };
 		221AD5D323B9D9460009C848 /* rotateArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotateArray.h; sourceTree = "<group>"; };
 		221F3EFB23A8BBB700C55EE0 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -84,8 +81,8 @@
 		22A7005F23B5E61C00CBEBF1 /* PalindromeString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PalindromeString.m; sourceTree = "<group>"; };
 		22A897D723C45EA6009A0DC1 /* GuideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
 		22A897D823C45EA6009A0DC1 /* GuideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
-		22A897DA23C46217009A0DC1 /* GuideRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideRootViewController.h; sourceTree = "<group>"; };
-		22A897DB23C46217009A0DC1 /* GuideRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideRootViewController.m; sourceTree = "<group>"; };
+		22C7CB6624235C2C008DE2CF /* ProfessionalNotice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfessionalNotice.h; sourceTree = "<group>"; };
+		22C7CB6724235C2C008DE2CF /* ProfessionalNotice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfessionalNotice.m; sourceTree = "<group>"; };
 		22D376DA2325FB9900BE5E41 /* SUMString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUMString.h; sourceTree = "<group>"; };
 		22D376DB2325FB9900BE5E41 /* SUMString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUMString.m; sourceTree = "<group>"; };
 		22E1FB60235D8413001A7EB3 /* RomanToInt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RomanToInt.h; sourceTree = "<group>"; };
@@ -145,8 +142,6 @@
 				226F8F5F2331D28C0035CFEF /* twoSum.m */,
 				221A8BBC233472EA008453BA /* Palindrome.h */,
 				221A8BBD233472EA008453BA /* Palindrome.m */,
-				221A8BBF2334C615008453BA /* TestClass.h */,
-				221A8BC02334C615008453BA /* TestClass.m */,
 				229B535123544B9000B3B8C4 /* RemoveElement.h */,
 				229B535223544B9000B3B8C4 /* RemoveElement.m */,
 				229B535F2356BB5700B3B8C4 /* RemoveDuplicates.h */,
@@ -173,10 +168,10 @@
 				2274290423C0839400F642D9 /* GuideView.m */,
 				22A897D723C45EA6009A0DC1 /* GuideViewController.h */,
 				22A897D823C45EA6009A0DC1 /* GuideViewController.m */,
-				22A897DA23C46217009A0DC1 /* GuideRootViewController.h */,
-				22A897DB23C46217009A0DC1 /* GuideRootViewController.m */,
 				2252FE0123C9A27D00BB0AC1 /* singleNumber.h */,
 				2252FE0223C9A27D00BB0AC1 /* singleNumber.m */,
+				22C7CB6624235C2C008DE2CF /* ProfessionalNotice.h */,
+				22C7CB6724235C2C008DE2CF /* ProfessionalNotice.m */,
 			);
 			path = AlgorithmNotice;
 			sourceTree = "<group>";
@@ -252,13 +247,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				223EAB4E23BF664000557C02 /* GuideWindow.m in Sources */,
-				221A8BC12334C615008453BA /* TestClass.m in Sources */,
 				229B53612356BB5700B3B8C4 /* RemoveDuplicates.m in Sources */,
 				22128B2E22E063FA003E6515 /* MaxAreaObject.m in Sources */,
 				229B535323544B9000B3B8C4 /* RemoveElement.m in Sources */,
 				22764E7322A7705C00E67AE1 /* ViewController.m in Sources */,
 				226F8F602331D28C0035CFEF /* twoSum.m in Sources */,
 				221F3F0023A8BBE800C55EE0 /* Car.m in Sources */,
+				22C7CB6824235C2C008DE2CF /* ProfessionalNotice.m in Sources */,
 				22E1FB62235D8413001A7EB3 /* RomanToInt.m in Sources */,
 				221A8BBE233472EA008453BA /* Palindrome.m in Sources */,
 				225C75DC23BB26EC003BF35B /* detectCapitalUse.m in Sources */,
@@ -272,7 +267,6 @@
 				22D376DC2325FB9900BE5E41 /* SUMString.m in Sources */,
 				221F3EFD23A8BBB700C55EE0 /* Person.m in Sources */,
 				2274290523C0839400F642D9 /* GuideView.m in Sources */,
-				22A897DC23C46217009A0DC1 /* GuideRootViewController.m in Sources */,
 				22E51A3E22EFEF58002436D6 /* ClimbFloor.m in Sources */,
 				2213D1952330854800F1B89E /* IntegerInversion.m in Sources */,
 				2252FE0323C9A27D00BB0AC1 /* singleNumber.m in Sources */,
