@@ -142,28 +142,16 @@
 //    [msArray removeAllObjects];
 //    NSLog(@"---muArray:3.2:%@",muArray);
     
-    
-    NSString *A = @"hellohello";
-    NSString *B = @"hello";
-    NSString *C = [NSString stringWithFormat:@"hellohello"];
-    NSString *D = [NSString stringWithFormat:@"hello"];
-    
-    NSString *str1 = @"imutable";
-    NSString *Str2 = [str1 copy];
-    NSMutableString *Str3 = [str1 mutableCopy];
-    NSMutableString *str4 = [[NSMutableString alloc]initWithString:@"mutable"];
-    NSMutableString *str5 = [str4 copy];
-    NSMutableString *str6 = [str4 mutableCopy];
-    [str6 appendFormat:@"hello"];
-//    [str5 appendFormat:@"hello"];   // crash
-    
-    
     NSArray *array0 = @[@"a",@"b",@"c"];
-    NSArray *array1 = [array0 copy];
-    NSArray *array2 = [array0 mutableCopy];
-    NSMutableArray *array3 = [[NSMutableArray alloc]initWithObjects:@"a",@"b",@"c", nil];
-    NSMutableArray *array4 = [array3 copy];
-    NSMutableArray *array5 = [array3 mutableCopy];
+    
+    NSArray *array1 = [array0 mutableCopy];
+    NSLog(@"array0:%@-----array1:%@",array0,array1);
+    array0 = @[@"1",@"2",@"3"];
+    NSLog(@"array1:%@",array1);
+    
+    
+    NSInteger  resssss =  6 % 5;
+    NSLog(@"---:%ld",resssss);
     
     
     

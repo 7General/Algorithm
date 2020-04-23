@@ -9,6 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "ProfessionalNotice.h"
 
+@implementation ListNode
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+@end
+
+
 @implementation ProfessionalNotice
 
 /**
@@ -97,6 +110,119 @@
 //      }
 //      return numbers[i];
     return 10;
+}
+
+- (ListNode *)reverseList:(ListNode *)header {
+    // swift解法
+//    var newHead:ListNode?  = nil
+//    while(head != nil){
+//       var temp:ListNode = head!.next
+//       head.next = newHead
+//        newHead = head
+//        head = temp
+//    }
+//    return newHead;
+    return [[ListNode alloc] init];
+}
+
+/// 面试题18. 删除链表的节点
+/// https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/
+/// @param head ListNode
+/// @param val NSString
+- (ListNode *)deleteNode:(ListNode *)head deleStr:(NSString *)val {
+    //java解法
+//    ListNode firstNode = new ListNode(-1);
+//    firstNode.next = head;
+//    ListNode curr = firstNode;
+//    while(curr!=null && curr.next != null){
+//        if(curr.next.val == val){
+//            curr.next = curr.next.next;
+//        }
+//        curr = curr.next;
+//    }
+//    return firstNode.next;
+    return [[ListNode alloc] init];
+}
+
+/// 19.删除链表的倒数第N个节点
+/// https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
+/// @param node <#node description#>
+/// @param n <#n description#>
+- (ListNode *)removeNthFromEnd:(ListNode *)node nth:(NSInteger)n {
+//   java
+//    ListNode pre = new ListNode(0);
+//    pre.next = head;
+//    ListNode start = pre, end = pre;
+//    while(n != 0) {
+//        start = start.next;
+//        n--;
+//    }
+//    while(start.next != null) {
+//        start = start.next;
+//        end = end.next;
+//    }
+//    end.next = end.next.next;
+//    return pre.next;
+    return [[ListNode alloc] init];
+}
+
+/// 面试题22. 链表中倒数第k个节点
+/// https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/
+/// @param node <#node description#>
+/// @param k <#k description#>
+- (ListNode *)getKthFromEnd:(ListNode *)node nth:(NSInteger)k {
+    // java解法
+//    ListNode former = head, latter = head;
+//    while(k>0){
+//        former = former.next;
+//        k--;
+//    }
+//    while(former != null) {
+//        former = former.next;
+//        latter = latter.next;
+//    }
+//    return latter;
+    return [[ListNode alloc] init];
+}
+
+/// 61. 旋转链表
+/// https://leetcode-cn.com/problems/rotate-list/
+/// @param node <#node description#>
+/// @param k <#k description#>
+/// 同样都是通过快慢指针实现
+/**
+ *1：先获取整个链表数量，把k和链表长度取余
+ *2：申请两个指针，first，scond
+ *3：先让快指针先挪动k个节点
+ *4：在同步移动两个节点，一直到first节点指向链表尾部
+ *5：这时，second的next节点就是先链表的heade节点，也就要在second的next节点断开
+ *6：把尾节点的next节点指向头部，
+ *7：把head指向seconde.next节点
+ *8：把second.next打断职位null
+ */
+- (ListNode *)rotateRight:(ListNode *)node nth:(NSInteger)k {
+//    if (head == null) return null;
+//    int n=0;
+//    ListNode tempNode = head;
+//    while(tempNode != null){
+//        tempNode = tempNode.next;
+//        n++;
+//    }
+//    k%=n;
+//    ListNode first=head,second=head;
+//    while(k>0){
+//        first=first.next;
+//        k--;
+//    }
+//    while(first.next != null){
+//        first=first.next;
+//        second=second.next;
+//    }
+//    first.next=head;
+//    head=second.next;
+//    second.next=null;
+//    return head;
+    return [[ListNode alloc] init];
 }
 
 @end
