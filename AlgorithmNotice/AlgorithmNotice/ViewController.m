@@ -150,9 +150,11 @@
     NSLog(@"array1:%@",array1);
     
     
-    NSInteger  resssss =  6 % 5;
+    NSInteger as = 0;
+    NSInteger  resssss =  7 % 2;
+    as++;
     NSLog(@"---:%ld",resssss);
-    
+    NSLog(@"---:%ld",as);
     
     
 

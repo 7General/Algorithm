@@ -46,7 +46,12 @@
     return str;
 }
 
+/**
+面试题03. 数组中重复的数字
 
+@param nums <#nums description#>
+@return <#return value description#>
+*/
 - (NSInteger)findRepeatNumber:(NSArray *)nums {
     if ([nums count] == 0) {
         return  - 1;
@@ -63,6 +68,9 @@
     return 10;
 }
 
+/// 三数之和
+/// @param nums <#nums description#>
+/// @param target <#target description#>
 - (NSInteger)threeSumClosest:(NSArray<NSNumber *> *)nums target:(NSInteger)target {
     [nums sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return obj1 < obj2;
@@ -75,11 +83,11 @@
             NSInteger tempSum = [nums[start] integerValue] + [nums[index] integerValue] + [nums[end] integerValue];
             NSLog(@"---:index:%ld,start:%ld,end:%ld",index,start,end);
             NSLog(@"---:indexV:%d,startV:%d,endV:%d",[nums[index] integerValue],[nums[start] integerValue],[nums[end] integerValue]);
-////            if (start == end) {
-////                return 100;
-////            }
-//            start++;
-//            end--;
+            ////            if (start == end) {
+            ////                return 100;
+            ////            }
+            //            start++;
+            //            end--;
             if (labs(target - tempSum) < labs(target -ans)) {
                 ans = tempSum;
             }
@@ -97,31 +105,40 @@
     return ans;
 }
 
+/// 面试题11. 旋转数组的最小数字
+/// https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
+/// @param array array
 - (NSInteger)mainArray:(NSArray *)numbers {
     // Swift解法
 //    var i:Int = 0;
 //    var j:Int = numbers.count - 1;
-//      while (i < j) {
+//    while (i < j) {
 //        var m:Int = (i + j) / 2;
-//          if (numbers[m] > numbers[j])
-//          {i = m + 1;}
-//          else if (numbers[m] < numbers[j]) {j = m;}
-//          else{ j = j - 1};
-//      }
-//      return numbers[i];
+//        if (numbers[m] > numbers[j]) {
+//            i = m + 1;
+//        } else if (numbers[m] < numbers[j]) {
+//            j = m;
+//        } else {
+//            j = j - 1
+//        };
+//    }
+//    return numbers[i];
     return 10;
 }
 
+/// 面试题24. 反转链表
+/// https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
+/// @param header ListNode
 - (ListNode *)reverseList:(ListNode *)header {
     // swift解法
-//    var newHead:ListNode?  = nil
-//    while(head != nil){
-//       var temp:ListNode = head!.next
-//       head.next = newHead
-//        newHead = head
-//        head = temp
-//    }
-//    return newHead;
+    //    var newHead:ListNode?  = nil
+    //    while(head != nil){
+    //       var temp:ListNode = head!.next
+    //       head.next = newHead
+    //        newHead = head
+    //        head = temp
+    //    }
+    //    return newHead;
     return [[ListNode alloc] init];
 }
 
@@ -131,16 +148,16 @@
 /// @param val NSString
 - (ListNode *)deleteNode:(ListNode *)head deleStr:(NSString *)val {
     //java解法
-//    ListNode firstNode = new ListNode(-1);
-//    firstNode.next = head;
-//    ListNode curr = firstNode;
-//    while(curr!=null && curr.next != null){
-//        if(curr.next.val == val){
-//            curr.next = curr.next.next;
-//        }
-//        curr = curr.next;
-//    }
-//    return firstNode.next;
+    //    ListNode firstNode = new ListNode(-1);
+    //    firstNode.next = head;
+    //    ListNode curr = firstNode;
+    //    while(curr!=null && curr.next != null){
+    //        if(curr.next.val == val){
+    //            curr.next = curr.next.next;
+    //        }
+    //        curr = curr.next;
+    //    }
+    //    return firstNode.next;
     return [[ListNode alloc] init];
 }
 
@@ -149,20 +166,20 @@
 /// @param node <#node description#>
 /// @param n <#n description#>
 - (ListNode *)removeNthFromEnd:(ListNode *)node nth:(NSInteger)n {
-//   java
-//    ListNode pre = new ListNode(0);
-//    pre.next = head;
-//    ListNode start = pre, end = pre;
-//    while(n != 0) {
-//        start = start.next;
-//        n--;
-//    }
-//    while(start.next != null) {
-//        start = start.next;
-//        end = end.next;
-//    }
-//    end.next = end.next.next;
-//    return pre.next;
+    //   java
+    //    ListNode pre = new ListNode(0);
+    //    pre.next = head;
+    //    ListNode start = pre, end = pre;
+    //    while(n != 0) {
+    //        start = start.next;
+    //        n--;
+    //    }
+    //    while(start.next != null) {
+    //        start = start.next;
+    //        end = end.next;
+    //    }
+    //    end.next = end.next.next;
+    //    return pre.next;
     return [[ListNode alloc] init];
 }
 
@@ -172,16 +189,16 @@
 /// @param k <#k description#>
 - (ListNode *)getKthFromEnd:(ListNode *)node nth:(NSInteger)k {
     // java解法
-//    ListNode former = head, latter = head;
-//    while(k>0){
-//        former = former.next;
-//        k--;
-//    }
-//    while(former != null) {
-//        former = former.next;
-//        latter = latter.next;
-//    }
-//    return latter;
+    //    ListNode former = head, latter = head;
+    //    while(k>0){
+    //        former = former.next;
+    //        k--;
+    //    }
+    //    while(former != null) {
+    //        former = former.next;
+    //        latter = latter.next;
+    //    }
+    //    return latter;
     return [[ListNode alloc] init];
 }
 
@@ -201,27 +218,27 @@
  *8：把second.next打断职位null
  */
 - (ListNode *)rotateRight:(ListNode *)node nth:(NSInteger)k {
-//    if (head == null) return null;
-//    int n=0;
-//    ListNode tempNode = head;
-//    while(tempNode != null){
-//        tempNode = tempNode.next;
-//        n++;
-//    }
-//    k%=n;
-//    ListNode first=head,second=head;
-//    while(k>0){
-//        first=first.next;
-//        k--;
-//    }
-//    while(first.next != null){
-//        first=first.next;
-//        second=second.next;
-//    }
-//    first.next=head;
-//    head=second.next;
-//    second.next=null;
-//    return head;
+    //    if (head == null) return null;
+    //    int n=0;
+    //    ListNode tempNode = head;
+    //    while(tempNode != null){
+    //        tempNode = tempNode.next;
+    //        n++;
+    //    }
+    //    k%=n;
+    //    ListNode first=head,second=head;
+    //    while(k>0){
+    //        first=first.next;
+    //        k--;
+    //    }
+    //    while(first.next != null){
+    //        first=first.next;
+    //        second=second.next;
+    //    }
+    //    first.next=head;
+    //    head=second.next;
+    //    second.next=null;
+    //    return head;
     return [[ListNode alloc] init];
 }
 
