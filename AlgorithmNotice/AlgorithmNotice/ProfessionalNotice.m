@@ -189,6 +189,7 @@
 /// @param k <#k description#>
 - (ListNode *)getKthFromEnd:(ListNode *)node nth:(NSInteger)k {
     // java解法
+    // 1,2,3,4,5,6,7,8  k = 3
     //    ListNode former = head, latter = head;
     //    while(k>0){
     //        former = former.next;
