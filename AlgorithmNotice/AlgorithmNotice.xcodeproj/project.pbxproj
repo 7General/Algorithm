@@ -11,6 +11,7 @@
 		2213CDD2244E947400D20822 /* ProfessionalNaticeHTML.html in Resources */ = {isa = PBXBuildFile; fileRef = 2213CDD1244E947400D20822 /* ProfessionalNaticeHTML.html */; };
 		2213D1952330854800F1B89E /* IntegerInversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2213D1942330854800F1B89E /* IntegerInversion.m */; };
 		2218B85F24977F29005FDF2C /* readme in Resources */ = {isa = PBXBuildFile; fileRef = 2218B85E24977F29005FDF2C /* readme */; };
+		2218B8612497880F005FDF2C /* READMME in Resources */ = {isa = PBXBuildFile; fileRef = 2218B8602497880F005FDF2C /* READMME */; };
 		2218EBF623965DAB00B0B75B /* StrToStr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2218EBF523965DAB00B0B75B /* StrToStr.m */; };
 		221A8BBE233472EA008453BA /* Palindrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A8BBD233472EA008453BA /* Palindrome.m */; };
 		221AD5D423B9D9470009C848 /* rotateArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 221AD5D223B9D9460009C848 /* rotateArray.m */; };
@@ -45,6 +46,7 @@
 		2213D1932330854800F1B89E /* IntegerInversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntegerInversion.h; sourceTree = "<group>"; };
 		2213D1942330854800F1B89E /* IntegerInversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntegerInversion.m; sourceTree = "<group>"; };
 		2218B85E24977F29005FDF2C /* readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme; sourceTree = "<group>"; };
+		2218B8602497880F005FDF2C /* READMME */ = {isa = PBXFileReference; lastKnownFileType = text; path = READMME; sourceTree = "<group>"; };
 		2218EBF423965DAB00B0B75B /* StrToStr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StrToStr.h; sourceTree = "<group>"; };
 		2218EBF523965DAB00B0B75B /* StrToStr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StrToStr.m; sourceTree = "<group>"; };
 		221A8BBC233472EA008453BA /* Palindrome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Palindrome.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				22C7CB6624235C2C008DE2CF /* ProfessionalNotice.h */,
 				22C7CB6724235C2C008DE2CF /* ProfessionalNotice.m */,
 				2218B85E24977F29005FDF2C /* readme */,
+				2218B8602497880F005FDF2C /* READMME */,
 			);
 			path = AlgorithmNotice;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2218B8612497880F005FDF2C /* READMME in Resources */,
 				2218B85F24977F29005FDF2C /* readme in Resources */,
 				2213CDD2244E947400D20822 /* ProfessionalNaticeHTML.html in Resources */,
 				22764E7B22A7705E00E67AE1 /* LaunchScreen.storyboard in Resources */,
