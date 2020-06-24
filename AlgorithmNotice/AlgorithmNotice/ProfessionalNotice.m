@@ -47,11 +47,11 @@
 }
 
 /**
-面试题03. 数组中重复的数字
-
-@param nums <#nums description#>
-@return <#return value description#>
-*/
+ 面试题03. 数组中重复的数字
+ 
+ @param nums <#nums description#>
+ @return <#return value description#>
+ */
 - (NSInteger)findRepeatNumber:(NSArray *)nums {
     if ([nums count] == 0) {
         return  - 1;
@@ -110,19 +110,19 @@
 /// @param array array
 - (NSInteger)mainArray:(NSArray *)numbers {
     // Swift解法
-//    var i:Int = 0;
-//    var j:Int = numbers.count - 1;
-//    while (i < j) {
-//        var m:Int = (i + j) / 2;
-//        if (numbers[m] > numbers[j]) {
-//            i = m + 1;
-//        } else if (numbers[m] < numbers[j]) {
-//            j = m;
-//        } else {
-//            j = j - 1
-//        };
-//    }
-//    return numbers[i];
+    //    var i:Int = 0;
+    //    var j:Int = numbers.count - 1;
+    //    while (i < j) {
+    //        var m:Int = (i + j) / 2;
+    //        if (numbers[m] > numbers[j]) {
+    //            i = m + 1;
+    //        } else if (numbers[m] < numbers[j]) {
+    //            j = m;
+    //        } else {
+    //            j = j - 1
+    //        };
+    //    }
+    //    return numbers[i];
     return 10;
 }
 
@@ -241,6 +241,68 @@
     //    second.next=null;
     //    return head;
     return [[ListNode alloc] init];
+}
+
+
+- (NSString *)quicklySortedMindIndex:(NSInteger)th fromindex:(NSInteger)low toIndex:(NSInteger)high dataSource:(NSMutableArray *)dataSource {
+    NSInteger lows = low;
+    NSInteger highs = high;
+    NSInteger midNumber = [dataSource[low] integerValue];
+    
+    while (low < high) {
+        while ([dataSource[high] integerValue] >= midNumber && low < high) {
+            high--;
+        }
+        if (low < high) {
+            dataSource[low] = dataSource[high];
+        }
+        while ([dataSource[low] integerValue] <= midNumber && low < high) {
+            low++;
+        }
+        if (low < high) {
+            dataSource[high] = dataSource[low];
+        }
+    }
+    dataSource[low] = [NSString stringWithFormat:@"%ld",midNumber];
+    
+    if (th == low) {
+        return dataSource[low];
+    } else if(th > low) {
+        return [self quicklySortedMindIndex:th fromindex:low + 1 toIndex:highs dataSource:dataSource];
+    } else {
+        return [self quicklySortedMindIndex:th fromindex:lows toIndex:low - 1 dataSource:dataSource];
+    }
+}
+
+- (NSInteger)getStandard:(NSMutableArray *)dataSource formIndex:(NSInteger)low endIndex:(NSInteger)high {
+    // 基本数据
+    NSInteger key = [dataSource[low] integerValue];
+    while (low < high) {
+        while (low < high && [dataSource[high] integerValue] >= key) {
+            high--;
+        }
+        if (low < high) {
+            dataSource[low] = dataSource[high];
+        }
+        while (low < high && [dataSource[low] integerValue] <= key) {
+            low++;
+        }
+        if (low<high) {
+            dataSource[high] = dataSource[low];
+        }
+    }
+    dataSource[low] = [NSString stringWithFormat:@"%ld",key];
+    
+    return low;
+}
+
+- (void)quickSort:(NSMutableArray *)dataSource formIndex:(NSInteger)low endIndex:(NSInteger)high {
+    if (low < high) {
+        NSInteger standard = [self getStandard:dataSource formIndex:low endIndex:high];
+        
+        [self quickSort:dataSource formIndex:low endIndex:standard - 1];
+        [self quickSort:dataSource formIndex:standard+1 endIndex:high];
+    }
 }
 
 @end

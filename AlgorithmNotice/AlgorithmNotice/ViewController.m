@@ -117,6 +117,14 @@
     NSLog(@"=====:%d",ans);
     
     
+//    NSMutableArray * dataSource = @[@"23",@"1",@"4",@"5",@"12",@"7",@"90",@"22"].mutableCopy;
+    NSMutableArray * dataSource = @[@"23",@"1",@"4",@"5",@"90"].mutableCopy;
+    NSString * thItem = [notice quicklySortedMindIndex:4 fromindex:0 toIndex:4 dataSource:dataSource];
+    NSLog(@"第N大的数:%@---source:%@",thItem,dataSource);
+    
+    [notice quickSort:dataSource formIndex:0 endIndex:dataSource.count - 1];
+    NSLog(@"快拍后的数:---source:%@",dataSource);
+    
     
     
 //    NSString * copyStr = @"123";

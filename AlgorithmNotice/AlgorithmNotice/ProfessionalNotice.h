@@ -77,6 +77,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param k <#k description#>
 - (ListNode *)rotateRight:(ListNode *)node nth:(NSInteger)k;
 
+- (NSString *)quicklySortedMindIndex:(NSInteger)th fromindex:(NSInteger)low toIndex:(NSInteger)high dataSource:(NSMutableArray *)dataSource;
+
+- (void)quickSort:(NSMutableArray *)dataSource formIndex:(NSInteger)low endIndex:(NSInteger)high;
+
 @end
 
 NS_ASSUME_NONNULL_END
