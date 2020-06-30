@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-06-30 15:54:13
+ * @LastEditTime: 2020-06-30 15:55:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -161,13 +161,13 @@ const isAnagramCount = (s,t) => {
   * 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
   ******************/
 
-  /*****
-    思路 中间变量首尾替换法，逐位遍历，进行交换
-    详解
-        1.设置变量 i=0;
-        2. 替换字符串的第i位和倒数第i位，替换方式:设置一个中间变量，替换两个字符串的值; 3. 变量 i + 1 ，继续替换替换字符串的第i位和倒数第i位;
-        4. 直到i大于字符串s的长度的中位数，完成真个字符串的反转
-   */
+/*****
+思路 中间变量首尾替换法，逐位遍历，进行交换
+详解
+    1.设置变量 i=0;
+    2. 替换字符串的第i位和倒数第i位，替换方式:设置一个中间变量，替换两个字符串的值; 3. 变量 i + 1 ，继续替换替换字符串的第i位和倒数第i位;
+    4. 直到i大于字符串s的长度的中位数，完成真个字符串的反转
+*/
 const reverseString = function(s) {
     for (let i = 0; i < s.length / 2; i++) {
         const a = s[i];
@@ -184,7 +184,7 @@ const reverseString = function(s) {
  */
 
  /******************
-  * 
+  * 5.字符串中的第一个唯一字符
   ******************/
 
 
