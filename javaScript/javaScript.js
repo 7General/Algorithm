@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-06-30 15:13:44
+ * @LastEditTime: 2020-06-30 15:52:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -22,6 +22,11 @@ window.onload = function(){
     console.log('字母异位词'+anagramsort);
 
     console.log('字母异位词count>'+isAnagramCount('abc','cba'));
+
+    const character = ['w','a','n','g','h','u'];
+    reverseString(character)
+    console.log('反转字符串>'+character);
+
 }
 
 
@@ -116,6 +121,11 @@ function isAnagramSort(s,t) {
     return sArr.join('') === tArr.join('');
 }
 
+/**
+ * @description: 有效的字母异位词(迭代)
+ * @param {type} 
+ * @return: 
+ */
 const isAnagramCount = (s,t) => {
     if (s.length !== t.length) {
         return false;
@@ -141,6 +151,42 @@ const isAnagramCount = (s,t) => {
  * 空间复杂度: O(1)
  * 申请的变量 hash 最大长度为 256，因为 Ascii 字符最多 256 种可能，因此，考虑为常量空 间，即 O(1)。
  */
+
+
+
+ /******************
+  * 4.反转字符串
+  * 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一
+问题。
+  * 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
+  ******************/
+
+  /*****
+    思路 中间变量首尾替换法，逐位遍历，进行交换
+    详解
+        1.设置变量 i=0;
+        2. 替换字符串的第i位和倒数第i位，替换方式:设置一个中间变量，替换两个字符串的值; 3. 变量 i + 1 ，继续替换替换字符串的第i位和倒数第i位;
+        4. 直到i大于字符串s的长度的中位数，完成真个字符串的反转
+   */
+const reverseString = function(s) {
+    for (let i = 0; i < s.length / 2; i++) {
+        const a = s[i];
+        s[i] = s[s.length - i - 1];
+        s[s.length - i - 1] = a;
+    }
+}
+/***
+ * 复杂度分析
+   时间复杂度: O(n)
+   遍历次数:如果字符串长度为 n ， n 是偶数，遍历次数位 n/2 ，如果 n 是奇数，遍历次数 为 (n+1)/2
+ * 空间复杂度: O(1) 
+   1个临时变
+ */
+
+ /******************
+  * 
+  ******************/
+
 
 
 
