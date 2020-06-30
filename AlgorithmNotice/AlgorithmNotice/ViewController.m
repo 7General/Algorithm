@@ -168,7 +168,27 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClick) name:@"testnotifi" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testClickgo) name:@"testnotifigo" object:nil];
+    
+     [self reverseList:1];
+    
+    
 }
+
+
+- (void)reverseList:(NSInteger)index {
+    ++index;
+    
+    NSLog(@"res>>>>…%lu",index);
+    if (index >=5)  {
+        return;
+    }
+        
+    [self reverseList:index];
+    
+    NSLog(@"=====:%lu",index);
+//    return ress;
+}
+
 - (void)btnClick {
     NSLog(@"22222");
 }

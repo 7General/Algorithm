@@ -139,6 +139,21 @@
     //        head = temp
     //    }
     //    return newHead;
+    
+    
+    if (header == nil || header.next == nil) {
+        return header;
+    }
+    //https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/solution/ru-guo-ni-kan-wan-ping-lun-he-ti-jie-huan-you-wen-/
+    // 链表1->2->3->4->5
+    ListNode *reverse = [self reverseList:header.next];
+    // 进过上面的递归，怎么就得到了链表1->2<-3<-4<-5
+    header.next.next = header;
+    header.next = nil;
+    
+    
+    return reverse;
+    
     return [[ListNode alloc] init];
 }
 
