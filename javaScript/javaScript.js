@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-06-30 15:55:49
+ * @LastEditTime: 2020-06-30 17:39:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -26,6 +26,10 @@ window.onload = function(){
     const character = ['w','a','n','g','h','u'];
     reverseString(character)
     console.log('反转字符串>'+character);
+
+    var firtstC = firstUniqChar('leetCode');
+    console.log('字符串中的第一个唯一字符'+firtstC);
+
 
 }
 
@@ -185,9 +189,32 @@ const reverseString = function(s) {
 
  /******************
   * 5.字符串中的第一个唯一字符
+  * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
   ******************/
-
-
+ 
+const firstUniqChar = function(s){
+    const hash = {}
+    for (let index = 0; index < s.length; index++) {
+        if(!hash[s[index]]){
+            hash[s[index]] = 1;
+        } else {
+            hash[s[index]] += 1;
+        }
+    }
+    for (let index = 0; index < s.length; index++) {
+        if (hash[s[index]] === 1) {
+            return index;
+        }
+    }
+    return -1;
+}
+/***
+  复杂度分析
+    空间复杂度: O(1)
+        因为变量只有 hash 和 i ，开辟空间大小不随输入的变量变化
+    时间复杂度: O(n) 
+        因为有两次遍历，且每次遍历都只有一层没有嵌套，所以遍历的次数只和入参字符串 s 的长 度线性正相关
+ */
 
 
 
