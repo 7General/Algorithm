@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-06-30 11:31:31
+ * @LastEditTime: 2020-06-30 11:32:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -14,8 +14,9 @@ window.onload = function(){
     // console.log(fib)
     // var fib2 = fiboIteration(3)
     // console.log(fib2)
+
     var reve = reverse(123);
-    console.log("--"+reve)
+    console.log("整数翻转结果"+reve)
 }
 
 
