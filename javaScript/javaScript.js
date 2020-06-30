@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-06-30 11:32:30
+ * @LastEditTime: 2020-06-30 15:13:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -17,6 +17,11 @@ window.onload = function(){
 
     var reve = reverse(123);
     console.log("整数翻转结果"+reve)
+
+    var anagramsort = isAnagramSort('abc','bca');
+    console.log('字母异位词'+anagramsort);
+
+    console.log('字母异位词count>'+isAnagramCount('abc','cba'));
 }
 
 
@@ -87,6 +92,56 @@ function reverse(x){
  *  空间复杂度: O(1)
    算法中只用到常数个变量，因此空间复杂度为 O(1)。
  */
+
+
+ 
+/*********************
+ * 3.有效的字母异位词
+ * 字母异位词指字母相同，但排列不同的字符串
+ *********************/
+
+/**
+ * @description: 有效的字母异位词(sort)
+ * @param {type} 
+ * @return: 
+ */
+function isAnagramSort(s,t) {
+    const sArr = s.split('');
+    const tArr = t.split('');
+    const sortFn = (a,b) => {
+        return a.charCodeAt() - b.charCodeAt();
+    }
+    sArr.sort(sortFn);
+    tArr.sort(sortFn);
+    return sArr.join('') === tArr.join('');
+}
+
+const isAnagramCount = (s,t) => {
+    if (s.length !== t.length) {
+        return false;
+    }
+    const hash = {}
+    for (const k of s) {
+        hash[k] = hash[k] || 0;
+        hash[k] += 1;
+    }
+
+    for (const k of t) {
+        if(!hash[k]){
+          return false;  
+        }
+        hash[k] -= 1;
+    }
+    return true;
+}
+/****
+ * 
+ * 时间复杂度: O(n)
+ * 算法中使用了2个单层循环，因此，时间复杂度为 O(n)。
+ * 空间复杂度: O(1)
+ * 申请的变量 hash 最大长度为 256，因为 Ascii 字符最多 256 种可能，因此，考虑为常量空 间，即 O(1)。
+ */
+
 
 
 
