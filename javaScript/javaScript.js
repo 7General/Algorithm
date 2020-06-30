@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-06-30 11:04:07
+ * @LastEditTime: 2020-06-30 11:28:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -14,8 +14,8 @@ window.onload = function(){
     // console.log(fib)
     // var fib2 = fiboIteration(3)
     // console.log(fib2)
-    var reve = reverse(1233);
-    console.log(reve)
+    var reve = reverse(123);
+    console.log("--"+reve)
 }
 
 
@@ -57,18 +57,18 @@ function fiboIteration(n) {
  */
 function reverse(x){
     // 获取相应数的绝对值
-    let int = Math.abs(x);
+    let rever = Math.abs(x);
     //极值
     const MAX = 2147483647;
     const MIN = -2147483648;
 
     let nums = 0;
-    while(int > 0){
+    while(rever !== 0){
         // 借鉴欧几里得算法，从 nums 的最后一位开始取值拼成新的数
-        mods = int % 10;
-        nums = mods * 10 + nums; 
+        mods = rever % 10;
+        nums = mods + nums * 10; 
         // 剔除掉被消费的部分
-        int = int / 10
+        rever = Math.floor(rever / 10)
     }
     // 异常值
     if (nums >= MAX || nums <= MIN) {
