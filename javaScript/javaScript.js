@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-01 15:34:36
+ * @LastEditTime: 2020-07-01 15:55:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -40,6 +40,11 @@ window.onload = function(){
     console.log('strstr>'+hasIndex);
     var hasIndexOther = strStrOther('wang','ng');
     console.log('strstrother>'+hasIndexOther);
+
+
+    var comArray = ['flower','flow','flight']
+    var comRes = longestCommonPrefix(comArray);
+    console.log('最长公共前缀>'+comRes);
 }
 
 
@@ -416,4 +421,46 @@ const isPalindromeArry = (s)=> {
 /*************************-7.实现strStr()-*********************************************/
  
 
+
+/*************************8.最长公共前缀*********************************************/
+/**********************
+ * 编写一个函数来查找字符串数组中的最长公共前缀。 
+ * 如果不存在公共前缀，返回空字符串 ""。
+ */
+/************************
+ * 方法一 递归迭代
+ * 思路
+ *  查找 n 个字符串的最长公共前缀，可以拆分成两步: 1. 查找前 n-1 个字符串的最长公共前缀 m 2. 查找 m 与最后一个字符串的公共前缀
+ *  因此，我们可以得到递归公式:
+ *  $longestCommonPrefix([S1, S2, ..., Sn]) = findCommPrefix(longestCommonPrefix([S1, S2, ..., Sn- 1]), Sn)$
+ *  我们只需要实现 findCommPrefix 方法，然后遍历数组即可。 
+ * 详解
+ *   1. 获取数组中第一个字符串，当做最长公共前缀保存到变量CommonPrefix
+ *   2. 从数组中取出下一个字符串，与当前的最长公共前缀CommonPrefix对比，得到新的最长公共
+ *      前缀存到 commonPrefix
+ *   3. 重复第 2 步遍历完整个字符串，最后得到的即使数组中所有字符串的最长公共前缀
+ */
+const longestCommonPrefix = function(strs) {
+    function findCommPrefix(a,b) {
+        let i = 0;
+        while(i < a.length && i < b.length && a.charAt(i) === b.charAt(i)){
+            i++;
+        }
+        return i > 0 ? a.substring(0,i) : '';
+    }
+    if(strs.length > 0) {
+        let commonPrefix = strs[0];
+        for (let index = 1; index < strs.length; index++) {
+            commonPrefix = findCommPrefix(commonPrefix,strs[index]);
+        }
+        return commonPrefix;
+    }
+    return '';
+}
+/****
+ * 复杂度分析
+ *  时间复杂度: O(n) 最坏的情况下，所有个字符串都是相同的。那么会将所有字符串的所有字符串都遍历比较一次 这样就会进行 n 次字符比较，其中 n 是输入数据中所有字符数量。 最好的情况下，所有的
+ *  字符串都不一样，那么每个字符串只会访问一次，复杂度是 n, n即数组长度。 
+ * 空间复杂度: O(1) ，除了保存当前公共前缀外无需其他存储空间。
+ */
 
