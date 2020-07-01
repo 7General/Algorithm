@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-06-30 17:39:51
+ * @LastEditTime: 2020-07-01 10:26:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -29,6 +29,12 @@ window.onload = function(){
 
     var firtstC = firstUniqChar('leetCode');
     console.log('字符串中的第一个唯一字符'+firtstC);
+
+    var paliStr = 'race a car';//'A man, a plan, a canal: Panama';
+    var  ispaliStr = isPalindrome(paliStr);
+
+    var ispali = isPalindromeArry(paliStr);
+    console.log('是否是回文字符串>'+ispaliStr);
 
 
 }
@@ -216,6 +222,69 @@ const firstUniqChar = function(s){
         因为有两次遍历，且每次遍历都只有一层没有嵌套，所以遍历的次数只和入参字符串 s 的长 度线性正相关
  */
 
+/***
+ * 6.验证回文串
+ * 给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+ */
+/*************************
+ * 方法一
+ * 思路
+ * 首先，去除字符串中的非字母和数字，再将字符串转换为数组，再对数组首尾一一比较，即可得出 结果。
+ * 详解
+ * 1. 将传入的字符串，利用 toLowerCase() 方法统一转化为小写，再利用正则表达式 /[ ^ A-Za-z0- 9]/g 在字符串中去除非字母和数字，最后将字符串转换为数组。
+ * 2. 转换数组后，利用循环一一比较元素，先比较第一个和最后一个，再比较第二个和倒数二个， 依次类推，若中间有不相等则不是回文串，反之，则是回文串。
+ *************************/
+/**
+ * @description: 验证回文串:方法一
+ * @param {type} 
+ * @return: 
+ */
+const isPalindrome = (s) => {
+    // 将传入的字符串,统一转化为小写,同时去除非字母和数字,在转换为数组
+    const arr = s.toLowerCase().replace(/[^A-Za-z0-9]/g,'').split('');
+    let i = 0;
+    let j = arr.length - 1;
+    // 循环比较开始
+    while(i < j){
+        if (arr[i] === arr[j]) {
+            i += 1;
+            j -= 1;
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+/*****
+ * 复杂度分析
+ * 时间复杂度: O(n) 该解法中 while 循环最多执行 n/2 次，即回文时，因此，时间复杂度为 O(n)。
+ * 空间复杂度: O(n) 该解法中，申请了 1 个大小为 n 的数组空间，因此，空间复杂度为 O(n)。
+ */
 
+
+/*************************
+ * 方法二
+ * 思路
+ * 首先，去除字符串中的非字母和数字，然后，利用数组将字符串翻转，再和原字符串进行比较，即 可得到结果。
+ * 详解
+ * 1. 将传入的字符串，利用 toLowerCase() 方法统一转化为小写，再利用正则表达式 /[ ^ A-Za-z0- 9]/g 在字符串中去除非字母和数字，得到字符串 arr。
+ * 2. 将字符串 arr 转换为数组，利用数组的方法反转数组，再将数组转为字符串 newArr。
+ *************************/
+const isPalindromeArry = (s)=> {
+    // 方便比较,统一转化为小写,并去除非字母和数字
+    const arr = s.toLowerCase().replace(/[^A-Za-z0-9]/g,'');
+    // 将新字符串转换为数组,利用数组的方法获得反转的字符串
+    const newArr = arr.split('').reverse().join('');
+    // 将2个字符进行比较得出结果
+    return arr === newArr;
+}
+/***
+ * 复杂度分析
+ * 时间复杂度: O(n)
+ * 该解法中， toLowerCase() , replace() , split() , reverse() , join() 的时间复杂度都为
+   O(n)，且都在独立的循环中执行，因此，总的时间复杂度依然为 O(n)。
+ * 空间复杂度: O(n)
+ * 该解法中，申请了 1 个大小为 n 的字符串和 1 个大小为 n 的数组空间，因此，空间复杂度 为 O(n∗2) ，即 O(n)。
+*/
 
 
