@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-01 10:26:37
+ * @LastEditTime: 2020-07-01 15:34:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -36,7 +36,10 @@ window.onload = function(){
     var ispali = isPalindromeArry(paliStr);
     console.log('是否是回文字符串>'+ispaliStr);
 
-
+    var hasIndex = strStr('wang','ng');
+    console.log('strstr>'+hasIndex);
+    var hasIndexOther = strStrOther('wang','ng');
+    console.log('strstrother>'+hasIndexOther);
 }
 
 
@@ -286,5 +289,131 @@ const isPalindromeArry = (s)=> {
  * 空间复杂度: O(n)
  * 该解法中，申请了 1 个大小为 n 的字符串和 1 个大小为 n 的数组空间，因此，空间复杂度 为 O(n∗2) ，即 O(n)。
 */
+
+
+/*************************7.实现strStr()*********************************************/
+ /******************
+  * 7.实现strStr()
+  * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的
+  * 第一个位置 (从0开始)。如果不存在，则返回 -1。
+  * 以下称 haystack 字符串为匹配字符串，needle 字符串为查找字符串
+  * ***********************************
+  * 
+  * 说明:
+  * 当 needle 是空字符串时，我们应当返回什么值呢?这是一个在面试中很好的问题。
+  * 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
+  * 
+  * **********************************
+  ******************/
+
+ /************************
+  * 方法一 遍历截取字符串对比 
+  * 思路
+  * 截取字符串对比的思路很简单，从匹配字符串 haystack 中截取出与需查找字符串 needle 长度相等 的内容后，对比截取的内容与匹配字符串是否相等，如果相等返回开始截取的下标。
+  * 详解
+  * 首先处理几个特殊场景
+  *   1. needle 的长度为0，直接返回0
+  *   2. needle 的字符串长度大于 haystack，肯定不匹配
+  *   3. needle 的字符串长度等于 haystack，判断是否相等，相等则匹配否则不匹配
+  * 剩下的就是 needle 字符串长度小于 haystack 的情况，遍历 haystack
+  *   此处需要注意的是，当 haystack 剩余字符串长度小于 needle 长度时，肯定是不相等，无需再次比较。
+  * 在遍历中判断 将要截取的字符串的首位与 needle 字符串的首位是否相同 ，如果不相同也就不需要 后续截取、比较，跳过该次循环
+  */
+ const strStr = function(haystack,needle) {
+     const hayLen = haystack.length;
+     const nedLen = needle.length;
+     if (!needle) {
+         return 0;
+     }
+     if (nedLen > hayLen) {
+         return -1;
+     } else if(nedLen === hayLen){
+         return haystack === needle ? 0 : -1;
+     } else {
+         for (let index = 0; index <= hayLen - nedLen; index++) {
+             if(haystack[index] !== needle[0]){
+                 continue;
+             }
+             // 截取从首位匹配对的字母开始，截图长度为匹配开始的索引+nedLen
+             if(haystack.substring(index,index+nedLen) === needle){
+                 return index;
+             }
+         }
+     }
+     return -1;
+ }
+ /****
+  * 复杂度分析:
+  * 时间复杂度: O(n)
+    遍历长度可能从1到 n−1，假设不同长度出现的概率均等，那么时间复杂度为
+    (n − 1 + 1)/2 时间复杂度即为 O(n) 。 
+  * 空间复杂度: O(1)
+    使用 2 个额外存储空间。
+  */
+
+
+
+ /************************
+  * 方法二 双层循环对比字符
+  * 思路
+  * 循环对比字符串思路也很简单，从匹配字符串 haystack 的不同位置开始遍历，判断其中是否含有 查找字符串 needle。
+  *   如:haystack 为 hello， needle 为 ll，依次判断 he、el、ll、lo是否完全和 ll 相等，相等即返回对 应字符串在 haystack 中的下标。
+  * 详解
+  *   首先处理特殊边际情况，这块与第一种方法相同，就不再赘述。
+  * 以下为算法步骤:
+  *   1. 设置最外层循环，遍历次数为 0 - haystack长度减去 needle 的长度。剩余字符串长度小于 needle 长度时，肯定不匹配
+  *   2. 判断匹配字符串 haystack 中该次循环使用到的字符串首尾字母是否与查找字符串 needle 首尾 字母相同。
+  *      不相等，直接跳过继续遍历。 
+  *      相等，执行第三步。
+     
+  *   3. 判断查找字符串 needle 的长度
+  *      长度为 1，表明匹配成功，直接返回当前长字符串下标即可 
+  *      长度大于 1，执行第四步
+  *   4. 遍历对比字符串，循环判断匹配字符串 haystack 不同位置的字符是否与匹配字符串 needle 对 应位置的字符相等
+  *      不相等时，跳出循环，进行下次循环。 
+  *      到最后一位还未跳出循环表明完全匹配，返回当前遍历次数(即查找字符串在匹配字符串 中首次出现的位置)
+  */
+ const strStrOther = function(haystack,needle) {
+    const hayLen = haystack.length;
+    const nedLen = needle.length;
+    if (!needle) {
+        return 0;
+    }
+    if (nedLen > hayLen) {
+        return -1;
+    } else if(nedLen === hayLen){
+        return haystack === needle ? 0 : -1;
+    } else {
+        for (let hasIndex = 0; hasIndex <= hayLen - nedLen; hasIndex++) {
+            if(haystack[hasIndex] === needle[0] && 
+               haystack[hasIndex + nedLen - 1] === needle[nedLen - 1]){
+                if(nedLen === 1){
+                    return hasIndex;
+                }
+                // 开始比较第一位相同后的每一位组合
+                for (let nedIndex = 1; nedIndex < nedLen; nedIndex++) {
+                    if(haystack[hasIndex + nedIndex] !== needle[nedIndex]){
+                        break;
+                    }
+                    if(nedIndex == nedLen - 1){
+                        return hasIndex;
+                    }
+                }
+            }
+        }
+    }
+    return -1;
+}
+/*****************
+ * 复杂度分析
+ 
+ * 时间复杂度: O(n2)
+    假设长字符串长度为无限大的 n，那么对比字符串长度最大为 n−1，那么就需要对比
+    (n−1)∗n=n2 −n 次。当 n 趋近无限大时，n2 要远远大于 n，因此忽略减数 n， 那么时间复杂度为 O(n2)
+ * 空间复杂度: O(1)
+    使用 2 个额外存储空间
+ */
+/*************************-7.实现strStr()-*********************************************/
+ 
 
 
