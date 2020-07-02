@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-01 15:55:32
+ * @LastEditTime: 2020-07-02 14:57:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -23,6 +23,8 @@ window.onload = function(){
 
     console.log('字母异位词count>'+isAnagramCount('abc','cba'));
 
+    // 缺失【字符串转换整数】
+    // 缺失【报数】
     const character = ['w','a','n','g','h','u'];
     reverseString(character)
     console.log('反转字符串>'+character);
@@ -45,6 +47,9 @@ window.onload = function(){
     var comArray = ['flower','flow','flight']
     var comRes = longestCommonPrefix(comArray);
     console.log('最长公共前缀>'+comRes);
+
+    var longestStr = longestPalindrome('babad');
+    console.log('最长回文子串'+longestStr);
 }
 
 
@@ -463,4 +468,68 @@ const longestCommonPrefix = function(strs) {
  *  字符串都不一样，那么每个字符串只会访问一次，复杂度是 n, n即数组长度。 
  * 空间复杂度: O(1) ，除了保存当前公共前缀外无需其他存储空间。
  */
+
+/*************************9.最长回文子串*********************************************/
+/*************************
+ * 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
+ */
+/*
+方法一 动态规划法
+思路
+动态规划的思想，是希望把问题划分成相关联的子问题;
+然后从最基本的子问题出发来推导较大的 子问题，直到所有的子问题都解决。
+
+根据字符串的长度，建立一个矩阵 dp, 通过不同情况的判断条件，
+通过 dp[i][j] 表示 s[i] 至 s[j] 所代表的子串是否是回文子串。
+
+详解
+1. 建立矩阵 dp
+2. 循环遍历字符串，取得不同长度的子串
+3. 不同长度的子串，根据不同的条件进行判断是否为回文子串
+    (1)长度为 1，一定回文
+    (2)长度为 2 或 3，判断首尾是否相同:s[i] === s[j]
+    (3)长度 > 3, 首尾字符相同，且去掉首尾之后的子串仍为回文:(s[i] === s[j]) && dp[i + 1][j - 1]
+4. 取得长度最长的回文子串
+*/
+ 
+const longestPalindrome = function (s) {
+    const dp = [];
+    for (let index = 0; index < s.length; index++) {
+        dp[index] = [];
+    }
+    let max = -1;
+    let str = '';
+    for (let l = 0; l < s.length; l++) {
+        // l 为所遍历的子串长度 - 1，即左下标的长度
+        for (let i = 0; i + l < s.length; i++) {
+            const j = i+l;
+            if(l==0){
+                dp[i][j] = true;
+            } else if(l <= 2){
+                // 长度为2或3时，首尾相同则是回文子串
+                if(s[i] === s[j]){
+                    dp[i][j] = true;
+                } else {
+                    dp[i][j] = false;
+                }
+            } else {
+                // 长度大于3时，若首尾字符相同且去掉之后的子串仍未回文，则为回文子串
+                if ((s[i] === s[j]) && dp[i+1][j-1]) {
+                    dp[i][j] = true;
+                } else {
+                    dp[i][j] = false;
+                }
+            }
+            var tt = dp[i][j];
+            console.log('dp->'+dp+tt);
+            if (dp[i][j] && l > max) {
+                max = l;
+                str = s.substring(i,j+1);
+            }
+        }
+    }
+    return str;
+}
+
+
 
