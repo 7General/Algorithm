@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-02 14:57:43
+ * @LastEditTime: 2020-07-02 15:55:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -530,6 +530,16 @@ const longestPalindrome = function (s) {
     }
     return str;
 }
+/***
+ * 复杂度分析
+ *   时间复杂度: O(n2) 遍历次数取决于字符串的长度，因为是两层循环嵌套，所以遍历的最大 次数为 n2 。
+ *   空间复杂度: O(n) 需要申请空间为字符串长度 n 的数组来记录不同长度子串的情况。
+ */
+
+ /***
+  * 外层循环从0开始一直到末尾
+  * 内存循环，内存循环+外层循环<子串串长度，然后采取对比政策
+  */
 
 
 
