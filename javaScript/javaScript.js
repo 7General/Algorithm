@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-02 15:55:52
+ * @LastEditTime: 2020-07-03 10:53:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -50,6 +50,14 @@ window.onload = function(){
 
     var longestStr = longestPalindrome('babad');
     console.log('最长回文子串'+longestStr);
+
+    var rman = romanToIntTwo('VC');
+    console.log('罗马数字转整数>'+rman);
+    var romanOnew = romanToIntOne('LX');
+    console.log('罗马数字转整数ONE>'+romanOnew);
+
+    var fizzb = fizzBuzz(10);
+    console.log('fizzBuzz>'+fizzb); 
 }
 
 
@@ -520,8 +528,6 @@ const longestPalindrome = function (s) {
                     dp[i][j] = false;
                 }
             }
-            var tt = dp[i][j];
-            console.log('dp->'+dp+tt);
             if (dp[i][j] && l > max) {
                 max = l;
                 str = s.substring(i,j+1);
@@ -541,5 +547,130 @@ const longestPalindrome = function (s) {
   * 内存循环，内存循环+外层循环<子串串长度，然后采取对比政策
   */
 
+/*************************10.罗马数字转整数*********************************************/
+/***
+ * 罗马数字包含以下七种字符:I， V， X， L，C，D 和 M。 
+ * 分别对应的数值为:1 ，5，10，50，100，500，1000 。
+ * 例如， 罗马数字 3 写做 III，即为三个并列的 1。12 写做 XII，即为 X+II。 26 写做 XXVII, 即为 XX+V+I。
+ * 通常情况下，不能出现超过连续三个相同的罗马数字并且罗马数字中小的数字在大的数字的右边。 
+ * 但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小 数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况:
+ *
+ * 1 I 可以放在 V(5) 和 X(10) 的左边，来表示 4 和 9。
+ * 2 X 可以放在 L(50) 和 C(100) 的左边，来表示 40 和90。
+ * 3 C 可以放在 D(500) 和 M(1000) 的左边，来表示 400 和 900。
+ * 
+ * 给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。
+ */
+/***
+ * switch + includes 法
+ * 思路
+ * 先遍历所有罗马数字进行累加，对于特殊数字的循环，比如:5+1=6，而实际是 4，相差 2，
+ * 所以 需要在结果上减去 2，以此类推。
+ */
+const romanToIntTwo = function(num){
+    let result = 0;
+    for (const c of num) {
+        switch (c) {
+            case 'I':
+                result += 1;
+                break;
+            case 'V':
+                result += 5;
+                break;
+            case 'X':
+                result += 10;
+                break;
+            case 'L':
+                result += 50;
+                break;
+            case 'C':
+                result += 100;
+                break;
+            case 'D':
+                result += 500;
+                break;
+            case 'M':
+                result += 1000;
+                break;
+        }
+    }
+    //减去特殊组合
+    if(num.includes('IV') || num.includes('IX')) result -= 2;
+    if(num.includes('XL') || num.includes('XC')) result -= 20;
+    if(num.includes('CD') || num.includes('CM')) result -= 200;
+    return result;
+}
+const romanToIntOne = function(num) {
+    const roman = {
+        IV:4,
+        IX:9,
+        XL:40,
+        XC:90,
+        CD:400,
+        CM:900
+    }
+    const list = {
+        I:1,
+        V:5,
+        X:10,
+        L:50,
+        C:100,
+        D:500,
+        M:1000
+    }
+    let result = 0;
+    // 先遍历特俗值
+    for (const key in roman) {
+        // 检测输入值是否含有特殊值
+        if (num.includes(key)) {
+            // 用正则去掉特殊值
+            const reg = new RegExp(key);
+            num = num.replace(reg,'');
+            result += roman[key];
+        }
+    }
+    for (const i of num) {
+        // 累加正常罗马数
+        result += list[i];
+    }
+    return result;
+}
+
+/*************************11.（Fizz Buzz）*********************************************/
+/***
+ * 写一个程序，输出从 1 到 n 数字的字符串表示。
+ * 1. 如果 n 是 3 的倍数，输出“Fizz”;
+ * 2. 如果 n 是 5 的倍数，输出“Buzz”;
+ * 3. 如果 n 同时是 3 和 5 的倍数，输出 “FizzBuzz”。
+ */
+/***
+ * 方法一 遍历
+ * 思路
+ * 很简单，只需要判断 1 - n 的每个数字是否能被 3、5、15 整除，输出对应的字符串即可。 详解
+ * 1. 第一步，申请一个数组 arr，用于存放每个数字转换后字符串。
+ * 2. 第二步，循环遍历 1-n 的每个数字。如果该数字能被15整除(即取余为0)，则该数字对应的 字符串为 "FizzBuzz";如果能被3整除，则为 "Fizz";如果能被5整除，则为 "Buzz";否则，为 该数字即可。
+ */
+const fizzBuzz = function(n) {
+    const arr = [];
+    for (let i = 1; i <= n; i++) {
+        if(i % 15 === 0){
+            arr.push('FizzBuzz');
+        } else if(i % 3 === 0){
+            arr.push('Fizee');
+        } else if(i % 5 === 0) {
+            arr.push('Buzz');
+        }else {
+            arr.push(i.toString());
+        }
+    }
+    return arr;
+}
+/****************************************
+ * 复杂度分析
+ * 时间复杂度: O(n)
+ *  上述解法中，每个数字都被遍历了一次，时间复杂度跟数字的个数 n 线性相关，因此为O(n)。
+ * 空间复杂度: O(n)
+ *  上述解法中，申请了大小为 n 的数组空间，空间复杂度跟数字的个数 n 线性相关，因此为O(n)。
+ */
 
 
