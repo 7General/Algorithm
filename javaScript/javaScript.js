@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-03 10:53:13
+ * @LastEditTime: 2020-07-03 17:30:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -58,6 +58,9 @@ window.onload = function(){
 
     var fizzb = fizzBuzz(10);
     console.log('fizzBuzz>'+fizzb); 
+
+    var countPrim = countPrimes(14);
+    console.log('返回质数数量'+countPrim);
 }
 
 
@@ -673,4 +676,44 @@ const fizzBuzz = function(n) {
  *  上述解法中，申请了大小为 n 的数组空间，空间复杂度跟数字的个数 n 线性相关，因此为O(n)。
  */
 
-
+/*************************12.计算质数*********************************************/
+/********************************
+ * 统计所有小于非负整数 n 的质数的数量。
+ * 示例
+ * 输入:10
+ * 输出:4
+ * 解释: 小于 10 的质数一共有 4 个, 它们是 2,3,5,7 。
+ */
+const isPrime = function(n){
+    // 判断是否为质数
+    // if(n===2 || n===3){
+    //     return true;
+    // }
+    // if(n % 6 !== 1 && n % 6 !== 5){
+    //     return false;
+    // }
+    // const sqrtn = Math.sqrt(n);
+    // for (let index = 0; index <= sqrtn; index += 2) {
+    //     if (n % index === 0) {
+    //         return false;
+    //     }
+    // }
+    
+    for (let index = 2; index <= n-1; index++) {
+        if(n%index === 0){
+            return false;
+        }
+    }
+    return true;
+}
+// 返回质数数量
+const countPrimes = function(n){
+    let count = 0;
+    for (let index = 2; index < n; index++) {
+        if(isPrime(index)){
+            console.log('质数>'+index);
+            count++;
+        } 
+    }
+    return count;
+}
