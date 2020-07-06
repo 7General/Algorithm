@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-06 15:58:15
+ * @LastEditTime: 2020-07-06 16:08:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -72,6 +72,9 @@ window.onload = function(){
 
     var isHap = isHappy(9);
     console.log('快乐数>'+isHap);
+
+    var isHapOther = isHappyOther(9);
+    console.log('快乐数other>'+isHapOther);
 }
 /***
  * 1. 斐波那契数列
@@ -887,11 +890,35 @@ const fn = function(n,once){
     }
 }
   /**
-   * @description: 
+   * @description: 方法一：快乐数
    * @param {number} 
    * @return: {boolean}
    */
   const isHappy = function(n){
       const once = {};
       return fn(n,once);
+  }
+
+  /**
+   * @description: 方法二：快乐数
+   * @param {number} 
+   * @return: {boolean}
+   */
+  const isHappyOther = function(n){
+      if(n===1){
+          return false;
+      }
+      if (n===4) {
+          return false;
+      }
+      let result = 0;
+      const list = n.toString().split('');
+      for (let index = 0; index < list.length; index++) {
+          result += Math.pow(parseInt(list[index],10),2);
+      }
+      if(result === 1){
+          return true;
+      } else {
+        return isHappyOther(result);
+      }
   }
