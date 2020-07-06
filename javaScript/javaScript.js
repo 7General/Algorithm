@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-06 11:29:42
+ * @LastEditTime: 2020-07-06 15:00:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -66,7 +66,26 @@ window.onload = function(){
     console.log('3的幂>'+isPowerThree);
     var isPowerThreeOther = isPowerOfThreeOther(27);
     console.log('3的幂other>'+isPowerThreeOther);
+
+    var titleVar = titleToNumber('A');
+    console.log('Excel表列序号>'+titleVar);
 }
+/***
+ * 1. 斐波那契数列
+ * 2. 整数翻转
+ * 3. 字母异位词
+ * 4. 反转字符串
+ * 5. 字符串中的第一个唯一字符
+ * 6. 验证回文串
+ * 7. strStr
+ * 8. 最长公共前缀
+ * 9. 最长回文子串
+ * 10. 罗马数字转整数
+ * 11. fizzBuzz
+ * 12. 返回质数数量
+ * 13. 3的幂
+ * 14. [Excel表列序号]
+ */
 
 
 /**
@@ -762,3 +781,48 @@ const isPowerOfThreeOther = function(n){
     }
     return false;
 }
+/*************************14.[Excel表列序号]*********************************************/
+/****
+ * 思路
+ * 因为有26个字母，相当于 26 进制转 10 进制 
+ * 详解
+ * 1. 26 进制 转化 10 进制公式，ans = ans * 26 + num 
+ * 2. 比如:AB = 126 +2 = 28，ZY=2626+25 = 701
+ * 
+ * 示例
+ * A->1
+ * B->2
+ * C->3
+ * ...
+ * Z->26
+ * AA->27
+ * AB->28
+ * 输入: "A",
+ * 输出:1
+ * 输入: "AB",
+ * 输出: 28
+ * 
+ */
+const titleToNumber = function(s){
+    const arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    const len = s.length;
+    let sum = 0;
+    for (let index = 0; index < len; index++) {
+        const tempLeft = arr.indexOf(s[index]) + 1;
+        const tempRight = Math.pow(26,len - 1 - index);
+        sum = tempLeft * tempRight + sum;
+    }
+    return sum;
+}
+/****
+ * ps
+ * 进制转换的问题，26的N次方
+ */
+/****
+ * 复杂度分析
+ * 时间复杂度: O(n) 对于每个元素，通过一次遍历数组的其余部分来寻找它所对应的目标元素，这将耗费 O(n)
+   的时间。 
+ * 空间复杂度: O(1)
+ * 由于算法中临时变量得个数与循环次数无关，所以空间复杂度为 O(1)
+
+ */
