@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-06 15:00:41
+ * @LastEditTime: 2020-07-06 15:58:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -69,6 +69,9 @@ window.onload = function(){
 
     var titleVar = titleToNumber('A');
     console.log('Excel表列序号>'+titleVar);
+
+    var isHap = isHappy(9);
+    console.log('快乐数>'+isHap);
 }
 /***
  * 1. 斐波那契数列
@@ -85,6 +88,7 @@ window.onload = function(){
  * 12. 返回质数数量
  * 13. 3的幂
  * 14. [Excel表列序号]
+ * 15. [快乐数]
  */
 
 
@@ -826,3 +830,68 @@ const titleToNumber = function(s){
  * 由于算法中临时变量得个数与循环次数无关，所以空间复杂度为 O(1)
 
  */
+
+ /*************************15.[快乐数]*********************************************/
+ /****
+  * 编写一个算法来判断一个数是不是“快乐数”。
+  * 
+  * 一个“快乐数”定义为:对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后 
+  * 重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个 
+  * 数就是快乐数。
+  * 示例
+  *  输入:19
+  *  输出: true
+  * 解释:
+  *  1^2+9^2=82
+  *  8^2+2^2=68
+  *  6^2+8^2=100
+  *  1^2+0^2+0^2=1
+  * 
+  * 
+  * 方法一 尾递归
+  * 思路
+  * 
+  * 根据示例来看，函数的执行过程是一个可递归的过程，首先，我们先写一个递归函数来模拟这个执 
+  * 行过程，然后按照示例 输入 19 来验证编写函数正确性， 然后 输入 任意数字(比方说 99999)， 
+  * 这时，会发现报内存溢出的错误，那这道题就变成了如何解决堆栈溢出的问题: 首先，我们要考虑 
+  * 的是，为什么会内存溢出?从题目中，我们可以看到"也可能是无限循环但始终变不到 1"，是"无限 
+  * 循环"导致内存溢出， 那我们就应该想一个方式去终结这个"死循环"。首先我们要找到这个循环的规 
+  * 律，怎么找?把递归内容打印(console.log)出来。这时，你会发现一个有规律的死循环。 那 
+  * 么，我们只要用一个变量(once)记录已经输入过的值，一旦出现第二次相同输入，就终止递归， 
+  * 并返回"非快乐数"的结果(false)。
+  * 
+  * 
+  * 详解
+  *  1. 申请一个变量来存放已经执行过函数的"输入",如果出现重复输入，则说明进入了死循环，从"示 例"来看:{19:true,82:true,100:true}
+  *  2. 将输入(19)转化为数组([1,9])
+  *  3. 将[1,9]进行平方和运算($1^2 + 9^2 = 82$)
+  *  4. 判断平方和的结果是不是等于 1，若果是，则为"快乐数",否，则继续执行 fn 函数
+  *  5. 直到平方和等于 1 或者判定为死循环。  
+  */
+
+const fn = function(n,once){
+    // 怎么就出现了相同的数字之后就返回false了
+    if(once[n]){
+       return false;
+    }
+    const list = n.toString().split('');
+    let result = 0;
+    once[n] = true;
+    for (let index = 0; index < list.length; index++) {
+        result += Math.pow(parseInt(list[index],10),2);
+    }
+    if(result === 1){
+        return true;
+    }else{
+        return fn(result,once);
+    }
+}
+  /**
+   * @description: 
+   * @param {number} 
+   * @return: {boolean}
+   */
+  const isHappy = function(n){
+      const once = {};
+      return fn(n,once);
+  }
