@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-03 17:30:57
+ * @LastEditTime: 2020-07-06 11:29:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -61,6 +61,11 @@ window.onload = function(){
 
     var countPrim = countPrimes(14);
     console.log('返回质数数量'+countPrim);
+
+    var isPowerThree = isPowerOfThree(27);
+    console.log('3的幂>'+isPowerThree);
+    var isPowerThreeOther = isPowerOfThreeOther(27);
+    console.log('3的幂other>'+isPowerThreeOther);
 }
 
 
@@ -716,4 +721,44 @@ const countPrimes = function(n){
         } 
     }
     return count;
+}
+/*************************13.[3的幂]*********************************************/
+/***
+ * 给定一个整数，写一个函数来判断它是否是 3 的幂次方。
+ * 题目分析
+ * 3 的幂，顾名思义，需要判断当前数字是否可以一直被 3 整除 
+ * 特殊情况:如果 n === 1 ，即 3 的 0 次幂的情况，应输出 true
+ * 
+ * 
+ * 方法一 循环求解 思路
+ * 基本想法，可以利用循环解决。排除特殊情况后，用待确定的数字 n ，循环除以 3，看是否能被 3 整除。
+ * 详解
+ *  1、判断特殊情况，若待定值 n 小于 1 则直接返回 false
+ *  2、循环判断待定值 n 是否可以被 3 整除
+ *  3、若不可以被 3 整除则返回 false ，若可以则将该数字除以 3，直至循环结束 4、其余情况则返回 true
+ */
+const isPowerOfThree = function(n){
+    if(n < 1) return false;
+    while(n>1){
+        // 如果该数字不能被 3 整除，则直接输出 false
+        if(n%3 !== 0){
+            return false;
+        } else {
+            n = n / 3;
+        }
+    }
+    return true;
+}
+/**
+ * @description: 递归方式
+ * @param {type} 
+ * @return: 
+ */
+const isPowerOfThreeOther = function(n){
+    if(n === 1) return true;
+    if(n < 0) return false;
+    if(n%3 === 0) {
+        return isPowerOfThreeOther(n / 3);
+    }
+    return false;
 }
