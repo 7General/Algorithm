@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-29 10:37:40
- * @LastEditTime: 2020-07-06 16:08:45
+ * @LastEditTime: 2020-07-06 16:14:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
@@ -70,10 +70,10 @@ window.onload = function(){
     var titleVar = titleToNumber('A');
     console.log('Excel表列序号>'+titleVar);
 
-    var isHap = isHappy(9);
+    var isHap = isHappy(1);
     console.log('快乐数>'+isHap);
 
-    var isHapOther = isHappyOther(9);
+    var isHapOther = isHappyOther(1);
     console.log('快乐数other>'+isHapOther);
 }
 /***
@@ -903,10 +903,19 @@ const fn = function(n,once){
    * @description: 方法二：快乐数
    * @param {number} 
    * @return: {boolean}
+   * 
+   * 
+   * 
+   * 1. 已知非快乐数[4,16,37,58,89,145,42,20]
+   * 2. 已知快乐数:1
+   * 3. 将输入(19)转化为数组([1,9])
+   * 4. 将[1,9]进行平方和运算(1^2 + 9^2 = 82)
+   * 5. 判断平方和的结果是不是等于 1，如果是，则为"快乐数",否，则继续执行 fn 函数
+   * 6. 直到平方和等于 1 或者判定为非快乐数。
    */
   const isHappyOther = function(n){
       if(n===1){
-          return false;
+          return true;
       }
       if (n===4) {
           return false;
