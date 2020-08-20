@@ -22,7 +22,7 @@ window.onload = function () {
     plusOne(digs)
     console.log(digs)
 
-    var moveZ = [0,1,0,3,0];
+    var moveZ = [0, 1, 0, 3, 0];
     moveZeroes(moveZ)
     console.log(moveZ)
 
@@ -304,4 +304,48 @@ const moveZeroes = function (nums) {
             j++;
         }
     }
+}
+
+/*************************6.两个数组的交集*********************************************/
+/****
+ * 给定两个数组，计算数组交集。
+ * 1. 输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。 2. 我们可以不考虑输出结果的顺序。
+ * 示例
+
+ * 1 输入: nums1 = [1,2,2,1], nums2 = [2,2]
+ * 2 输出: [2,2]
+ *
+ * 1 输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+ * 2 输出: [4,9]
+ * 
+ * 方法一 模拟哈希
+ * 
+ * 思路
+ * 遍历第一个数组，将第一个数组的值、该值出现的次数，以(key:value)的形式存储下来，接着遍历 第二个数组，判断是否在(key:value)中存在，存在则 value 减去 1，继续。
+ * 详解
+ * 1. 定义模拟哈希的对象 hashObject、定义 result 数组存放最终符合条件的结果;
+ * 2. for 循环遍历第一个数组，将数组中每个值作为 key、出现次数作为 value 存到 hashObject 对
+    象中，第一次出现 value 为 1，再次出现 value 加 1;
+ * 3. for 循环遍历第二个数组，判断第二个数组中每个值是否在 hashObject 中存在，即在
+   hashObject 作为 key 对应的 value 为 1 或者大于 1，如果存在将该值 push 到 result 数组中，
+   并将该值对应的 value 减去 1;
+ * 4. 返回 result 即可;
+ */
+const intersect = function(nums1,nums2) {
+    const hashObject = {}
+    for (let i = 0; i < nums1.length; i++) {
+        if(hashObject[nums1[i]]) {
+            hashObject[nums1[i]] += 1;
+        } else {
+            hashObject[nums1[i]] = 1;
+        }
+    }
+    const result = [];
+    for (let j = 0; j < nums2.length; j++) {
+        if(hashObject[nums2[j]]) {
+            result.push(nums2[j])
+            hashObject[nums2[j]] -= 1;
+        }
+    }
+    return result;
 }
