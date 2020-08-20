@@ -17,6 +17,10 @@ window.onload = function(){
     var dupa = [1,1,2,2,3]
     removeDuplicates(dupa)
     console.log(dupa)
+
+    var digs = [9,8]
+    plusOne(digs)
+    console.log(digs)
     
 }
 
@@ -128,3 +132,42 @@ const removeDuplicatesOther = function(nums) {
  * 空间复杂度: O(1)
  */
 
+/*************************3.加一*********************************************/
+/**给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。 
+ * 最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。 
+ * 你可以假设除了整数 0 之外，这个整数不会以零开头。
+ * 
+ * 1 输入: [1,2,3]
+ * 2 输出: [1,2,4]
+ * 3 解释: 输入数组表示数字 123。
+ * 
+ * 
+ * 进位相加
+ * 思路 
+ * 我们可以模拟加法的操作
+ * 详解
+ * 在实际情况中，加一有且只有以下两种情况:
+    9 加一进位 
+    其他数字加一
+ * 先把个位的数加一，如果没有进位就直接推出循环。
+ * 如果进位了，再把十位的数加一，个位数设置为0，如此循环，，直到判断没有再进位就退出循环 返回结果。
+ * */
+const plusOne = function(digits) {
+    // 从末尾开始
+    for (let index = digits.length - 1; index >= 0; index--) {
+        digits[index]++;
+        digits[index] = digits[index] % 10;
+        // 不等于0，直接返回，说明没有进位情况
+        if(digits[index] !== 0) {
+            return digits;
+        }
+    }
+    digits.splice(0,0,1);
+    return digits;
+}
+/***
+ * 复杂度分析
+ * 时间复杂度: O(n) 复杂度与输入数组的长度线性相关，复杂度为 O(n) 
+ * 空间复杂度: O(1)
+ * 没有申请额外空间，复杂度为 O(1)
+ */
