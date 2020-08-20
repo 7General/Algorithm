@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function () {
     console.log('数组')
     /****
      * 操作数组
@@ -10,18 +10,18 @@ window.onload = function(){
      * push 和 pop 是作用于数组尾部的方法，
      * 而 shift 和 unshift 是作用于数组头部的方法
      */
-    var nums = [1,2,3,4,5,6]
-    roate(nums,2)
+    var nums = [1, 2, 3, 4, 5, 6]
+    roate(nums, 2)
     console.log(nums)
 
-    var dupa = [1,1,2,2,3]
+    var dupa = [1, 1, 2, 2, 3]
     removeDuplicates(dupa)
     console.log(dupa)
 
-    var digs = [9,8]
+    var digs = [9, 8]
     plusOne(digs)
     console.log(digs)
-    
+
 }
 
 /*************************1.旋转数组*********************************************/
@@ -36,7 +36,7 @@ window.onload = function(){
  * 2. 通过数组的 和 方法实现旋转，循环执行 k 次。
  */
 
-const roate = function (nums,k){
+const roate = function (nums, k) {
     const l = nums.length;
     k = k % l;
     for (let index = 0; index < k; index++) {
@@ -74,12 +74,12 @@ const roate = function (nums,k){
  * 4. 待遍历结束时，返回数组的新长度。
  * 代码
 */
-const removeDuplicates = function(nums) {
+const removeDuplicates = function (nums) {
     // 遍历数组
     for (let index = 1; index < nums.length; index++) {
         // 若该元素的相邻项与之相同，则删除该元素
         if (nums[index - 1] === nums[index]) {
-            nums.splice(index-1,1);
+            nums.splice(index - 1, 1);
             // 因删除该元素后，数组长度会减一，故index也需要减一
             index--;
         }
@@ -99,32 +99,32 @@ const removeDuplicates = function(nums) {
  */
 
 
- /***
-  * 方法二 思路
-  * 我们用 count 来记录不重复的下标数量，第一个数必定不是重复的，即 nums[0] 肯定是不重复的， 所以从第二项(即 nums[1])开始，遍历数组，判断该下标的值跟不重复的数组最后一个元素 nums[count] 是否相同，如果不相同，将该元素值赋值给 nums[count + 1] ，然后 count++，继续遍 历。待遍历结束时，我们可以通过 count 数量来判断不重复元素个数，因为 count 是从 0 开始的， 故返回的新数组的长度为 count + 1。
-  * 比如原数组为 [0,0,1,1,1,2,2,3,4]，经过遍历会变成类似 [0,1,2,3,4,x,x,x,x] 的结构，此时 count = 4，返 回新数组长度 count + 1 = 5。
-  * 详解
-  * 1. 创建字段 count，用来记录不重复的下标数量，初始值为 0;
-  * 2. 因数组的第一个元素(即 nums[count = 0])必定是不重复的，故从数组第二项开始(即
-  * nums[1])开始，遍历数组里的元素;
-  * 
-  * 3. 判断数组当前元素是否与 nums[count] 相等，若不同，得知当前元素并未重复，将该元素值赋
-  * 值给 nums[count + 1] ，然后 count++，继续遍历;
-  * 
-  * 4. 待遍历结束，我们可以通过 count 数量来判断不重复元素个数，因为 count 是从 0 开始计数
-  * 的，故返回的新数组的长度为 count + 1。
-  */
-const removeDuplicatesOther = function(nums) {
+/***
+ * 方法二 思路
+ * 我们用 count 来记录不重复的下标数量，第一个数必定不是重复的，即 nums[0] 肯定是不重复的， 所以从第二项(即 nums[1])开始，遍历数组，判断该下标的值跟不重复的数组最后一个元素 nums[count] 是否相同，如果不相同，将该元素值赋值给 nums[count + 1] ，然后 count++，继续遍 历。待遍历结束时，我们可以通过 count 数量来判断不重复元素个数，因为 count 是从 0 开始的， 故返回的新数组的长度为 count + 1。
+ * 比如原数组为 [0,0,1,1,1,2,2,3,4]，经过遍历会变成类似 [0,1,2,3,4,x,x,x,x] 的结构，此时 count = 4，返 回新数组长度 count + 1 = 5。
+ * 详解
+ * 1. 创建字段 count，用来记录不重复的下标数量，初始值为 0;
+ * 2. 因数组的第一个元素(即 nums[count = 0])必定是不重复的，故从数组第二项开始(即
+ * nums[1])开始，遍历数组里的元素;
+ * 
+ * 3. 判断数组当前元素是否与 nums[count] 相等，若不同，得知当前元素并未重复，将该元素值赋
+ * 值给 nums[count + 1] ，然后 count++，继续遍历;
+ * 
+ * 4. 待遍历结束，我们可以通过 count 数量来判断不重复元素个数，因为 count 是从 0 开始计数
+ * 的，故返回的新数组的长度为 count + 1。
+ */
+const removeDuplicatesOther = function (nums) {
     let count = 0;
     for (let index = 1; index < nums.length; index++) {
         // 若该下标的值跟不重复的数组最后一个元素不相同，则该值添加到不重复数组后一位
-        if(nums[count] !== nums[index]){
-            nums[count+1] = nums[index]
+        if (nums[count] !== nums[index]) {
+            nums[count + 1] = nums[index]
             count++;
         }
     }
     // 因为count从0开始，长度要加一
-    return count+1;
+    return count + 1;
 }
 /***
  * 复杂度分析
@@ -152,17 +152,17 @@ const removeDuplicatesOther = function(nums) {
  * 先把个位的数加一，如果没有进位就直接推出循环。
  * 如果进位了，再把十位的数加一，个位数设置为0，如此循环，，直到判断没有再进位就退出循环 返回结果。
  * */
-const plusOne = function(digits) {
+const plusOne = function (digits) {
     // 从末尾开始
     for (let index = digits.length - 1; index >= 0; index--) {
         digits[index]++;
         digits[index] = digits[index] % 10;
         // 不等于0，直接返回，说明没有进位情况
-        if(digits[index] !== 0) {
+        if (digits[index] !== 0) {
             return digits;
         }
     }
-    digits.splice(0,0,1);
+    digits.splice(0, 0, 1);
     return digits;
 }
 /***
@@ -171,3 +171,98 @@ const plusOne = function(digits) {
  * 空间复杂度: O(1)
  * 没有申请额外空间，复杂度为 O(1)
  */
+
+/*************************4.买卖股票的最佳时机 II*********************************************/
+/****
+ * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+ * 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易(多次买卖一支股票)。
+ * 注意:你不能同时参与多笔交易(你必须在再次购买前出售掉之前的股票)。
+ * 
+ * 输入: [7,1,5,3,6,4]
+ * 2 输出:7
+ * 3 解释: 在第 2 天(股票价格 = 1)的时候买入，在第 3 天(股票价格 = 5)的时候卖出,这笔交易 
+ * 4 随后，在第 4 天(股票价格 = 3)的时候买入，在第 5 天(股票价格 = 6)的时候卖出, 这
+ * 
+ * 输入: [1,2,3,4,5]
+ * 输出:4
+ * 解释: 在第 1 天(股票价格 = 1)的时候买入，在第 5 天 (股票价格 = 5)的时候卖出, 这笔交易
+ * 注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。 
+ * 因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+ * 
+ * 输入: [7,6,4,3,1]
+ * 2 输出:0
+ * 3 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+ * 
+ * 思路
+ * 定一个滑动窗口，滑动窗口内所有的价格从后向前是递减，如若不是则调整下标，满足该条件。前 
+ * 一个下标从后向前遍历，两个下标初始位置为数组最后一个。如果遇到价格不是递减，则相减得出 
+ * 利润差，并移动两个下标到新的起点。如此遍历直到第一日。
+ * 
+ * 
+ * 详解
+ * 1. 初始化滑动窗口的两个下标，前下标从后向前遍历。
+ * 2. 如果遇到价格不是递减的情况，则相减得出利润差，并移动两个下标到新的起点。 
+ * 3. 如此遍历直到第一日。
+ */
+const maxProfit = function (prices) {
+    // 总利润
+    let num = 0;
+    // 滑动窗口后一个下标
+    let aftOff = prices.length - 1;
+    // 滑动窗口前一个下标
+    let offset = prices.length - 1;
+    while (offset > 0) {
+        // 价格递减则移动前一个下标，否则计算出利润差并移动两个下标到新的起点
+        if (prices[offset] > prices[offset - 1]) {
+            offset -= 1;
+        } else {
+            num += prices[aftOff] - prices[offset];
+            offset -= 1;
+            aftOff = offset;
+        }
+    }
+    // 价格递减到第一日情况的逻辑补充
+    if (aftOff !== offset) {
+        num += prices[aftOff] - prices[offset];
+    }
+    return num;
+}
+/****
+ * 复杂度分析
+ * 时间复杂度: O(n)
+ * 假设 $n$ 为给定数组的长度，while 循环执行了 n 次，因此，时间复杂度为 O(n) 。 
+ * 空间复杂度: O(1) 该解法中，申请了常数个变量，因此，空间复杂度为 O(1) 。
+ */
+
+/****************************强烈推荐此方法*************************
+ * 方法二
+ * 思路
+ * 遍历每日的价格，从第二天起，如果每日的价格都比前一日的价格高，则相减得出利润差，累加在 总利润上，直到遍历到最后一日。
+ * 详解
+ * 1. 从前向后遍历数组，从第二个开始
+ * 2. 如果当前日的价格比前一日的价格高，则相减得出利润差，累加在总利润上。 
+ * 3. 遍历到最后一日，退出循环，返回总利润
+*/
+const maxProfitOther = function (prices) {
+    // 总收益
+    const totalBenefit = 0;
+    // 当前日下标
+    const offset = 1;
+    const len = prices.length;
+    while (offset <= len - 1) {
+        // 如果当前日的价格比前一日价格高，则相减得出收益
+        const curPrice = prices[offset];
+        const prePrice = prices[offset - 1];
+        if (curPrice > prePrice) {
+            totalBenefit += curPrice - prePrice;
+        }
+        offset += 1;
+    }
+    return totalBenefit;
+}
+/***
+ * 复杂度分析
+ * 时间复杂度: O(n) 
+ * 空间复杂度: O(1)
+ */
+
