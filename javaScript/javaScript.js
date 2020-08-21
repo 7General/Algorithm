@@ -5,10 +5,10 @@
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /javaScript/javaScript.js
- */ 
+ */
 
 
-window.onload = function(){
+window.onload = function () {
     console.log('sss')
     // var fib = fiboRecursion(3)
     // console.log(fib)
@@ -16,65 +16,65 @@ window.onload = function(){
     // console.log(fib2)
 
     var reve = reverse(123);
-    console.log("整数翻转结果"+reve)
+    console.log("整数翻转结果" + reve)
 
-    var anagramsort = isAnagramSort('abc','bca');
-    console.log('字母异位词'+anagramsort);
+    var anagramsort = isAnagramSort('abc', 'bca');
+    console.log('字母异位词' + anagramsort);
 
-    console.log('字母异位词count>'+isAnagramCount('abc','cba'));
+    console.log('字母异位词count>' + isAnagramCount('abc', 'cba'));
 
     // 缺失【字符串转换整数】
     // 缺失【报数】
-    const character = ['w','a','n','g','h','u'];
+    const character = ['w', 'a', 'n', 'g', 'h', 'u'];
     reverseString(character)
-    console.log('反转字符串>'+character);
+    console.log('反转字符串>' + character);
 
     var firtstC = firstUniqChar('leetCode');
-    console.log('字符串中的第一个唯一字符'+firtstC);
+    console.log('字符串中的第一个唯一字符' + firtstC);
 
     var paliStr = 'race a car';//'A man, a plan, a canal: Panama';
-    var  ispaliStr = isPalindrome(paliStr);
+    var ispaliStr = isPalindrome(paliStr);
 
     var ispali = isPalindromeArry(paliStr);
-    console.log('是否是回文字符串>'+ispaliStr);
+    console.log('是否是回文字符串>' + ispaliStr);
 
-    var hasIndex = strStr('wang','ng');
-    console.log('strstr>'+hasIndex);
-    var hasIndexOther = strStrOther('wang','ng');
-    console.log('strstrother>'+hasIndexOther);
+    var hasIndex = strStr('wang', 'ng');
+    console.log('strstr>' + hasIndex);
+    var hasIndexOther = strStrOther('wang', 'ng');
+    console.log('strstrother>' + hasIndexOther);
 
 
-    var comArray = ['flower','flow','flight']
+    var comArray = ['flower', 'flow', 'flight']
     var comRes = longestCommonPrefix(comArray);
-    console.log('最长公共前缀>'+comRes);
+    console.log('最长公共前缀>' + comRes);
 
     var longestStr = longestPalindrome('babad');
-    console.log('最长回文子串'+longestStr);
+    console.log('最长回文子串' + longestStr);
 
     var rman = romanToIntTwo('VC');
-    console.log('罗马数字转整数>'+rman);
+    console.log('罗马数字转整数>' + rman);
     var romanOnew = romanToIntOne('LX');
-    console.log('罗马数字转整数ONE>'+romanOnew);
+    console.log('罗马数字转整数ONE>' + romanOnew);
 
     var fizzb = fizzBuzz(10);
-    console.log('fizzBuzz>'+fizzb); 
+    console.log('fizzBuzz>' + fizzb);
 
     var countPrim = countPrimes(14);
-    console.log('返回质数数量'+countPrim);
+    console.log('返回质数数量' + countPrim);
 
     var isPowerThree = isPowerOfThree(27);
-    console.log('3的幂>'+isPowerThree);
+    console.log('3的幂>' + isPowerThree);
     var isPowerThreeOther = isPowerOfThreeOther(27);
-    console.log('3的幂other>'+isPowerThreeOther);
+    console.log('3的幂other>' + isPowerThreeOther);
 
     var titleVar = titleToNumber('A');
-    console.log('Excel表列序号>'+titleVar);
+    console.log('Excel表列序号>' + titleVar);
 
     var isHap = isHappy(1);
-    console.log('快乐数>'+isHap);
+    console.log('快乐数>' + isHap);
 
     var isHapOther = isHappyOther(1);
-    console.log('快乐数other>'+isHapOther);
+    console.log('快乐数other>' + isHapOther);
 }
 /***
  * 1. 斐波那契数列
@@ -100,11 +100,11 @@ window.onload = function(){
  * @param {type} 
  * @return: 
  */
-function fiboRecursion(n){
+function fiboRecursion(n) {
     if (n == 0 || n == 1) {
         return 1;
     }
-    return fiboRecursion(n-1) + fiboRecursion(n-2)
+    return fiboRecursion(n - 1) + fiboRecursion(n - 2)
 }
 
 /**
@@ -113,7 +113,7 @@ function fiboRecursion(n){
  * @return: 
  */
 function fiboIteration(n) {
-    var first = 1,second = 1,sum = 0;
+    var first = 1, second = 1, sum = 0;
     for (let index = 0; index < n - 1; index++) {
         sum = first + second;
         first = second;
@@ -131,7 +131,7 @@ function fiboIteration(n) {
  * @param {type} 
  * @return: 
  */
-function reverse(x){
+function reverse(x) {
     // 获取相应数的绝对值
     let rever = Math.abs(x);
     //极值
@@ -139,10 +139,10 @@ function reverse(x){
     const MIN = -2147483648;
 
     let nums = 0;
-    while(rever !== 0){
+    while (rever !== 0) {
         // 借鉴欧几里得算法，从 nums 的最后一位开始取值拼成新的数
         mods = rever % 10;
-        nums = mods + nums * 10; 
+        nums = mods + nums * 10;
         // 剔除掉被消费的部分
         rever = Math.floor(rever / 10)
     }
@@ -151,7 +151,7 @@ function reverse(x){
         return 0;
     }
     if (x < 0) {
-      return nums * -1;
+        return nums * -1;
     }
     return nums;
 }
@@ -164,7 +164,7 @@ function reverse(x){
  */
 
 
- 
+
 /*********************
  * 3.有效的字母异位词
  * 字母异位词指字母相同，但排列不同的字符串
@@ -175,10 +175,10 @@ function reverse(x){
  * @param {type} 
  * @return: 
  */
-function isAnagramSort(s,t) {
+function isAnagramSort(s, t) {
     const sArr = s.split('');
     const tArr = t.split('');
-    const sortFn = (a,b) => {
+    const sortFn = (a, b) => {
         return a.charCodeAt() - b.charCodeAt();
     }
     sArr.sort(sortFn);
@@ -191,7 +191,7 @@ function isAnagramSort(s,t) {
  * @param {type} 
  * @return: 
  */
-const isAnagramCount = (s,t) => {
+const isAnagramCount = (s, t) => {
     if (s.length !== t.length) {
         return false;
     }
@@ -202,8 +202,8 @@ const isAnagramCount = (s,t) => {
     }
 
     for (const k of t) {
-        if(!hash[k]){
-          return false;  
+        if (!hash[k]) {
+            return false;
         }
         hash[k] -= 1;
     }
@@ -219,12 +219,12 @@ const isAnagramCount = (s,t) => {
 
 
 
- /******************
-  * 4.反转字符串
-  * 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一
+/******************
+ * 4.反转字符串
+ * 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一
 问题。
-  * 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
-  ******************/
+ * 你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
+ ******************/
 
 /*****
 思路 中间变量首尾替换法，逐位遍历，进行交换
@@ -233,7 +233,7 @@ const isAnagramCount = (s,t) => {
     2. 替换字符串的第i位和倒数第i位，替换方式:设置一个中间变量，替换两个字符串的值; 3. 变量 i + 1 ，继续替换替换字符串的第i位和倒数第i位;
     4. 直到i大于字符串s的长度的中位数，完成真个字符串的反转
 */
-const reverseString = function(s) {
+const reverseString = function (s) {
     for (let i = 0; i < s.length / 2; i++) {
         const a = s[i];
         s[i] = s[s.length - i - 1];
@@ -248,15 +248,15 @@ const reverseString = function(s) {
    1个临时变
  */
 
- /******************
-  * 5.字符串中的第一个唯一字符
-  * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
-  ******************/
- 
-const firstUniqChar = function(s){
+/******************
+ * 5.字符串中的第一个唯一字符
+ * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
+ ******************/
+
+const firstUniqChar = function (s) {
     const hash = {}
     for (let index = 0; index < s.length; index++) {
-        if(!hash[s[index]]){
+        if (!hash[s[index]]) {
             hash[s[index]] = 1;
         } else {
             hash[s[index]] += 1;
@@ -296,11 +296,11 @@ const firstUniqChar = function(s){
  */
 const isPalindrome = (s) => {
     // 将传入的字符串,统一转化为小写,同时去除非字母和数字,在转换为数组
-    const arr = s.toLowerCase().replace(/[^A-Za-z0-9]/g,'').split('');
+    const arr = s.toLowerCase().replace(/[^A-Za-z0-9]/g, '').split('');
     let i = 0;
     let j = arr.length - 1;
     // 循环比较开始
-    while(i < j){
+    while (i < j) {
         if (arr[i] === arr[j]) {
             i += 1;
             j -= 1;
@@ -325,9 +325,9 @@ const isPalindrome = (s) => {
  * 1. 将传入的字符串，利用 toLowerCase() 方法统一转化为小写，再利用正则表达式 /[ ^ A-Za-z0- 9]/g 在字符串中去除非字母和数字，得到字符串 arr。
  * 2. 将字符串 arr 转换为数组，利用数组的方法反转数组，再将数组转为字符串 newArr。
  *************************/
-const isPalindromeArry = (s)=> {
+const isPalindromeArry = (s) => {
     // 方便比较,统一转化为小写,并去除非字母和数字
-    const arr = s.toLowerCase().replace(/[^A-Za-z0-9]/g,'');
+    const arr = s.toLowerCase().replace(/[^A-Za-z0-9]/g, '');
     // 将新字符串转换为数组,利用数组的方法获得反转的字符串
     const newArr = arr.split('').reverse().join('');
     // 将2个字符进行比较得出结果
@@ -344,88 +344,34 @@ const isPalindromeArry = (s)=> {
 
 ////////////////////////////////////////////////////////
 /*************************7.实现strStr()*********************************************/
- /******************
-  * 7.实现strStr()
-  * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的
-  * 第一个位置 (从0开始)。如果不存在，则返回 -1。
-  * 以下称 haystack 字符串为匹配字符串，needle 字符串为查找字符串
-  * ***********************************
-  * 
-  * 说明:
-  * 当 needle 是空字符串时，我们应当返回什么值呢?这是一个在面试中很好的问题。
-  * 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
-  * 
-  * **********************************
-  ******************/
+/******************
+ * 7.实现strStr()
+ * 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的
+ * 第一个位置 (从0开始)。如果不存在，则返回 -1。
+ * 以下称 haystack 字符串为匹配字符串，needle 字符串为查找字符串
+ * ***********************************
+ * 
+ * 说明:
+ * 当 needle 是空字符串时，我们应当返回什么值呢?这是一个在面试中很好的问题。
+ * 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
+ * 
+ * **********************************
+ ******************/
 
- /************************
-  * 方法一 遍历截取字符串对比 
-  * 思路
-  * 截取字符串对比的思路很简单，从匹配字符串 haystack 中截取出与需查找字符串 needle 长度相等 的内容后，对比截取的内容与匹配字符串是否相等，如果相等返回开始截取的下标。
-  * 详解
-  * 首先处理几个特殊场景
-  *   1. needle 的长度为0，直接返回0
-  *   2. needle 的字符串长度大于 haystack，肯定不匹配
-  *   3. needle 的字符串长度等于 haystack，判断是否相等，相等则匹配否则不匹配
-  * 剩下的就是 needle 字符串长度小于 haystack 的情况，遍历 haystack
-  *   此处需要注意的是，当 haystack 剩余字符串长度小于 needle 长度时，肯定是不相等，无需再次比较。
-  * 在遍历中判断 将要截取的字符串的首位与 needle 字符串的首位是否相同 ，如果不相同也就不需要 后续截取、比较，跳过该次循环
-  */
- const strStr = function(haystack,needle) {
-     const hayLen = haystack.length;
-     const nedLen = needle.length;
-     if (!needle) {
-         return 0;
-     }
-     if (nedLen > hayLen) {
-         return -1;
-     } else if(nedLen === hayLen){
-         return haystack === needle ? 0 : -1;
-     } else {
-         for (let index = 0; index <= hayLen - nedLen; index++) {
-             if(haystack[index] !== needle[0]){
-                 continue;
-             }
-             // 截取从首位匹配对的字母开始，截图长度为匹配开始的索引+nedLen
-             if(haystack.substring(index,index+nedLen) === needle){
-                 return index;
-             }
-         }
-     }
-     return -1;
- }
- /****
-  * 复杂度分析:
-  * 时间复杂度: O(n)
-    遍历长度可能从1到 n−1，假设不同长度出现的概率均等，那么时间复杂度为
-    (n − 1 + 1)/2 时间复杂度即为 O(n) 。 
-  * 空间复杂度: O(1)
-    使用 2 个额外存储空间。
-  */
-
-
-
- /************************
-  * 方法二 双层循环对比字符
-  * 思路
-  * 循环对比字符串思路也很简单，从匹配字符串 haystack 的不同位置开始遍历，判断其中是否含有 查找字符串 needle。
-  *   如:haystack 为 hello， needle 为 ll，依次判断 he、el、ll、lo是否完全和 ll 相等，相等即返回对 应字符串在 haystack 中的下标。
-  * 详解
-  *   首先处理特殊边际情况，这块与第一种方法相同，就不再赘述。
-  * 以下为算法步骤:
-  *   1. 设置最外层循环，遍历次数为 0 - haystack长度减去 needle 的长度。剩余字符串长度小于 needle 长度时，肯定不匹配
-  *   2. 判断匹配字符串 haystack 中该次循环使用到的字符串首尾字母是否与查找字符串 needle 首尾 字母相同。
-  *      不相等，直接跳过继续遍历。 
-  *      相等，执行第三步。
-     
-  *   3. 判断查找字符串 needle 的长度
-  *      长度为 1，表明匹配成功，直接返回当前长字符串下标即可 
-  *      长度大于 1，执行第四步
-  *   4. 遍历对比字符串，循环判断匹配字符串 haystack 不同位置的字符是否与匹配字符串 needle 对 应位置的字符相等
-  *      不相等时，跳出循环，进行下次循环。 
-  *      到最后一位还未跳出循环表明完全匹配，返回当前遍历次数(即查找字符串在匹配字符串 中首次出现的位置)
-  */
- const strStrOther = function(haystack,needle) {
+/************************
+ * 方法一 遍历截取字符串对比 
+ * 思路
+ * 截取字符串对比的思路很简单，从匹配字符串 haystack 中截取出与需查找字符串 needle 长度相等 的内容后，对比截取的内容与匹配字符串是否相等，如果相等返回开始截取的下标。
+ * 详解
+ * 首先处理几个特殊场景
+ *   1. needle 的长度为0，直接返回0
+ *   2. needle 的字符串长度大于 haystack，肯定不匹配
+ *   3. needle 的字符串长度等于 haystack，判断是否相等，相等则匹配否则不匹配
+ * 剩下的就是 needle 字符串长度小于 haystack 的情况，遍历 haystack
+ *   此处需要注意的是，当 haystack 剩余字符串长度小于 needle 长度时，肯定是不相等，无需再次比较。
+ * 在遍历中判断 将要截取的字符串的首位与 needle 字符串的首位是否相同 ，如果不相同也就不需要 后续截取、比较，跳过该次循环
+ */
+const strStr = function (haystack, needle) {
     const hayLen = haystack.length;
     const nedLen = needle.length;
     if (!needle) {
@@ -433,21 +379,75 @@ const isPalindromeArry = (s)=> {
     }
     if (nedLen > hayLen) {
         return -1;
-    } else if(nedLen === hayLen){
+    } else if (nedLen === hayLen) {
+        return haystack === needle ? 0 : -1;
+    } else {
+        for (let index = 0; index <= hayLen - nedLen; index++) {
+            if (haystack[index] !== needle[0]) {
+                continue;
+            }
+            // 截取从首位匹配对的字母开始，截图长度为匹配开始的索引+nedLen
+            if (haystack.substring(index, index + nedLen) === needle) {
+                return index;
+            }
+        }
+    }
+    return -1;
+}
+/****
+ * 复杂度分析:
+ * 时间复杂度: O(n)
+   遍历长度可能从1到 n−1，假设不同长度出现的概率均等，那么时间复杂度为
+   (n − 1 + 1)/2 时间复杂度即为 O(n) 。 
+ * 空间复杂度: O(1)
+   使用 2 个额外存储空间。
+ */
+
+
+
+/************************
+ * 方法二 双层循环对比字符
+ * 思路
+ * 循环对比字符串思路也很简单，从匹配字符串 haystack 的不同位置开始遍历，判断其中是否含有 查找字符串 needle。
+ *   如:haystack 为 hello， needle 为 ll，依次判断 he、el、ll、lo是否完全和 ll 相等，相等即返回对 应字符串在 haystack 中的下标。
+ * 详解
+ *   首先处理特殊边际情况，这块与第一种方法相同，就不再赘述。
+ * 以下为算法步骤:
+ *   1. 设置最外层循环，遍历次数为 0 - haystack长度减去 needle 的长度。剩余字符串长度小于 needle 长度时，肯定不匹配
+ *   2. 判断匹配字符串 haystack 中该次循环使用到的字符串首尾字母是否与查找字符串 needle 首尾 字母相同。
+ *      不相等，直接跳过继续遍历。 
+ *      相等，执行第三步。
+    
+ *   3. 判断查找字符串 needle 的长度
+ *      长度为 1，表明匹配成功，直接返回当前长字符串下标即可 
+ *      长度大于 1，执行第四步
+ *   4. 遍历对比字符串，循环判断匹配字符串 haystack 不同位置的字符是否与匹配字符串 needle 对 应位置的字符相等
+ *      不相等时，跳出循环，进行下次循环。 
+ *      到最后一位还未跳出循环表明完全匹配，返回当前遍历次数(即查找字符串在匹配字符串 中首次出现的位置)
+ */
+const strStrOther = function (haystack, needle) {
+    const hayLen = haystack.length;
+    const nedLen = needle.length;
+    if (!needle) {
+        return 0;
+    }
+    if (nedLen > hayLen) {
+        return -1;
+    } else if (nedLen === hayLen) {
         return haystack === needle ? 0 : -1;
     } else {
         for (let hasIndex = 0; hasIndex <= hayLen - nedLen; hasIndex++) {
-            if(haystack[hasIndex] === needle[0] && 
-               haystack[hasIndex + nedLen - 1] === needle[nedLen - 1]){
-                if(nedLen === 1){
+            if (haystack[hasIndex] === needle[0] &&
+                haystack[hasIndex + nedLen - 1] === needle[nedLen - 1]) {
+                if (nedLen === 1) {
                     return hasIndex;
                 }
                 // 开始比较第一位相同后的每一位组合
                 for (let nedIndex = 1; nedIndex < nedLen; nedIndex++) {
-                    if(haystack[hasIndex + nedIndex] !== needle[nedIndex]){
+                    if (haystack[hasIndex + nedIndex] !== needle[nedIndex]) {
                         break;
                     }
-                    if(nedIndex == nedLen - 1){
+                    if (nedIndex == nedLen - 1) {
                         return hasIndex;
                     }
                 }
@@ -466,7 +466,7 @@ const isPalindromeArry = (s)=> {
     使用 2 个额外存储空间
  */
 /*************************-7.实现strStr()-*********************************************/
- 
+
 
 
 /*************************8.最长公共前缀*********************************************/
@@ -487,18 +487,18 @@ const isPalindromeArry = (s)=> {
  *      前缀存到 commonPrefix
  *   3. 重复第 2 步遍历完整个字符串，最后得到的即使数组中所有字符串的最长公共前缀
  */
-const longestCommonPrefix = function(strs) {
-    function findCommPrefix(a,b) {
+const longestCommonPrefix = function (strs) {
+    function findCommPrefix(a, b) {
         let i = 0;
-        while(i < a.length && i < b.length && a.charAt(i) === b.charAt(i)){
+        while (i < a.length && i < b.length && a.charAt(i) === b.charAt(i)) {
             i++;
         }
-        return i > 0 ? a.substring(0,i) : '';
+        return i > 0 ? a.substring(0, i) : '';
     }
-    if(strs.length > 0) {
+    if (strs.length > 0) {
         let commonPrefix = strs[0];
         for (let index = 1; index < strs.length; index++) {
-            commonPrefix = findCommPrefix(commonPrefix,strs[index]);
+            commonPrefix = findCommPrefix(commonPrefix, strs[index]);
         }
         return commonPrefix;
     }
@@ -533,7 +533,7 @@ const longestCommonPrefix = function(strs) {
     (3)长度 > 3, 首尾字符相同，且去掉首尾之后的子串仍为回文:(s[i] === s[j]) && dp[i + 1][j - 1]
 4. 取得长度最长的回文子串
 */
- 
+
 const longestPalindrome = function (s) {
     const dp = [];
     for (let index = 0; index < s.length; index++) {
@@ -544,19 +544,19 @@ const longestPalindrome = function (s) {
     for (let l = 0; l < s.length; l++) {
         // l 为所遍历的子串长度 - 1，即左下标的长度
         for (let i = 0; i + l < s.length; i++) {
-            const j = i+l;
-            if(l==0){
+            const j = i + l;
+            if (l == 0) {
                 dp[i][j] = true;
-            } else if(l <= 2){
+            } else if (l <= 2) {
                 // 长度为2或3时，首尾相同则是回文子串
-                if(s[i] === s[j]){
+                if (s[i] === s[j]) {
                     dp[i][j] = true;
                 } else {
                     dp[i][j] = false;
                 }
             } else {
                 // 长度大于3时，若首尾字符相同且去掉之后的子串仍未回文，则为回文子串
-                if ((s[i] === s[j]) && dp[i+1][j-1]) {
+                if ((s[i] === s[j]) && dp[i + 1][j - 1]) {
                     dp[i][j] = true;
                 } else {
                     dp[i][j] = false;
@@ -564,7 +564,7 @@ const longestPalindrome = function (s) {
             }
             if (dp[i][j] && l > max) {
                 max = l;
-                str = s.substring(i,j+1);
+                str = s.substring(i, j + 1);
             }
         }
     }
@@ -576,10 +576,10 @@ const longestPalindrome = function (s) {
  *   空间复杂度: O(n) 需要申请空间为字符串长度 n 的数组来记录不同长度子串的情况。
  */
 
- /***
-  * 外层循环从0开始一直到末尾
-  * 内存循环，内存循环+外层循环<子串串长度，然后采取对比政策
-  */
+/***
+ * 外层循环从0开始一直到末尾
+ * 内存循环，内存循环+外层循环<子串串长度，然后采取对比政策
+ */
 
 /*************************10.罗马数字转整数*********************************************/
 /***
@@ -601,7 +601,7 @@ const longestPalindrome = function (s) {
  * 先遍历所有罗马数字进行累加，对于特殊数字的循环，比如:5+1=6，而实际是 4，相差 2，
  * 所以 需要在结果上减去 2，以此类推。
  */
-const romanToIntTwo = function(num){
+const romanToIntTwo = function (num) {
     let result = 0;
     for (const c of num) {
         switch (c) {
@@ -629,28 +629,28 @@ const romanToIntTwo = function(num){
         }
     }
     //减去特殊组合
-    if(num.includes('IV') || num.includes('IX')) result -= 2;
-    if(num.includes('XL') || num.includes('XC')) result -= 20;
-    if(num.includes('CD') || num.includes('CM')) result -= 200;
+    if (num.includes('IV') || num.includes('IX')) result -= 2;
+    if (num.includes('XL') || num.includes('XC')) result -= 20;
+    if (num.includes('CD') || num.includes('CM')) result -= 200;
     return result;
 }
-const romanToIntOne = function(num) {
+const romanToIntOne = function (num) {
     const roman = {
-        IV:4,
-        IX:9,
-        XL:40,
-        XC:90,
-        CD:400,
-        CM:900
+        IV: 4,
+        IX: 9,
+        XL: 40,
+        XC: 90,
+        CD: 400,
+        CM: 900
     }
     const list = {
-        I:1,
-        V:5,
-        X:10,
-        L:50,
-        C:100,
-        D:500,
-        M:1000
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
     }
     let result = 0;
     // 先遍历特俗值
@@ -659,7 +659,7 @@ const romanToIntOne = function(num) {
         if (num.includes(key)) {
             // 用正则去掉特殊值
             const reg = new RegExp(key);
-            num = num.replace(reg,'');
+            num = num.replace(reg, '');
             result += roman[key];
         }
     }
@@ -684,16 +684,16 @@ const romanToIntOne = function(num) {
  * 1. 第一步，申请一个数组 arr，用于存放每个数字转换后字符串。
  * 2. 第二步，循环遍历 1-n 的每个数字。如果该数字能被15整除(即取余为0)，则该数字对应的 字符串为 "FizzBuzz";如果能被3整除，则为 "Fizz";如果能被5整除，则为 "Buzz";否则，为 该数字即可。
  */
-const fizzBuzz = function(n) {
+const fizzBuzz = function (n) {
     const arr = [];
     for (let i = 1; i <= n; i++) {
-        if(i % 15 === 0){
+        if (i % 15 === 0) {
             arr.push('FizzBuzz');
-        } else if(i % 3 === 0){
+        } else if (i % 3 === 0) {
             arr.push('Fizee');
-        } else if(i % 5 === 0) {
+        } else if (i % 5 === 0) {
             arr.push('Buzz');
-        }else {
+        } else {
             arr.push(i.toString());
         }
     }
@@ -715,7 +715,7 @@ const fizzBuzz = function(n) {
  * 输出:4
  * 解释: 小于 10 的质数一共有 4 个, 它们是 2,3,5,7 。
  */
-const isPrime = function(n){
+const isPrime = function (n) {
     // 判断是否为质数
     // if(n===2 || n===3){
     //     return true;
@@ -729,22 +729,22 @@ const isPrime = function(n){
     //         return false;
     //     }
     // }
-    
-    for (let index = 2; index <= n-1; index++) {
-        if(n%index === 0){
+
+    for (let index = 2; index <= n - 1; index++) {
+        if (n % index === 0) {
             return false;
         }
     }
     return true;
 }
 // 返回质数数量
-const countPrimes = function(n){
+const countPrimes = function (n) {
     let count = 0;
     for (let index = 2; index < n; index++) {
-        if(isPrime(index)){
-            console.log('质数>'+index);
+        if (isPrime(index)) {
+            console.log('质数>' + index);
             count++;
-        } 
+        }
     }
     return count;
 }
@@ -763,11 +763,11 @@ const countPrimes = function(n){
  *  2、循环判断待定值 n 是否可以被 3 整除
  *  3、若不可以被 3 整除则返回 false ，若可以则将该数字除以 3，直至循环结束 4、其余情况则返回 true
  */
-const isPowerOfThree = function(n){
-    if(n < 1) return false;
-    while(n>1){
+const isPowerOfThree = function (n) {
+    if (n < 1) return false;
+    while (n > 1) {
         // 如果该数字不能被 3 整除，则直接输出 false
-        if(n%3 !== 0){
+        if (n % 3 !== 0) {
             return false;
         } else {
             n = n / 3;
@@ -780,10 +780,10 @@ const isPowerOfThree = function(n){
  * @param {type} 
  * @return: 
  */
-const isPowerOfThreeOther = function(n){
-    if(n === 1) return true;
-    if(n < 0) return false;
-    if(n%3 === 0) {
+const isPowerOfThreeOther = function (n) {
+    if (n === 1) return true;
+    if (n < 0) return false;
+    if (n % 3 === 0) {
         return isPowerOfThreeOther(n / 3);
     }
     return false;
@@ -810,13 +810,13 @@ const isPowerOfThreeOther = function(n){
  * 输出: 28
  * 
  */
-const titleToNumber = function(s){
+const titleToNumber = function (s) {
     const arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     const len = s.length;
     let sum = 0;
     for (let index = 0; index < len; index++) {
         const tempLeft = arr.indexOf(s[index]) + 1;
-        const tempRight = Math.pow(26,len - 1 - index);
+        const tempRight = Math.pow(26, len - 1 - index);
         sum = tempLeft * tempRight + sum;
     }
     return sum;
@@ -834,230 +834,230 @@ const titleToNumber = function(s){
 
  */
 
- /*************************15.[快乐数]*********************************************/
- /****
-  * 编写一个算法来判断一个数是不是“快乐数”。
-  * 
-  * 一个“快乐数”定义为:对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后 
-  * 重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个 
-  * 数就是快乐数。
-  * 示例
-  *  输入:19
-  *  输出: true
-  * 解释:
-  *  1^2+9^2=82
-  *  8^2+2^2=68
-  *  6^2+8^2=100
-  *  1^2+0^2+0^2=1
-  * 
-  * 
-  * 方法一 尾递归
-  * 思路
-  * 
-  * 根据示例来看，函数的执行过程是一个可递归的过程，首先，我们先写一个递归函数来模拟这个执 
-  * 行过程，然后按照示例 输入 19 来验证编写函数正确性， 然后 输入 任意数字(比方说 99999)， 
-  * 这时，会发现报内存溢出的错误，那这道题就变成了如何解决堆栈溢出的问题: 首先，我们要考虑 
-  * 的是，为什么会内存溢出?从题目中，我们可以看到"也可能是无限循环但始终变不到 1"，是"无限 
-  * 循环"导致内存溢出， 那我们就应该想一个方式去终结这个"死循环"。首先我们要找到这个循环的规 
-  * 律，怎么找?把递归内容打印(console.log)出来。这时，你会发现一个有规律的死循环。 那 
-  * 么，我们只要用一个变量(once)记录已经输入过的值，一旦出现第二次相同输入，就终止递归， 
-  * 并返回"非快乐数"的结果(false)。
-  * 
-  * 
-  * 详解
-  *  1. 申请一个变量来存放已经执行过函数的"输入",如果出现重复输入，则说明进入了死循环，从"示 例"来看:{19:true,82:true,100:true}
-  *  2. 将输入(19)转化为数组([1,9])
-  *  3. 将[1,9]进行平方和运算($1^2 + 9^2 = 82$)
-  *  4. 判断平方和的结果是不是等于 1，若果是，则为"快乐数",否，则继续执行 fn 函数
-  *  5. 直到平方和等于 1 或者判定为死循环。  
-  */
+/*************************15.[快乐数]*********************************************/
+/****
+ * 编写一个算法来判断一个数是不是“快乐数”。
+ * 
+ * 一个“快乐数”定义为:对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，然后 
+ * 重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个 
+ * 数就是快乐数。
+ * 示例
+ *  输入:19
+ *  输出: true
+ * 解释:
+ *  1^2+9^2=82
+ *  8^2+2^2=68
+ *  6^2+8^2=100
+ *  1^2+0^2+0^2=1
+ * 
+ * 
+ * 方法一 尾递归
+ * 思路
+ * 
+ * 根据示例来看，函数的执行过程是一个可递归的过程，首先，我们先写一个递归函数来模拟这个执 
+ * 行过程，然后按照示例 输入 19 来验证编写函数正确性， 然后 输入 任意数字(比方说 99999)， 
+ * 这时，会发现报内存溢出的错误，那这道题就变成了如何解决堆栈溢出的问题: 首先，我们要考虑 
+ * 的是，为什么会内存溢出?从题目中，我们可以看到"也可能是无限循环但始终变不到 1"，是"无限 
+ * 循环"导致内存溢出， 那我们就应该想一个方式去终结这个"死循环"。首先我们要找到这个循环的规 
+ * 律，怎么找?把递归内容打印(console.log)出来。这时，你会发现一个有规律的死循环。 那 
+ * 么，我们只要用一个变量(once)记录已经输入过的值，一旦出现第二次相同输入，就终止递归， 
+ * 并返回"非快乐数"的结果(false)。
+ * 
+ * 
+ * 详解
+ *  1. 申请一个变量来存放已经执行过函数的"输入",如果出现重复输入，则说明进入了死循环，从"示 例"来看:{19:true,82:true,100:true}
+ *  2. 将输入(19)转化为数组([1,9])
+ *  3. 将[1,9]进行平方和运算($1^2 + 9^2 = 82$)
+ *  4. 判断平方和的结果是不是等于 1，若果是，则为"快乐数",否，则继续执行 fn 函数
+ *  5. 直到平方和等于 1 或者判定为死循环。  
+ */
 
-const fn = function(n,once){
+const fn = function (n, once) {
     // 怎么就出现了相同的数字之后就返回false了
-    if(once[n]){
-       return false;
+    if (once[n]) {
+        return false;
     }
     const list = n.toString().split('');
     let result = 0;
     once[n] = true;
     for (let index = 0; index < list.length; index++) {
-        result += Math.pow(parseInt(list[index],10),2);
+        result += Math.pow(parseInt(list[index], 10), 2);
     }
-    if(result === 1){
+    if (result === 1) {
         return true;
-    }else{
-        return fn(result,once);
+    } else {
+        return fn(result, once);
     }
 }
-  /**
-   * @description: 方法一：快乐数
-   * @param {number} 
-   * @return: {boolean}
-   */
-  const isHappy = function(n){
-      const once = {};
-      return fn(n,once);
-  }
+/**
+ * @description: 方法一：快乐数
+ * @param {number} 
+ * @return: {boolean}
+ */
+const isHappy = function (n) {
+    const once = {};
+    return fn(n, once);
+}
 
-  /**
-   * @description: 方法二：快乐数
-   * @param {number} 
-   * @return: {boolean}
-   * 
-   * 
-   * 
-   * 1. 已知非快乐数[4,16,37,58,89,145,42,20]
-   * 2. 已知快乐数:1
-   * 3. 将输入(19)转化为数组([1,9])
-   * 4. 将[1,9]进行平方和运算(1^2 + 9^2 = 82)
-   * 5. 判断平方和的结果是不是等于 1，如果是，则为"快乐数",否，则继续执行 fn 函数
-   * 6. 直到平方和等于 1 或者判定为非快乐数。
-   */
-  const isHappyOther = function(n){
-      if(n===1){
-          return true;
-      }
-      if (n===4) {
-          return false;
-      }
-      let result = 0;
-      const list = n.toString().split('');
-      for (let index = 0; index < list.length; index++) {
-          result += Math.pow(parseInt(list[index],10),2);
-      }
-      if(result === 1){
-          return true;
-      } else {
+/**
+ * @description: 方法二：快乐数
+ * @param {number} 
+ * @return: {boolean}
+ * 
+ * 
+ * 
+ * 1. 已知非快乐数[4,16,37,58,89,145,42,20]
+ * 2. 已知快乐数:1
+ * 3. 将输入(19)转化为数组([1,9])
+ * 4. 将[1,9]进行平方和运算(1^2 + 9^2 = 82)
+ * 5. 判断平方和的结果是不是等于 1，如果是，则为"快乐数",否，则继续执行 fn 函数
+ * 6. 直到平方和等于 1 或者判定为非快乐数。
+ */
+const isHappyOther = function (n) {
+    if (n === 1) {
+        return true;
+    }
+    if (n === 4) {
+        return false;
+    }
+    let result = 0;
+    const list = n.toString().split('');
+    for (let index = 0; index < list.length; index++) {
+        result += Math.pow(parseInt(list[index], 10), 2);
+    }
+    if (result === 1) {
+        return true;
+    } else {
         return isHappyOther(result);
-      }
-  }
+    }
+}
 
-  /*************************16.[阶乘后的零]*********************************************/
-  /*********** 
-   * 给定一个整数 n，返回 n! 结果尾数中零的数量。
-   * 
-   * 示例1
-   * 输入:3
-   * 输出:0
-   * 解释: 3! = 6, 尾数中没有零。
-   * 
-   * 示例1
-   * 输入:5
-   * 输出:1
-   * 解释:5!=120, 尾数中有 1 个零.
-   * *******/
-  /*********
-   * 方法一 暴力法
-   * 思路
-   * 1. 尾数中有 0 必定是 10 的倍数
-   * 2. 尾数中有多少个 0 就是整个数能有多少个因子 10
-   * 3. 因子 10 又可以拆成 2 5，因此就是找整个数字可以拆分成多少了 2 5
-   * 4. 因为在因子中 2 的数量一定比 5 多，所以实际上我们只要找到因子 5 的个数就可以找到尾数中
-     0 的个数了，所以这个问题就可以转换成找因子 5 的个数。
-   * 详解
-   * 1. 循环 1 ~ n，找出能被 5 整除的数字
-   * 2. 找到能被 5 整除的数字，找该数字能被拆分成多少个因子 5 3. 所有的个数相加就是尾数 0 的个数
-   *****/
-  const trailingZeroes = function (n){
-      let count = 0;
-      for (let index = 1; index < n; index++) {
-          let num = i;
-          if(num % 5 === 0){
-              while (num % 5 === 0 && num !== 0) {
-                  count += 1;
-                  num = parseInt(num / 5);
-              }
-          }
-          
-      }
-      return count;
-  }
-  /*******
-   * 复杂度分析
-   * 时间复杂度为: O(n2)
-     因为要进行两次循环，所以时间复杂度为 O(n2) ，当数字比较大的时候有性能问题 
-   * 空间复杂度: O(1)
-     没有申请额外空间，所以空间复杂度为 O(1)
-   * 
-   ***/
+/*************************16.[阶乘后的零]*********************************************/
+/*********** 
+ * 给定一个整数 n，返回 n! 结果尾数中零的数量。
+ * 
+ * 示例1
+ * 输入:3
+ * 输出:0
+ * 解释: 3! = 6, 尾数中没有零。
+ * 
+ * 示例1
+ * 输入:5
+ * 输出:1
+ * 解释:5!=120, 尾数中有 1 个零.
+ * *******/
+/*********
+ * 方法一 暴力法
+ * 思路
+ * 1. 尾数中有 0 必定是 10 的倍数
+ * 2. 尾数中有多少个 0 就是整个数能有多少个因子 10
+ * 3. 因子 10 又可以拆成 2 5，因此就是找整个数字可以拆分成多少了 2 5
+ * 4. 因为在因子中 2 的数量一定比 5 多，所以实际上我们只要找到因子 5 的个数就可以找到尾数中
+   0 的个数了，所以这个问题就可以转换成找因子 5 的个数。
+ * 详解
+ * 1. 循环 1 ~ n，找出能被 5 整除的数字
+ * 2. 找到能被 5 整除的数字，找该数字能被拆分成多少个因子 5 3. 所有的个数相加就是尾数 0 的个数
+ *****/
+const trailingZeroes = function (n) {
+    let count = 0;
+    for (let index = 1; index < n; index++) {
+        let num = i;
+        if (num % 5 === 0) {
+            while (num % 5 === 0 && num !== 0) {
+                count += 1;
+                num = parseInt(num / 5);
+            }
+        }
+
+    }
+    return count;
+}
+/*******
+ * 复杂度分析
+ * 时间复杂度为: O(n2)
+   因为要进行两次循环，所以时间复杂度为 O(n2) ，当数字比较大的时候有性能问题 
+ * 空间复杂度: O(1)
+   没有申请额外空间，所以空间复杂度为 O(1)
+ * 
+ ***/
 
 
 
-   /*********
-   * 方法二 
-   * 思路
-   * 整体思路和方法一基本一致，都是找因子5的个数，只是方法二是在找因子5的个数时做文章，用耗 时更少的方法来找5的个数
-   * 详解
-   * 1. n! 这些乘数中，每隔 5 个数，肯定会有一个数至少能拆出一个 5 因子。所以 n / 5 = 至少会出 现的 5 的个数。
-   * 2. 因为 n / 5 并不能完全算出 5 因子的个数，比如若某个数 25 = 5 * 5，分解后得到的 5 也算一 个，所以能被 25 因式分解相当于会出现 2 个 5 因子，而第一步中除以 5 算个数的时候已经算 了一个了，所以相当于比之前会多一个 5 因子
-   * 3. 依此类推，能被 25 5 = 125 因式分解的相当于比之前按 25 因式分解的时候又多出一个 5 因 子。能被 125 5 = 625 因式分解的相当于比按 125 因式分解时又多出一个 5 因子。还有 625 * 5 ......
-        所以n! 的结果可以拆分为多少个 5 因子呢:
-        n/5 + n/25 + n /125 + n/625 + ...
-    *****/
-   function trilingZeroesOther(n){
-       let count = 0;
-       while (n > 0) {
-           n = parseInt(n / 5);
-           count += n;
-       }
-       return count;
-   }
-   /***** 
-    * 复杂度分析:
-    * 时间复杂度: O(log(n)) ，
-      遍历次数为 n/5x = 1 ;即 x = log5(n) ，所以时间复杂度为 O(log(n)) 
-    * 空间复杂度: O(1)
-      没有申请额外空间，所以空间复杂度为 O(1)
-    * 
-    ******/
+/*********
+* 方法二 
+* 思路
+* 整体思路和方法一基本一致，都是找因子5的个数，只是方法二是在找因子5的个数时做文章，用耗 时更少的方法来找5的个数
+* 详解
+* 1. n! 这些乘数中，每隔 5 个数，肯定会有一个数至少能拆出一个 5 因子。所以 n / 5 = 至少会出 现的 5 的个数。
+* 2. 因为 n / 5 并不能完全算出 5 因子的个数，比如若某个数 25 = 5 * 5，分解后得到的 5 也算一 个，所以能被 25 因式分解相当于会出现 2 个 5 因子，而第一步中除以 5 算个数的时候已经算 了一个了，所以相当于比之前会多一个 5 因子
+* 3. 依此类推，能被 25 5 = 125 因式分解的相当于比之前按 25 因式分解的时候又多出一个 5 因 子。能被 125 5 = 625 因式分解的相当于比按 125 因式分解时又多出一个 5 因子。还有 625 * 5 ......
+     所以n! 的结果可以拆分为多少个 5 因子呢:
+     n/5 + n/25 + n /125 + n/625 + ...
+ *****/
+function trilingZeroesOther(n) {
+    let count = 0;
+    while (n > 0) {
+        n = parseInt(n / 5);
+        count += n;
+    }
+    return count;
+}
+/***** 
+ * 复杂度分析:
+ * 时间复杂度: O(log(n)) ，
+   遍历次数为 n/5x = 1 ;即 x = log5(n) ，所以时间复杂度为 O(log(n)) 
+ * 空间复杂度: O(1)
+   没有申请额外空间，所以空间复杂度为 O(1)
+ * 
+ ******/
 
 /*************************17.[pow(x, n) 计算 x 的 n 次幂函数]*********************************************/
-  /*********** 
-   * 实现 pow(x, n) ，即计算 x 的 n 次幂函数
-   * 
-   * 示例1
-   * 输入: 2.00000, 10
-   * 输出: 1024.00000
-   * 
-   * 
-   * 示例2
-   * 输入: 2.10000, 3
-   * 输出: 9.26100
-   * 
-   * *******/
-  /*********
-   * 方法一 二分法
-   * 思路
-   * 看到题目首先想到可以用暴力计算，
-   * 如果 n 为整数，则做 n 次底数 x 的累乘，
-   * 如果 n 为负数，则做 n 次 底数(1 / x) 的累乘，
-   * ---->>>但是暴力计算会在指数较大时超时，这时我们发现比如计算 2^20，2^20 = 2^10 2^10，我们使用 分治法，只需要计算出 2^10 的值做相乘，便可以得出 2^20 的值。 那么计算 2^10 的值，又可以拆 解为 2^5 2^5，以此类推......
-   * 
-   * 但是暴力计算会在指数较大时超时，这时我们发现比如计算 2^20，2^20 = 2^10 2^10，我们使用 分治法，只需要计算出 2^10 的值做相乘，便可以得出 2^20 的值。 那么计算 2^10 的值，又可以拆 解为 2^5 2^5，以此类推......
+/*********** 
+ * 实现 pow(x, n) ，即计算 x 的 n 次幂函数
+ * 
+ * 示例1
+ * 输入: 2.00000, 10
+ * 输出: 1024.00000
+ * 
+ * 
+ * 示例2
+ * 输入: 2.10000, 3
+ * 输出: 9.26100
+ * 
+ * *******/
+/*********
+ * 方法一 二分法
+ * 思路
+ * 看到题目首先想到可以用暴力计算，
+ * 如果 n 为整数，则做 n 次底数 x 的累乘，
+ * 如果 n 为负数，则做 n 次 底数(1 / x) 的累乘，
+ * ---->>>但是暴力计算会在指数较大时超时，这时我们发现比如计算 2^20，2^20 = 2^10 2^10，我们使用 分治法，只需要计算出 2^10 的值做相乘，便可以得出 2^20 的值。 那么计算 2^10 的值，又可以拆 解为 2^5 2^5，以此类推......
+ * 
+ * 但是暴力计算会在指数较大时超时，这时我们发现比如计算 2^20，2^20 = 2^10 2^10，我们使用 分治法，只需要计算出 2^10 的值做相乘，便可以得出 2^20 的值。 那么计算 2^10 的值，又可以拆 解为 2^5 2^5，以此类推......
 详解
-   * 我们可以使用折半计算，每次把 n 缩小一半，通过递归，最终获取 x 的 n 次幂，递推公式如下: 
-   xn = xn/2xn/2 (当 n 为偶数时)
-   xn =xn/2 +xn/2 (当 n为奇数时)
-     1. 边界情况:当 n 为 0 时，返回 1，当 n 为 1 或者 -1 时 分别返回 x 与 1 / x
-     2. 其他情况:当 n 为奇数时，需要多乘一次 x 的值
-   * 判断 n 是正数还是负数，如果是正数，则直接以 x 作为底数计算;如果是负数，则以 1 / x 作为底
-   * 数计算。
-   *****/
-  const myPow = function (x,n){
+ * 我们可以使用折半计算，每次把 n 缩小一半，通过递归，最终获取 x 的 n 次幂，递推公式如下: 
+ xn = xn/2xn/2 (当 n 为偶数时)
+ xn =xn/2 +xn/2 (当 n为奇数时)
+   1. 边界情况:当 n 为 0 时，返回 1，当 n 为 1 或者 -1 时 分别返回 x 与 1 / x
+   2. 其他情况:当 n 为奇数时，需要多乘一次 x 的值
+ * 判断 n 是正数还是负数，如果是正数，则直接以 x 作为底数计算;如果是负数，则以 1 / x 作为底
+ * 数计算。
+ *****/
+const myPow = function (x, n) {
     // 考虑n为0，1，-1的边界情况
     if (n === 0) {
         return 1;
-    } else if(n===1){
+    } else if (n === 1) {
         return x;
-    } else if(n===-1){
-        return 1/x;
+    } else if (n === -1) {
+        return 1 / x;
     }
     // 通过正负号，确认参与幂运算的底数
-    const base = n > 0 ? x : 1/x;
+    const base = n > 0 ? x : 1 / x;
     // 将n的值缩小一半
-    const half = parseInt(n/2,10);
+    const half = parseInt(n / 2, 10);
     // 保存折半计算的值，避免重复计算
-    const result = myPow(x,half);
+    const result = myPow(x, half);
     // 如果N是奇数，则需要额外乘以一次底数
     if (n % 2) {
         return base * result * result;
