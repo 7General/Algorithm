@@ -331,10 +331,10 @@ const moveZeroes = function (nums) {
    并将该值对应的 value 减去 1;
  * 4. 返回 result 即可;
  */
-const intersect = function(nums1,nums2) {
+const intersect = function (nums1, nums2) {
     const hashObject = {}
     for (let i = 0; i < nums1.length; i++) {
-        if(hashObject[nums1[i]]) {
+        if (hashObject[nums1[i]]) {
             hashObject[nums1[i]] += 1;
         } else {
             hashObject[nums1[i]] = 1;
@@ -342,7 +342,7 @@ const intersect = function(nums1,nums2) {
     }
     const result = [];
     for (let j = 0; j < nums2.length; j++) {
-        if(hashObject[nums2[j]]) {
+        if (hashObject[nums2[j]]) {
             result.push(nums2[j])
             hashObject[nums2[j]] -= 1;
         }
