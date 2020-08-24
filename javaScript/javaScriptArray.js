@@ -26,12 +26,16 @@ window.onload = function () {
     moveZeroes(moveZ)
     console.log(moveZ)
 
-    var dupArry = [1,1,1,3,3,4,3,2,4,2];
+    var dupArry = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
     console.log(containsDuplicate(dupArry))
 
 
     var groupArray = ["eat", "tea", "tan", "ate", "nat", "bat"];
     // console.log(groupAnagrams(groupArray));
+
+
+    var threeNum = [-1, 0, 1, 2, -1, -4];
+    console.log(threeSum(threeNum));
 
 }
 
@@ -420,12 +424,12 @@ const dayOfTheWeekOther = function (dat, month, year) {
  * 输入: [1,1,1,3,3,4,3,2,4,2]
  * 输出: true
  */
-const containsDuplicate = function(nums){
+const containsDuplicate = function (nums) {
     let index = 0;
     for (let i = 1; i < nums.length; i++) {
-        let left =  nums[i];
+        let left = nums[i];
         let right = nums[index];
-        if(left === right){
+        if (left === right) {
             index++;
         }
     }
@@ -459,7 +463,7 @@ const containsDuplicate = function(nums){
  * 
  * 代码
  */
-const groupAnagrams = function(strs){ 
+const groupAnagrams = function (strs) {
     const obj = {};
     const arr = [];
     // 遍历数组
@@ -467,7 +471,7 @@ const groupAnagrams = function(strs){
         // 将每个字母异位词进行排序，并将排序后的字符串作为key
         const unit = Array.from(strs[i].sort()).join('');
         // 将key值一样的字母异位词置于同一个数组中
-        if(!obj[unit]){
+        if (!obj[unit]) {
             obj[unit] = [];
         }
         obj[unit].push(strs[i]);
@@ -476,4 +480,72 @@ const groupAnagrams = function(strs){
         arr.push(obj[i]);
     }
     return arr;
+}
+
+/*************************9.三数之和*********************************************/
+/*** 
+ * 给定一个包含 n 个整数的数组 nums ，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + 
+ * c = 0 ?找出所有满足条件且不重复的三元组。
+*/
+const threeSum = function (nums) {
+    const res = [];
+    nums.sort((a, b) => a - b);
+    const length = nums.length;
+
+    for (let i = 0; i < length; i++) {
+        let left = i + 1;
+        let right = length - 1;
+        while (left < right) {
+            const sum = nums[i] + nums[left] + nums[right];
+            if (sum === 0) {
+                res.push(nums[i], nums[left], nums[right]);
+                // 去重
+                const leftValue = nums[left];
+                while (left < length && nums[left] === leftValue) {
+                    left++;
+                }
+
+                const rightValue = nums[right];
+                while (rightValue > left && nums[right] === rightValue) {
+                    right--;
+                }
+            } else if (sum < 0) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        // 相同数组时直接+1
+        while (i + 1 < nums.length && nums[i] === nums[i + 1]) {
+            i++;
+        }
+    }
+    return res;
+}
+
+
+const threeSumForTarget = function (nums, target) {
+    const res = [];
+    nums.sort((a, b) => a - b);
+    const length = nums.length;
+
+    let ans = nums[0] + nums[1] + nums[2];
+    for (let i = 0; i < length; i++) {
+        let left = i + 1;
+        let right = length - 1;
+        while (left < right) {
+            let tempSum = nums[i] + nums[left] + nums[right];
+            if (Math.abs(target - tempSum) < Math.abs(target - ans)) {
+                ans = tempSum;
+            }
+            if (tempSum < target) {
+                left++;
+            } else if (tempSum > target) {
+                right--;
+            } else {
+                return ans;
+            }
+        }
+    }
+    return ans;
 }
