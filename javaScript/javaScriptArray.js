@@ -37,6 +37,9 @@ window.onload = function () {
     var threeNum = [-1, 0, 1, 2, -1, -4];
     console.log(threeSum(threeNum));
 
+    var longestStr = 'abcabcbb'
+    console.log(lenngthOfLongestSubstring(longestStr));
+
 }
 
 /*************************1.旋转数组*********************************************/
@@ -548,4 +551,53 @@ const threeSumForTarget = function (nums, target) {
         }
     }
     return ans;
+}
+/*************************10.无重复字符的最长子串*********************************************/
+/***
+ * 
+ * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ * 示例1
+ * 输入: "abcabcbb"
+ * 输出:3
+ * 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+ * 
+ * 输入: "bbbbb"
+ * 输出:1
+ * 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+ * 
+ * 输入: "pwwkew"
+ * 输出:3
+ * 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+ * 请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+ * 
+ * 从前到后遍历字符串，维护一个string，记录着不重复字符子串。 每当遇到重复的字符时候，找到 
+ * string中重复的字符，并截断。 循环往复直到遍历最后一个字符.
+ * 
+ * 复杂度分析
+ * 时间复杂度:$O(n)$
+ * 这样子需要从前向后遍历一遍长度为 $n$ 的字符串，需要进行 n 次字符是否重复的比较。 空间复杂度:$O(n)$
+ * 在计算比较过程中，数组最长有可能存放 n 个不重复字符串。
+ * 方法二
+ * 从前到后遍历字符串，维护一个string，记录着不重复字符子串。 每当遇到重复的字符时候，找到 string中重复的字符，并截断。 循环往复直到遍历最后一个字符.
+ * 思路
+ * 记录当前正在遍历的不重复字串的子集 string ， 在遍历过程中不断地添加不重复字符，遇到重复字
+ * 符则截断 string 达到 string 内补字符不重复的条件。
+ */
+
+const lenngthOfLongestSubstring = function (s) {
+    let num = 0;
+    let max = 0;
+    let subString = '';
+    for (char of s) {
+        if(subString.indexOf(char) === -1){
+            subString += char;
+            num++;
+            max = max < num ? num : max;
+        } else {
+            subString += char;
+            subString = subString.slice(subString.indexOf(char)+1);
+            num = subString.length;
+        }
+    }
+    return max
 }
