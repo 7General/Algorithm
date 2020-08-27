@@ -39,7 +39,7 @@ window.onload = function () {
 
     var longestStr = 'abcabcbb'
     console.log(lenngthOfLongestSubstring(longestStr));
-    var increas = [1,2,3,4,5];
+    var increas = [1, 2, 3, 4, 5];
     console.log(increasingTriplet(increas));
 
 }
@@ -591,13 +591,13 @@ const lenngthOfLongestSubstring = function (s) {
     let max = 0;
     let subString = '';
     for (char of s) {
-        if(subString.indexOf(char) === -1){
+        if (subString.indexOf(char) === -1) {
             subString += char;
             num++;
             max = max < num ? num : max;
         } else {
             subString += char;
-            subString = subString.slice(subString.indexOf(char)+1);
+            subString = subString.slice(subString.indexOf(char) + 1);
             num = subString.length;
         }
     }
@@ -627,13 +627,13 @@ const lenngthOfLongestSubstring = function (s) {
  *  num > two，说明可以构成三元子序列了，返回 true
  *  num > one，说明 num 比 two 小(或等于)，比 one 大，可以将 two 更新为此 num， num < one，则这个 num 可以成为三元子序列的最小者，更新 one 为 num。
  */
-const increasingTriplet = function(nums){
-    if(nums.length < 3) return false;
-    let one,two; //任意数与undefined做比较均为 false
+const increasingTriplet = function (nums) {
+    if (nums.length < 3) return false;
+    let one, two; //任意数与undefined做比较均为 false
     for (const num of nums) {
-        if(num > two) {
+        if (num > two) {
             return true;
-        } else if(num > one){
+        } else if (num > one) {
             two = num;
         } else {
             one = num;
