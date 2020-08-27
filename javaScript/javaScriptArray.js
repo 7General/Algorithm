@@ -39,6 +39,8 @@ window.onload = function () {
 
     var longestStr = 'abcabcbb'
     console.log(lenngthOfLongestSubstring(longestStr));
+    var increas = [1,2,3,4,5];
+    console.log(increasingTriplet(increas));
 
 }
 
@@ -600,4 +602,42 @@ const lenngthOfLongestSubstring = function (s) {
         }
     }
     return max
+}
+
+/*************************11.递增的三元子序列*********************************************/
+/****
+ * 给定一个未排序的数组，判断这个数组中是否存在长度为 3 的递增子序列。 数学表达式如下:
+ * 如果存在这样的 i, j, k, 且满足 0 ≤ i < j < k ≤ n-1， 使得 arr[i] < arr[j] < arr[k] ，返回 true ; 否则返回 false 。
+ * 说明: 要求算法的时间复杂度为 O(n)，空间复杂度为 O(1) 。 示例 1:
+ * 输入:[1,2,3,4,5];
+ * 输出: true;
+ * 
+ * 输入:[5,4,3,2,1];
+ * 输出: false;
+ * 
+ * 方法一 不连续的递增 思路
+ * 使用 one 和 two 两个数。保证 one 小于 two，若遍历到一个数大于 two，则满足3个数递增。返回 true
+ * 详解
+ * 1. 设置两个变量，one 代表三元子序列的第一个，two代表三元子序列的第二个。 
+ * 例如:
+ *  第一个数作为 one，第二个数若比第一个数大，这两个数可以成三元子序列中的前两个，于是 可以赋值给two;
+ *  第三个数比第二个数小，说明三元子序列可能会从这个数开始
+    one、two 的初始值为 undefined，任意数与undefined做比较均为 false。
+ *  现在，开始循环遍历 num，若:
+ *  num > two，说明可以构成三元子序列了，返回 true
+ *  num > one，说明 num 比 two 小(或等于)，比 one 大，可以将 two 更新为此 num， num < one，则这个 num 可以成为三元子序列的最小者，更新 one 为 num。
+ */
+const increasingTriplet = function(nums){
+    if(nums.length < 3) return false;
+    let one,two; //任意数与undefined做比较均为 false
+    for (const num of nums) {
+        if(num > two) {
+            return true;
+        } else if(num > one){
+            two = num;
+        } else {
+            one = num;
+        }
+    }
+    return false;
 }
