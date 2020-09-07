@@ -40,6 +40,7 @@
 //        self.guideWindow = nil;
 //    }];
  // 1
+    // 2
     return YES;
 }
 
