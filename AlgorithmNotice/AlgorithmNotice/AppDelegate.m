@@ -39,6 +39,7 @@
 //        self.guideWindow.hidden = YES;
 //        self.guideWindow = nil;
 //    }];
+ // 1
     return YES;
 }
 
