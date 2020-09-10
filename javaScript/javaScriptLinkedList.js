@@ -51,3 +51,41 @@ function isPalindrome(head) {
     }
     return positiveStr === reverseStr;
 }
+
+
+/*************************2.环形链表*********************************************/
+/***
+ * 给定一个链表，判断链表中是否有环。 为了表示给定链表中的环，我们使用整数 pos 来表示链表 
+ * 尾连接到链表中的位置(索引从 0 开始)。 如果 pos 是 -1，则在该链表中没有环。
+ * 方法一 双指针
+ */
+const hasCycle = function(head) {
+   if(!head) return false;
+   let fast = head;
+   let slow = head;
+   while(fast && fast.next){
+      fast = fast.next.next;
+      slow = head.next;
+      if(fast === slow) return true;
+   }
+   return false;
+}
+/***
+ * 方法二 哈希表
+ * 
+ * 详解
+创建一个空 Map 对象并遍历链表中的所有节点，每遍历一个节点，就像空对象里插入一条组键值 
+对为 { 当前节点: 1 }。 
+1. 如果遍历完成，该 Map 对象中不存在相同节点，那么不是环形链表。 
+2. 遍历中，发现该 Map 对象中存在相同节点且值为 1，即该节点已经遍历过了，那么链表是环形链 表
+ */
+const hasCycleOther = function(head){
+   if(!head) return false;
+   const newData = new Map();
+   while(head){
+      if(Map.has(head)) return true;
+      newData.set(head,1)
+      head = head.next;
+   }
+   return false;
+}
