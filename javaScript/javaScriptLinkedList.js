@@ -110,3 +110,43 @@ const deleteNode = function(node){
    node.val = node.next.val;
    node.next = node.next.next;
 }
+
+/*************************4.反转链表*********************************************/
+/***
+ * 
+ * 用迭代的方法实现。
+ */
+const reverseList = function(head) {
+   if(head === null || head.next === null){
+      return head;
+   }
+   const newHead = null;
+   while(head){
+      const temp = head.next;
+      head.next = newHead;
+      newHead = head;
+      head = temp;
+   }
+   return newHead;
+}
+/***
+ * 
+ * 用递归的方法实现。
+ */
+const reverseListOther = function(head) {
+   if(head === null || head.next === null){
+      return head;
+   }
+   //这里的cur就是最后一个节点，也就是反转后的头节点
+   const newHead = reverseListOther(head.next);// 反转后的头节点
+   // 进过上面的递归，就得到了链表1->2<-3<-4<-5
+
+   //这里请配合动画演示理解
+   //如果链表是 1->2->3->4->5，那么此时的cur就是5
+   //而head是4，head的下一个是5，下下一个是空
+   //所以head.next.next 就是5->4
+   head.next.next = head;// 将反转后的链表的尾结点与当前节点相连
+   //防止链表循环，需要将head.next设置为空
+   head.next = null;
+   return newHead;
+}
