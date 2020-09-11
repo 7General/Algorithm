@@ -101,14 +101,23 @@ const hasCycleOther = function(head){
  * 解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9
  * 
  * 思路
- * 这道题通俗地将就是要删除给定节点。在获取当前节点后，可以将下一个节点的值赋给当前节点， 然后将当前节点指向下下个节点，完成删除。
+ * 这道题通俗地将就是要删除给定节点。在获取当前节点后，可以将下一个节点的值赋给当前节点， 
+ * 然后将当前节点指向下下个节点，完成删除。
  * 详解
  * 1. node.value = node->next.value 
  * 2. node->next=node->next->next
  */
 const deleteNode = function(node){
-   node.val = node.next.val;
-   node.next = node.next.next;
+   let firstnode = new ListNode();
+    firstnode.next = head;
+    let curr = firstnode;
+    while(curr && curr.next){
+        if(curr.next.val === val) {
+            curr.next = curr.next.next;
+        }
+        curr = curr.next;
+    }
+    return firstnode.next;
 }
 
 /*************************4.反转链表*********************************************/
