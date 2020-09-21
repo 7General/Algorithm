@@ -275,3 +275,40 @@ const numToListNodel = function(num) {
 const addTwoNumbers = function(l1,l2){
    return numToListNodel(listNodeToNum(l1) + listNodeToNum(l2));
 }
+
+/*************************8.排序链表*********************************************/
+/***
+ * 示例1:
+ * 输入: 4->2->1->3
+ * 输出: 1->2->3->4
+ * 
+ * 思路 借助数组实现，方法取巧。
+ * 详解
+ * 1. 先判断是否只有一个元素，若只有一个元素，直接返回; 2. 若不只有一个元素，首先把链表转为数组;
+ * 3. 然后把数组排序后重建链表，方法取巧。
+ */
+const sortList = function(head){
+   // 只有一个元素
+   if(head === null || head.next === null) {
+      return head;
+   }
+   let cur = head;
+   let index = 0;
+   const arr = [];
+   // 将链表转发为数组
+   while(cur !== null){
+      arr[index] = cur.val;
+      cur = cur.next;
+      index++;
+   }
+   arr.sort((a,b) => a-b);// 数组升序排序
+   cur = head;
+   index = 0;
+   // 重建链表
+   while(cur !== null) {
+      cur.val = arr[index];
+      index++;
+      cur = cur.next;
+   }
+   return head;
+}
