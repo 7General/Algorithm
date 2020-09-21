@@ -238,3 +238,40 @@ const mergeTwoLists = function(l1,l2) {
  * 2. 逐步移动 pointer1 和 pointer2，对 L1 和 L2 的每个节点相加得到两数之和 sumListNode 的链 
  * 表节点
  */
+function ListNode (val) {
+   this.val = val;
+   this.next = null;
+}
+/**
+* @description 将链表转换为数字 
+* @param {ListNode} listNode 
+* @return {BigInt}
+*/
+const listNodeToNum = function(listNode){
+   let numString = '';
+   let currentNode = listNode;
+   while(currentNode) {
+      numString = currentNode.val + numString;
+      currentNode = currentNode.next;
+   }
+   return BigInt(numString);
+}
+/**
+* @description 将数字 转换为 链表
+* @param {number} num 数字 
+* @return {listNode}
+*/
+const numToListNodel = function(num) {
+   let listNode = null;
+   const numString = num.toString();
+   for (let index = 0; index < numString.length; index++) {
+      const newNode = new listNode(numString[index]);
+      newNode.next = listNode;
+      listNode = newNode;
+   }
+   return listNode;
+}
+
+const addTwoNumbers = function(l1,l2){
+   return numToListNodel(listNodeToNum(l1) + listNodeToNum(l2));
+}
