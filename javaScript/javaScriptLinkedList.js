@@ -312,3 +312,30 @@ const sortList = function(head){
    }
    return head;
 }
+
+/*************************9.相交链表*********************************************/
+/***
+ * 方法二 双指针法 思路
+ * 通过加法的手段消除长度差。将两链表首尾相接形成 ab 和 ba 链表，此时我们构建了两条长度相同 
+ * 的链表，若 a 和 b 相交，则 ab 和 ba 也必定相交。
+ * 详解
+ * 1. 定义两个指针 pA 和 pB;
+ * 2. pA 从链表 a 的头部开始走，走完后再从链表 b 的头部开始走; 
+ * 3. pB 从链表 b 的头部开始走，走完后再从链表 a 的头部开始走;
+ * 4. 如果存在相交结点，则两个指针必会相遇
+ */
+const getIntersectionNode = function(headA,headB){
+   if(headA === null || headB === null) return null;
+   let pA = headA;
+   let pB = headB;
+   while(pA !== pB) {
+      pA = pA === null ? headB : pA.next;
+      pB = pB === null ? headA : pB.next;
+   }
+   return pA;
+}
+
+
+
+
+
