@@ -335,6 +335,45 @@ const getIntersectionNode = function(headA,headB){
    return pA;
 }
 
+/*************************10.奇偶链表*********************************************/
+/**
+ * 给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节
+ * 点指的是节点编号的奇偶性，而不是节点的值的奇偶性。 请尝试使用原地算法完成。你的算法的空 
+ * 间复杂度应为 O(1)，时间复杂度应为 O(nodes)，nodes为节点总数。
+ * 
+ * 方法一 奇偶链表分离法 
+ * 思路
+ * 将链表中所有元素按照奇数位置、偶数位置划分为两个链表:odd 链表、event 链表，遍历结束， 直接将偶数链表挂在奇数链表之后。
+ * 详解
+ * 1. 如果链表中节点个数为 0、1、2 个时，链表自身已满足奇偶链表，直接返回 head 节点即可;
+ * 2. 定义 odd 变量指向头节点、even 和 evenHeadPointer 变量指向链表的第二个节点，其中 head 即代表奇数链表的头节点、evenHeadPointer 即代表偶数链表的头节点;
+ * 3. while 循环遍历链表(利用 odd、even 变量遍历)，利用原链表中奇数位置节点的子节点应该 挂到偶链表中、偶数位置节点的子节点应该挂到奇链表中交叉遍历赋值，odd、even 变量永远 指向奇链表、偶链表最后一个节点;
+ * 4. 奇链表最后一个节点 odd 的子节点指向偶链表的头节点 evenHeadPointer; 5. 返回 head 头节点即可;
+ * 
+ * function ListNode(val) {
+ *    this.val = val;
+ *    this.next = null;
+ * }
+ */
+const oddEvenList = function(head){
+   if(head === null || head.next === null || head.next.next === null){
+      return head;
+   }
+   // 奇数
+   let odd = head;
+   // 偶数
+   let even = head.next;
+   let evenHeadPointer = head.next;
+   while(even != null && even.next != null){
+      odd.next = even.next;
+      odd = odd.next;
+
+      even.next = odd.next;
+      even = even.next;
+   }
+   odd.next = evenHeadPointer;
+   return head;
+}
 
 
 
