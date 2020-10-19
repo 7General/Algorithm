@@ -285,6 +285,16 @@ const maxProfitOther = function (prices) {
  * 时间复杂度: O(n)
  * 空间复杂度: O(1)
  */
+const maxProfitOtherSecond = function (prices) {
+    let min = prices[0];
+    let res = 0;
+    for (let index = 0; index < prices.length; index++) {
+        min = Math.min(min,prices[index]);
+        res = Math.max(res,prices[index] - min);
+    }
+    return res;
+}
+
 /*************************5.移动零*********************************************/
 /**
  * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。 示例
