@@ -149,7 +149,7 @@ const canJump = function(nums){
  * 在 max 变量分配内存情况下，内存不会随着遍历有增长趋势，不需要额外的空间开销。
  */
 
- 
+
 /*************************4.不同路径*********************************************/
 /****
  * 一个机器人位于一个 m x n 网格的左上角，机器人每次只能向下或者向右移动一步。机器人试图达 
@@ -189,4 +189,30 @@ const uniquePaths = function(m,n) {
         return 1;
     }
     return uniquePaths(m - 1,n) + uniquePaths(m,n-1);
+}
+
+/*************************5.单词拆分*********************************************/
+/***
+ * 示例
+ * 给定一个非空字符串 s 和一个包含非空单词列表的字典 wordDict，判定 s 是否可以被空格拆分为一 个或多个在字典中出现的单词。
+ * 说明:
+ * 拆分时可以重复使用字典中的单词。 你可以假设字典中没有重复的单词。 注意你可以重复使用字典中的单词。
+ * 示例 1:
+ * 输入: s = "leetcode", wordDict = ["leet", "code"]
+ * 输出: true
+ * 解释: 返回 true 因为 "leetcode" 可以被拆分成 "leet code"。
+ */
+const wordBreak = function(s,wordDict) {
+    if(s.length === 0) return true;
+    for (let index = 0; index < wordDict.length; index++) {
+        const startIndex = s.indexOf(wordDict[index]);
+        if(startIndex === 0) {
+            // 将字符串去掉这个匹配到的前缀后继续遍历
+            const temp = s.slice(startIndex + wordDict[index].length);
+            if(wordBreak(temp,wordDict) === true){
+                return true;
+            }
+        }
+    }
+    return false;
 }
