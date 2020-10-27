@@ -1,3 +1,9 @@
+window.onload = function () {
+    console.log('sssss')
+    insertionSort(['20','12','10','15','2']);
+}
+
+
 /*************************1.冒泡排序*********************************************/
 function bubbleSort(arr) {
     const len = arr.length;
@@ -27,6 +33,23 @@ function selectionSort(arr) {
         temp = arr[i];
         arr[i] = arr[minIndex];
         arr[minIndex] = temp;
+    }
+    return arr;
+}
+/*************************3.插入排序*********************************************/
+function insertionSort(arr) {
+    const len = arr.length;
+    let preIndex;
+    let current;
+    for (let i = 1; i < len; i++) {
+        preIndex = i - 1;
+        current = arr[i]
+        // 大于新元素，将该元素移动到下一位置
+        while(preIndex >= 0 && arr[preIndex] > current){
+            arr[preIndex + 1] = arr[preIndex];
+            preIndex--;
+        }
+        arr[preIndex + 1] = current;
     }
     return arr;
 }
