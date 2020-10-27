@@ -53,3 +53,37 @@ function insertionSort(arr) {
     }
     return arr;
 }
+/*************************4.快速排序*********************************************/
+/****
+ * 快速排序一般用来处理大数据集，速度比较快。快速排序通过递归的方式，将数据依次分为包含较
+ * 小元素和较大元素的不同子序列。
+ * 
+ * 实现原理
+ * 
+ * 这个算法首先要在列表中选择一个元素作为基准值，所有元素比基准值小的摆放在基准前面，所有 
+ * 元素比基准值大的摆在基准的后面。这个基准值一般有 4 种取法:
+ * 无脑拿第一个元素
+ * 无脑拿最后一个元素 
+ * 无脑拿中间的元素 
+ * 随便拿一个
+ */
+function partition(arr,low,high) {
+    let i = low - 1;
+    const pivot = arr[high];
+    for (let j = 0; j < high; j++) {
+        // 当前的值比pivot小
+        if (arr[j] < pivot) {
+            i++;
+            [arr[i],arr[j]] = [arr[j],arr[i]];
+        }
+        [arr[i+1],arr[high]] = [arr[high],arr[i+1]];
+        return i+1;
+    }
+}
+function quickSort(arr,low,high) {
+    if(low < high){
+        const pi = partition(arr,low,high);
+        quickSort(arr,low,pi-1);
+        quickSort(arr,pi+1,high);
+    }
+}
