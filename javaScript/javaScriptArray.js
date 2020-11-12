@@ -42,6 +42,23 @@ window.onload = function () {
     var increas = [1, 2, 3, 4, 5];
     console.log(increasingTriplet(increas));
 
+    console.log("=================");
+    let arys = [1,2,3,4,5];
+    // for (let index = 0; index < arys.length; index++) {
+        // console.log(arys.pop());
+        // console.log(arys);
+    // }
+
+    var stack2=[];
+    for (var i= arys.length; i > 0; i--){
+        let item = arys.pop();
+        console.log(arys);
+        stack2.push(item);
+        console.log(stack2);
+    }
+    // console.log(stack2);
+    // console.log(stack2.pop());
+
 }
 
 /*************************1.旋转数组*********************************************/
