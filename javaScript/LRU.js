@@ -28,7 +28,6 @@ LURCache.prototype.put = function(key,value){
             // 返回当前的数组
             let el = this.cache.splice(i,1);
             this.cache.push(el[0]);
-
             return null;
         }
     }

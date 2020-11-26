@@ -3,8 +3,8 @@ window.onload = function () {
     /****
      * 操作数组
      * 1：push：在尾部插入元素
-     * 2：pop:取出最后一个元素并返回
-     * 3：shift 取出第一个元素返回
+     * 2：pop:取出最后一个元素并返回,会改变原有数组
+     * 3：shift 取出第一个元素返回,会改变原有数组
      * 4：unshift 在头部添加元素
      * 通过对比 push、pop 和 shift、unshift 我们发现，
      * push 和 pop 是作用于数组尾部的方法，
@@ -44,20 +44,15 @@ window.onload = function () {
 
     console.log("=================");
     let arys = [1,2,3,4,5];
-    // for (let index = 0; index < arys.length; index++) {
-        // console.log(arys.pop());
-        // console.log(arys);
-    // }
-
     var stack2=[];
     for (var i= arys.length; i > 0; i--){
-        let item = arys.pop();
+        let item = arys.shift();
         console.log(arys);
-        stack2.push(item);
+        stack2.unshift(item);
         console.log(stack2);
     }
-    // console.log(stack2);
-    // console.log(stack2.pop());
+    console.log("=================");
+    console.log(stack2);
 
 }
 
