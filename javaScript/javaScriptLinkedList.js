@@ -1,5 +1,5 @@
 window.onload = function () {
-    console.log('javaScriptLinkedList');
+   console.log('javaScriptLinkedList');
 }
 
 /**
@@ -38,18 +38,18 @@ window.onload = function () {
  * 3. 比较正、反字符串是否相同
  */
 function isPalindrome(head) {
-    let positiveStr = '';
-    let reverseStr = '';
-    while(head) {
-        const nodeVal = head.val;
-        // 正向字符串
-        positiveStr += nodeVal;
-        // 反向字符串
-        reverseStr = nodeVal + reverseStr;
-        // 下一个节点
-        head = head.next;
-    }
-    return positiveStr === reverseStr;
+   let positiveStr = '';
+   let reverseStr = '';
+   while (head) {
+      const nodeVal = head.val;
+      // 正向字符串
+      positiveStr += nodeVal;
+      // 反向字符串
+      reverseStr = nodeVal + reverseStr;
+      // 下一个节点
+      head = head.next;
+   }
+   return positiveStr === reverseStr;
 }
 
 
@@ -59,14 +59,14 @@ function isPalindrome(head) {
  * 尾连接到链表中的位置(索引从 0 开始)。 如果 pos 是 -1，则在该链表中没有环。
  * 方法一 双指针
  */
-const hasCycle = function(head) {
-   if(!head) return false;
+const hasCycle = function (head) {
+   if (!head) return false;
    let fast = head;
    let slow = head;
-   while(fast && fast.next){
+   while (fast && fast.next) {
       fast = fast.next.next;
       slow = head.next;
-      if(fast === slow) return true;
+      if (fast === slow) return true;
    }
    return false;
 }
@@ -79,12 +79,12 @@ const hasCycle = function(head) {
 1. 如果遍历完成，该 Map 对象中不存在相同节点，那么不是环形链表。 
 2. 遍历中，发现该 Map 对象中存在相同节点且值为 1，即该节点已经遍历过了，那么链表是环形链 表
  */
-const hasCycleOther = function(head){
-   if(!head) return false;
+const hasCycleOther = function (head) {
+   if (!head) return false;
    const newData = new Map();
-   while(head){
-      if(Map.has(head)) return true;
-      newData.set(head,1)
+   while (head) {
+      if (Map.has(head)) return true;
+      newData.set(head, 1)
       head = head.next;
    }
    return false;
@@ -107,17 +107,17 @@ const hasCycleOther = function(head){
  * 1. node.value = node->next.value 
  * 2. node->next=node->next->next
  */
-const deleteNode = function(node){
+const deleteNode = function (node) {
    let firstnode = new ListNode();
-    firstnode.next = head;
-    let curr = firstnode;
-    while(curr && curr.next){
-        if(curr.next.val === val) {
-            curr.next = curr.next.next;
-        }
-        curr = curr.next;
-    }
-    return firstnode.next;
+   firstnode.next = head;
+   let curr = firstnode;
+   while (curr && curr.next) {
+      if (curr.next.val === val) {
+         curr.next = curr.next.next;
+      }
+      curr = curr.next;
+   }
+   return firstnode.next;
 }
 
 /*************************4.反转链表*********************************************/
@@ -125,12 +125,12 @@ const deleteNode = function(node){
  * 
  * 用迭代的方法实现。
  */
-const reverseList = function(head) {
-   if(head === null || head.next === null){
+const reverseList = function (head) {
+   if (head === null || head.next === null) {
       return head;
    }
    const newHead = null;
-   while(head){
+   while (head) {
       const temp = head.next;
       head.next = newHead;
       newHead = head;
@@ -142,8 +142,8 @@ const reverseList = function(head) {
  * 
  * 用递归的方法实现。
  */
-const reverseListOther = function(head) {
-   if(head === null || head.next === null){
+const reverseListOther = function (head) {
+   if (head === null || head.next === null) {
       return head;
    }
    //这里的cur就是最后一个节点，也就是反转后的头节点
@@ -166,16 +166,16 @@ const reverseListOther = function(head) {
  * 给定一个链表: 1->2->3->4->5, 和 n = 2.
  * 当删除了倒数第二个节点后，链表变为 1->2->3->5.
  */
-const removeNthFromEnd = function(head,n) {
+const removeNthFromEnd = function (head, n) {
    let first = head;
    let second = head;
-   while(n > 0){
+   while (n > 0) {
       first = first.next;
       n--;
    }
-   if(!first) return head.next;
+   if (!first) return head.next;
    // 当双向指针指向【3，4】的时候，则second=3。则sec.next = sec.next.next
-   while(first.next){
+   while (first.next) {
       first = first.next;
       second = second.next;
    }
@@ -201,18 +201,18 @@ const removeNthFromEnd = function(head,n) {
  * 3. 两个链表都不为空时比较两个链表中第一个节点的值，保留较小者(相同则均可)
  * 4. 继续递归执行去掉该节点的链表和另一个链表直至其中一个链表为空
  */
-const mergeTwoLists = function(l1,l2) {
-   if(l1 === null){
+const mergeTwoLists = function (l1, l2) {
+   if (l1 === null) {
       return l2;
    }
-   if(l2 === null) {
-      return  l1;
+   if (l2 === null) {
+      return l1;
    }
-   if(l1.val <= l2.val){
-      l1.next = mergeTwoLists(l1.next,l2)
+   if (l1.val <= l2.val) {
+      l1.next = mergeTwoLists(l1.next, l2)
       return l1;
    } else {
-      l2.next = mergeTwoLists(l1,l2.next)
+      l2.next = mergeTwoLists(l1, l2.next)
       return l2;
    }
 }
@@ -238,7 +238,7 @@ const mergeTwoLists = function(l1,l2) {
  * 2. 逐步移动 pointer1 和 pointer2，对 L1 和 L2 的每个节点相加得到两数之和 sumListNode 的链 
  * 表节点
  */
-function ListNode (val) {
+function ListNode(val) {
    this.val = val;
    this.next = null;
 }
@@ -247,10 +247,10 @@ function ListNode (val) {
 * @param {ListNode} listNode 
 * @return {BigInt}
 */
-const listNodeToNum = function(listNode){
+const listNodeToNum = function (listNode) {
    let numString = '';
    let currentNode = listNode;
-   while(currentNode) {
+   while (currentNode) {
       numString = currentNode.val + numString;
       currentNode = currentNode.next;
    }
@@ -261,7 +261,7 @@ const listNodeToNum = function(listNode){
 * @param {number} num 数字 
 * @return {listNode}
 */
-const numToListNodel = function(num) {
+const numToListNodel = function (num) {
    let listNode = null;
    const numString = num.toString();
    for (let index = 0; index < numString.length; index++) {
@@ -272,7 +272,7 @@ const numToListNodel = function(num) {
    return listNode;
 }
 
-const addTwoNumbers = function(l1,l2){
+const addTwoNumbers = function (l1, l2) {
    return numToListNodel(listNodeToNum(l1) + listNodeToNum(l2));
 }
 
@@ -287,25 +287,25 @@ const addTwoNumbers = function(l1,l2){
  * 1. 先判断是否只有一个元素，若只有一个元素，直接返回; 2. 若不只有一个元素，首先把链表转为数组;
  * 3. 然后把数组排序后重建链表，方法取巧。
  */
-const sortList = function(head){
+const sortList = function (head) {
    // 只有一个元素
-   if(head === null || head.next === null) {
+   if (head === null || head.next === null) {
       return head;
    }
    let cur = head;
    let index = 0;
    const arr = [];
    // 将链表转发为数组
-   while(cur !== null){
+   while (cur !== null) {
       arr[index] = cur.val;
       cur = cur.next;
       index++;
    }
-   arr.sort((a,b) => a-b);// 数组升序排序
+   arr.sort((a, b) => a - b);// 数组升序排序
    cur = head;
    index = 0;
    // 重建链表
-   while(cur !== null) {
+   while (cur !== null) {
       cur.val = arr[index];
       index++;
       cur = cur.next;
@@ -324,11 +324,11 @@ const sortList = function(head){
  * 3. pB 从链表 b 的头部开始走，走完后再从链表 a 的头部开始走;
  * 4. 如果存在相交结点，则两个指针必会相遇
  */
-const getIntersectionNode = function(headA,headB){
-   if(headA === null || headB === null) return null;
+const getIntersectionNode = function (headA, headB) {
+   if (headA === null || headB === null) return null;
    let pA = headA;
    let pB = headB;
-   while(pA !== pB) {
+   while (pA !== pB) {
       pA = pA === null ? headB : pA.next;
       pB = pB === null ? headA : pB.next;
    }
@@ -355,8 +355,8 @@ const getIntersectionNode = function(headA,headB){
  *    this.next = null;
  * }
  */
-const oddEvenList = function(head){
-   if(head === null || head.next === null || head.next.next === null){
+const oddEvenList = function (head) {
+   if (head === null || head.next === null || head.next.next === null) {
       return head;
    }
    // 奇数
@@ -364,7 +364,7 @@ const oddEvenList = function(head){
    // 偶数
    let even = head.next;
    let evenHeadPointer = head.next;
-   while(even != null && even.next != null){
+   while (even != null && even.next != null) {
       odd.next = even.next;
       odd = odd.next;
 

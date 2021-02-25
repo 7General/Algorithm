@@ -16,7 +16,7 @@
  * 4. 将相加之后值与最大值 sum 进行比较，大的值赋值与 maxNumber 
  * 5. 最终获得最大值
  */
-const maxSubArray = function(nums) {
+const maxSubArray = function (nums) {
     let sum = 0;
     let maxNumber = 0;
     for (let i = 0; i < nums.length; i++) {// 从数组子序列左端开始
@@ -25,9 +25,9 @@ const maxSubArray = function(nums) {
             for (let k = i; k <= j; k++) { // 暴力计算
                 sum += nums[k];
             }
-            if(sum > maxNumber){
+            if (sum > maxNumber) {
                 maxNumber = sum;
-            }         
+            }
         }
     }
     return maxNumber;
@@ -46,17 +46,17 @@ const maxSubArray = function(nums) {
  * 2. 遍历数组，如果中间值n大于0,则和中间值相加，相加结果和最大值比较，较大值赋值与sum 
  * 3. 如果中间值小于0，则将当前值作为中间值
  */
-const maxSubArrayOther = function(nums){
+const maxSubArrayOther = function (nums) {
     let sum = nums[0];
     let n = nums[0];
     for (let i = 1; i < nums.length; i++) {
-        if(n > 0){ // 判断中间值是否大于0
+        if (n > 0) { // 判断中间值是否大于0
             n += nums[i];
         } else {
             n = nums[i];
         }
         // 相加后的值和最大值作比较
-        if(sum < n){
+        if (sum < n) {
             sum = n;
         }
     }
@@ -95,14 +95,14 @@ const maxSubArrayOther = function(nums){
  * 3. 每次的循环求和的结果都记录在对于长度的数组对象中，不必声明多个变量暂存。
  * 4. 然后利用动态规划公式查找 n 个最大的数组和的值
  */
-const rob = function(nums) {
+const rob = function (nums) {
     const len = nums.length;
-    if(len === 0) return 0;
+    if (len === 0) return 0;
     const dp = new Array(len + 1);
     dp[0] = 0;
     dp[1] = nums[0];
     for (let index = 2; index < len; index++) {
-        dp[index] = Math.max(dp[index-1],dp[index-2] + nums[index - 1]);
+        dp[index] = Math.max(dp[index - 1], dp[index - 2] + nums[index - 1]);
     }
     return dp[len];
 }
@@ -128,15 +128,15 @@ const rob = function(nums) {
  * 2. 如果当前位置能到达，并且当前位置+跳数>最远位置，就更新最远位置;
  * 3. 每次都去比较当前最远位置和当前数组下标，如果最远距离小于等于当前下标就返回false。
  */
-const canJump = function(nums){
+const canJump = function (nums) {
     let max = 0;// 跳跃的最远距离
     for (let index = 0; index < nums.length - 1; index++) {
         // 找到能跳的最远的距离
-        if(index + nums[index] > max){
+        if (index + nums[index] > max) {
             max = index + nums[index];
         }
         // 如果跳的最远的校园当前脚标，返回false
-        if(max < index){
+        if (max < index) {
             return false;
         }
     }
@@ -184,11 +184,11 @@ const canJump = function(nums){
  * 的路径数量之和 。可以使用最简单粗暴的递归方法
  * 代码
  */
-const uniquePaths = function(m,n) {
-    if(m === 1 || n === 1){
+const uniquePaths = function (m, n) {
+    if (m === 1 || n === 1) {
         return 1;
     }
-    return uniquePaths(m - 1,n) + uniquePaths(m,n-1);
+    return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
 }
 
 /*************************5.单词拆分*********************************************/
@@ -202,14 +202,14 @@ const uniquePaths = function(m,n) {
  * 输出: true
  * 解释: 返回 true 因为 "leetcode" 可以被拆分成 "leet code"。
  */
-const wordBreak = function(s,wordDict) {
-    if(s.length === 0) return true;
+const wordBreak = function (s, wordDict) {
+    if (s.length === 0) return true;
     for (let index = 0; index < wordDict.length; index++) {
         const startIndex = s.indexOf(wordDict[index]);
-        if(startIndex === 0) {
+        if (startIndex === 0) {
             // 将字符串去掉这个匹配到的前缀后继续遍历
             const temp = s.slice(startIndex + wordDict[index].length);
-            if(wordBreak(temp,wordDict) === true){
+            if (wordBreak(temp, wordDict) === true) {
                 return true;
             }
         }
@@ -236,62 +236,62 @@ const wordBreak = function(s,wordDict) {
  * 的升序排序;
  * 5. 返回第 length - k 个元素，即为数组中第 k 个最大的元素。
  */
-const findKthLargest = function(nums,k){
-    return findK(nums,0,nums.length - 1,nums.length - k);
+const findKthLargest = function (nums, k) {
+    return findK(nums, 0, nums.length - 1, nums.length - k);
 }
 
-function findK(arr,start,end,k) {
-    if(start === end) return arr[start];
+function findK(arr, start, end, k) {
+    if (start === end) return arr[start];
     // 主元
     const pivot = arr[Math.floor((start + end) / 2)];
-    let i = start; 
+    let i = start;
     let j = end;
-    while(i < j) {
-        while(arr[i] < pivot) i++;
-        while(arr[j] > pivot) j--;
-        if(i <= j){
-            swap(arr,i,j);
+    while (i < j) {
+        while (arr[i] < pivot) i++;
+        while (arr[j] > pivot) j--;
+        if (i <= j) {
+            swap(arr, i, j);
             i++;
             j--;
         }
     }
     // 二分查到K位置
-    if(k >= i - start) {
-        return findK(arr,i,end,k-1+start);
+    if (k >= i - start) {
+        return findK(arr, i, end, k - 1 + start);
     } else {
-        return findK(arr,start,i-1,k);
+        return findK(arr, start, i - 1, k);
     }
 }
 
-function swap(arr,i,j) {
+function swap(arr, i, j) {
     const temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
 }
 
 
-function sendRequest(urls,max,callback) {
+function sendRequest(urls, max, callback) {
     let count = 0;//记录并发量
     let result = [];
-    function request(){
+    function request() {
         count++;
-        fetch(urls.unshift()).thens((res)=>{
+        fetch(urls.unshift()).thens((res) => {
             // 完成一次 并发count-1
             count--;
             result.push(res);
-            if(urls.length){
+            if (urls.length) {
                 // 下一次请求
                 request();
-            } else if(count === 0){
+            } else if (count === 0) {
                 callback && callback(result);
             }
         });
         // 重试
-        if(count < max) {
+        if (count < max) {
             request();
         }
     }
     request();
 }
 
-sendRequest(urls,max,callback);
+sendRequest(urls, max, callback);

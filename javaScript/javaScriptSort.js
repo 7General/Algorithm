@@ -1,6 +1,6 @@
 window.onload = function () {
     console.log('sssss')
-    insertionSort(['20','12','10','15','2']);
+    insertionSort(['20', '12', '10', '15', '2']);
 }
 
 
@@ -9,9 +9,9 @@ function bubbleSort(arr) {
     const len = arr.length;
     for (let i = 0; i < len - 1; i++) {
         for (let j = 0; j < len - 1 - i; j++) {
-            if(arr[j] > arr[j + 1]){
-                const temp = arr[j+1];
-                arr[j+1] = arr[j];
+            if (arr[j] > arr[j + 1]) {
+                const temp = arr[j + 1];
+                arr[j + 1] = arr[j];
                 arr[j] = temp;
             }
         }
@@ -25,8 +25,8 @@ function selectionSort(arr) {
     let temp;
     for (let i = 0; i < len; i++) {
         minIndex = i;
-        for (let j = i + 1; j < len; j++){
-            if(arr[j] < arr[minIndex]){
+        for (let j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {
                 minIndex = j;//保存最小数的索引
             }
         }
@@ -45,7 +45,7 @@ function insertionSort(arr) {
         preIndex = i - 1;
         current = arr[i]
         // 大于新元素，将该元素移动到下一位置
-        while(preIndex >= 0 && arr[preIndex] > current){
+        while (preIndex >= 0 && arr[preIndex] > current) {
             arr[preIndex + 1] = arr[preIndex];
             preIndex--;
         }
@@ -67,49 +67,49 @@ function insertionSort(arr) {
  * 无脑拿中间的元素 
  * 随便拿一个
  */
-function partition(arr,low,high) {
+function partition(arr, low, high) {
     let i = low - 1;
     const pivot = arr[high];
     for (let j = 0; j < high; j++) {
         // 当前的值比pivot小
         if (arr[j] < pivot) {
             i++;
-            [arr[i],arr[j]] = [arr[j],arr[i]];
+            [arr[i], arr[j]] = [arr[j], arr[i]];
         }
-        [arr[i+1],arr[high]] = [arr[high],arr[i+1]];
-        return i+1;
+        [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+        return i + 1;
     }
 }
-function quickSort(arr,low,high) {
-    if(low < high){
-        const pi = partition(arr,low,high);
-        quickSort(arr,low,pi-1);
-        quickSort(arr,pi+1,high);
+function quickSort(arr, low, high) {
+    if (low < high) {
+        const pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
     }
 }
 
 /*************************5.归并排序*********************************************/
 /***
  * 归并排序是把一系列排好序的子序列合并成一个大的完整有序序列。
- 
+
  * 实现原理
- * 把长度为 n 的输入序列分成两个长度为 n / 2 的子序列，载 对这两个子序列分别采用归并排序，最 
+ * 把长度为 n 的输入序列分成两个长度为 n / 2 的子序列，载 对这两个子序列分别采用归并排序，最
  * 后将两个排序好的子序列合并成一个最终的排序序列。
  */
 
- /*************************5.1.合并两个有序数组*********************************************/
- /***
-  * 给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序 
-  * 数组。
-  * 
-  * 说明:
-  * 初始化 nums1 和 nums2 的元素数量分别为 m 和 n。 你可以假设 nums1 有足够的空间(空间大小
-  * 大于或等于 m + n)来保存 nums2 中的元素。 
-  * 
-  * 示例
-  * 
-  * 输入:
-  * nums1=[1,2,3,0,0,0],m=3
-  * nums2=[2,5,6], n=3
-  * 输出: [1,2,2,3,5,6]
-  */
+/*************************5.1.合并两个有序数组*********************************************/
+/***
+ * 给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序
+ * 数组。
+ *
+ * 说明:
+ * 初始化 nums1 和 nums2 的元素数量分别为 m 和 n。 你可以假设 nums1 有足够的空间(空间大小
+ * 大于或等于 m + n)来保存 nums2 中的元素。
+ *
+ * 示例
+ *
+ * 输入:
+ * nums1=[1,2,3,0,0,0],m=3
+ * nums2=[2,5,6], n=3
+ * 输出: [1,2,2,3,5,6]
+ */

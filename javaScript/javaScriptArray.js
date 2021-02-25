@@ -48,9 +48,9 @@ window.onload = function () {
     console.log(increasingTriplet(increas));
 
     console.log("=================");
-    let arys = [1,2,3,4,5];
-    var stack2=[];
-    for (var i= arys.length; i > 0; i--){
+    let arys = [1, 2, 3, 4, 5];
+    var stack2 = [];
+    for (var i = arys.length; i > 0; i--) {
         let item = arys.shift();
         console.log(arys);
         stack2.unshift(item);
@@ -307,8 +307,8 @@ const maxProfitOtherSecond = function (prices) {
     let min = prices[0];
     let res = 0;
     for (let index = 0; index < prices.length; index++) {
-        min = Math.min(min,prices[index]);
-        res = Math.max(res,prices[index] - min);
+        min = Math.min(min, prices[index]);
+        res = Math.max(res, prices[index] - min);
     }
     return res;
 }
