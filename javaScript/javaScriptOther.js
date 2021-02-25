@@ -216,3 +216,82 @@ const wordBreak = function(s,wordDict) {
     }
     return false;
 }
+
+/*************************6.数组中的第K个最大元素*********************************************/
+/***
+ * 输入: [3,2,1,5,6,4] 和 k = 2
+ * 输出:5
+ * 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
+ * 输出:4
+ * 
+ * 方法一
+ * 思路
+ * 首先通过快速排序的方法将数组升序排序，此时数组的头部为最小的元素，尾部为数组最大的元 素。
+ * 题目要求找到数组中的第 K 个最大的元素，即返回 length - k 个元素即可。
+ * 详解
+ * 1. 本方法采用快速排序法;
+ * 2. 首先通过 arr[Math.floor((start + end) / 2)] 找到数组中间的元素作为主元;
+ * 3. 然后使用双指针，分别从数组的头部和尾部遍历数组;
+ * 4. 遍历过程中，把比主元小的数都放到主元的左边，比主元大的数都放到主元的右边，实现数组
+ * 的升序排序;
+ * 5. 返回第 length - k 个元素，即为数组中第 k 个最大的元素。
+ */
+const findKthLargest = function(nums,k){
+    return findK(nums,0,nums.length - 1,nums.length - k);
+}
+
+function findK(arr,start,end,k) {
+    if(start === end) return arr[start];
+    // 主元
+    const pivot = arr[Math.floor((start + end) / 2)];
+    let i = start; 
+    let j = end;
+    while(i < j) {
+        while(arr[i] < pivot) i++;
+        while(arr[j] > pivot) j--;
+        if(i <= j){
+            swap(arr,i,j);
+            i++;
+            j--;
+        }
+    }
+    // 二分查到K位置
+    if(k >= i - start) {
+        return findK(arr,i,end,k-1+start);
+    } else {
+        return findK(arr,start,i-1,k);
+    }
+}
+
+function swap(arr,i,j) {
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+
+function sendRequest(urls,max,callback) {
+    let count = 0;//记录并发量
+    let result = [];
+    function request(){
+        count++;
+        fetch(urls.unshift()).thens((res)=>{
+            // 完成一次 并发count-1
+            count--;
+            result.push(res);
+            if(urls.length){
+                // 下一次请求
+                request();
+            } else if(count === 0){
+                callback && callback(result);
+            }
+        });
+        // 重试
+        if(count < max) {
+            request();
+        }
+    }
+    request();
+}
+
+sendRequest(urls,max,callback);
